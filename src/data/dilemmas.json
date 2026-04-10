@@ -1,0 +1,40 @@
+{
+  "dilemmas": [
+    {
+      "id": "1",
+      "theme": "",
+      "title": "first dilemma",
+      "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "options": [
+        {
+          "id": "11",
+          "desc": "correct answer",
+          "isCorrect": true
+        },
+        {
+          "id": "12",
+          "desc": "wrong answer",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "theme": "",
+      "title": "second dilemma",
+      "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "options": [
+        {
+          "id": "21",
+          "desc": "incorrect",
+          "isCorrect": false
+        },
+        {
+          "id": "22",
+          "desc": "correct",
+          "isCorrect": true
+        }
+      ]
+    }
+  ]
+}
