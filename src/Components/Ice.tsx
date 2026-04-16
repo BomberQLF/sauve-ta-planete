@@ -20,7 +20,7 @@ type GLTFResult = GLTF & {
 type ActionName = "ice|ice|Credit_card_earth.001Action.001";
 type GLTFActions = Record<ActionName, AnimationAction>;
 
-export function Ice({ meltIce }) {
+export function Ice({ meltIce }: { meltIce: boolean }) {
   const group = useRef<Group>(null!);
   const { nodes, materials, animations } = useGLTF(
     "/ice.glb",

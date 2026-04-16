@@ -1,7 +1,12 @@
 import { useRef } from "react";
 import "./Button.css";
 
-export const Button = ({ setIsPlaying, setMyDilemma }) => {
+interface ButtonProps {
+  setIsPlaying: (isPlaying: boolean) => void;
+  setMyDilemma: (dilemma: string) => void;
+}
+
+export const Button = ({ setIsPlaying, setMyDilemma }: ButtonProps) => {
   const buttonRef = useRef<HTMLButtonElement>(null!);
 
   return (

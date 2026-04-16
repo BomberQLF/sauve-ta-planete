@@ -1,24 +1,28 @@
 import { useState } from "react";
 import "./Field.css";
 
-export function Field({ setMyDilemma }) {
-  const [input, setInput] = useState("");
+interface FieldProps {
+  setMyDilemma: (value: string) => void;
+}
 
-  function handleChange(e) {
+export function Field({ setMyDilemma }: FieldProps) {
+  const [input, setInput] = useState<string>("");
+
+  function handleChange(e: React.ChangeEvent<HTMLInputElement>): void {
     setInput(e.target.value);
   }
 
-  function handleClick() {
+  function handleClick(): void {
     setInput("");
   }
 
-  function handleSubmit(e) {
+  function handleSubmit(e: React.FormEvent<HTMLFormElement>): void {
     e.preventDefault();
     setMyDilemma(input);
   }
 
   return (
-    <div>
+    <div className="form-wrapper">
       <form className="form-container" onSubmit={handleSubmit}>
         <div className="text-input-container">
           <label>Dilemma:</label>
@@ -35,7 +39,6 @@ export function Field({ setMyDilemma }) {
           className="submit-button"
           type="submit"
           value="Submit"
-          onSubmit={handleSubmit}
         />
       </form>
     </div>
