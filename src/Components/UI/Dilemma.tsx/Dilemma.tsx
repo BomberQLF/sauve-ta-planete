@@ -1,13 +1,21 @@
 import "./Dilemma.css";
 import { dilemmas } from "../../../data/dilemmas.json";
 
+interface DilemmaProps {
+  myDilemma: string;
+  setFloodPlanet: (floodPlanet: boolean) => void;
+  setGrowTrees: (growTrees: boolean) => void;
+  setIsPlaying: (isPlaying: boolean) => void;
+  setMeltIce: (meltIce: boolean) => void;
+}
+
 export function Dilemma({
   myDilemma,
   setFloodPlanet,
   setGrowTrees,
   setIsPlaying,
   setMeltIce,
-}) {
+}: DilemmaProps) {
   let text = dilemmas.find((e) => e.id === myDilemma);
   if (!text) return;
 

@@ -27,7 +27,7 @@ type GLTFResult = GLTF & {
   };
 };
 
-export function Planet({ floodPlanet }) {
+export function Planet({ floodPlanet }: { floodPlanet: boolean }) {
   const { nodes, materials } = useGLTF("/surface.glb") as unknown as GLTFResult;
 
   const containerRef = useRef<Group>(null!);
