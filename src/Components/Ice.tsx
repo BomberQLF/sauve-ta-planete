@@ -25,16 +25,17 @@ export function Ice({ meltIce }: { meltIce: boolean }) {
   const { nodes, materials, animations } = useGLTF(
     "/ice.glb",
   ) as unknown as GLTFResult;
-  const { actions } = useAnimations<GLTFActions>(animations, group);
+  // const { actions } = useAnimations<GLTFActions>(animations, group);
   const iceRef = useRef<Mesh>(null!);
 
   // Animation
   if (meltIce) {
     gsap.to(iceRef.current.scale, {
-      x: 0.9,
-      y: 0.9,
-      z: 0.9,
+      x: 1,
+      y: 1,
+      z: 1,
       duration: 3,
+      delay: 2,
     });
   }
 
@@ -50,6 +51,7 @@ export function Ice({ meltIce }: { meltIce: boolean }) {
           material={materials["ice.001"]}
           position={[0, 0, 0]}
           rotation={[0, 0, 0]}
+          scale={0.9}
         />
       </group>
     </group>

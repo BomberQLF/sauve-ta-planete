@@ -26,10 +26,16 @@ export function Trees({ growTrees }: { growTrees: boolean }) {
   const containerRef = useRef<Group>(null!);
   const leavesRef = useRef<Mesh>(null!);
 
-  Animation;
+  //Animation
   if (growTrees) {
-    gsap.to(deadTreeRef.current.scale, { x: 0.5, y: 0.5, z: 0.5, duration: 3 });
-    gsap.to(treeRef.current.scale, { x: 1, y: 1, z: 1, duration: 2 });
+    gsap.to(deadTreeRef.current.scale, {
+      x: 0.5,
+      y: 0.5,
+      z: 0.5,
+      duration: 3,
+      delay: 2,
+    });
+    gsap.to(treeRef.current.scale, { x: 1, y: 1, z: 1, duration: 2, delay: 2 });
     // gsap.to(leavesRef.current.scale, { x: 1, y: 1, z: 1, duration: 2 });
   }
   return (

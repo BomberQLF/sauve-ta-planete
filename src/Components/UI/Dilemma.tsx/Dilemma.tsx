@@ -7,6 +7,7 @@ interface DilemmaProps {
   setGrowTrees: (growTrees: boolean) => void;
   setIsPlaying: (isPlaying: boolean) => void;
   setMeltIce: (meltIce: boolean) => void;
+  setTurnPlanetGreen: (turnPlanetGreen: boolean) => void;
 }
 
 export function Dilemma({
@@ -15,22 +16,33 @@ export function Dilemma({
   setGrowTrees,
   setIsPlaying,
   setMeltIce,
+  setTurnPlanetGreen,
 }: DilemmaProps) {
   let text = dilemmas.find((e) => e.id === myDilemma);
   if (!text) return;
 
-  const handleClick = () => {
-    switch (text.id) {
+  const handleClick = (isCorrect: boolean) => {
+    if (isCorrect) {
+      playAnimations(text.id);
+    } else {
+      setIsPlaying(true);
+    }
+  };
+
+  const playAnimations = (dilemma: string) => {
+    switch (dilemma) {
       case "1":
-        setIsPlaying(true);
-        setGrowTrees(true);
-        break;
-      case "2":
         setIsPlaying(true);
         setMeltIce(true);
         setFloodPlanet(true);
         break;
+      case "2":
+        setIsPlaying(true);
+        setTurnPlanetGreen(true);
+        break;
       case "3":
+        setIsPlaying(true);
+        setGrowTrees(true);
         break;
     }
   };
@@ -45,7 +57,9 @@ export function Dilemma({
           <button
             key={option.id}
             className="option-button"
-            onClick={() => (option.isCorrect ? handleClick() : null)}
+            onClick={() => {
+              handleClick(option.isCorrect);
+            }}
           >
             {option.desc}
           </button>

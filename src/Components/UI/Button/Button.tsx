@@ -7,16 +7,19 @@ interface ButtonProps {
 }
 
 export const Button = ({ setIsPlaying, setMyDilemma }: ButtonProps) => {
-  const buttonRef = useRef<HTMLButtonElement>(null!);
+  const continueRef = useRef<HTMLButtonElement>(null!);
+  const endRef = useRef<HTMLButtonElement>(null!);
+
+  const endGame = () => {};
 
   return (
-    <>
+    <div className="button-container">
       {/* <div className="button-container" onClick={changePlanet}>
         <p>Change planet</p>
       </div> */}
       <button
         className="button"
-        ref={buttonRef}
+        ref={continueRef}
         onClick={() => {
           setIsPlaying(false);
           setMyDilemma("0");
@@ -24,6 +27,16 @@ export const Button = ({ setIsPlaying, setMyDilemma }: ButtonProps) => {
       >
         Continuer
       </button>
-    </>
+      <button
+        className="button"
+        ref={endRef}
+        onClick={() => {
+          setIsPlaying(false);
+          setMyDilemma("0");
+        }}
+      >
+        Terminer
+      </button>
+    </div>
   );
 };
