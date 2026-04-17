@@ -2,36 +2,360 @@
   "dilemmas": [
     {
       "id": "1",
-      "theme": "",
-      "title": "first dilemma",
-      "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "role": "Expert serveurs",
+      "title": "Stocker ses photos",
+      "desc": "Tu rentres de vacances avec 500 photos et 300 vidéos sur ton téléphone. Qu'est-ce que tu fais...",
       "options": [
         {
-          "id": "11",
-          "desc": "correct answer",
+          "id": "1A",
+          "desc": "Disque dur",
           "isCorrect": true
         },
         {
-          "id": "12",
-          "desc": "wrong answer",
+          "id": "1B",
+          "desc": "Abonnement Google Drive",
           "isCorrect": false
         }
       ]
     },
     {
       "id": "2",
-      "theme": "",
-      "title": "second dilemma",
-      "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "role": "Expert IA",
+      "title": "Chercher une recette",
+      "desc": "Tu veux faire une recette que tu n'as jamais fait de ta vie.",
       "options": [
         {
-          "id": "21",
-          "desc": "incorrect",
+          "id": "2A",
+          "desc": "ChatGPT",
           "isCorrect": false
         },
         {
-          "id": "22",
-          "desc": "correct",
+          "id": "2B",
+          "desc": "Google",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "role": "Expert IA",
+      "title": "Chercher une recette",
+      "desc": "Tu veux faire une recette que tu n'as jamais fait de ta vie.",
+      "options": [
+        {
+          "id": "3A",
+          "desc": "ChatGPT",
+          "isCorrect": false
+        },
+        {
+          "id": "3B",
+          "desc": "Google",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "id": "4",
+      "role": "Expert IA",
+      "title": "Chercher une recette",
+      "desc": "Tu veux faire une recette que tu n'as jamais fait de ta vie.",
+      "options": [
+        {
+          "id": "4A",
+          "desc": "ChatGPT",
+          "isCorrect": false
+        },
+        {
+          "id": "4B",
+          "desc": "Google",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "id": "5",
+      "role": "Expert IA",
+      "title": "Chercher une recette",
+      "desc": "Tu veux faire une recette que tu n'as jamais fait de ta vie.",
+      "options": [
+        {
+          "id": "3A",
+          "desc": "ChatGPT",
+          "isCorrect": false
+        },
+        {
+          "id": "3B",
+          "desc": "Google",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "id": "6",
+      "role": "Expert IA",
+      "title": "Chercher une recette",
+      "desc": "Tu veux faire une recette que tu n'as jamais fait de ta vie.",
+      "options": [
+        {
+          "id": "3A",
+          "desc": "ChatGPT",
+          "isCorrect": false
+        },
+        {
+          "id": "3B",
+          "desc": "Google",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "id": "7",
+      "role": "Expert IA",
+      "title": "Chercher une recette",
+      "desc": "Tu veux faire une recette que tu n'as jamais fait de ta vie.",
+      "options": [
+        {
+          "id": "3A",
+          "desc": "ChatGPT",
+          "isCorrect": false
+        },
+        {
+          "id": "3B",
+          "desc": "Google",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "id": "8",
+      "role": "Expert IA",
+      "title": "Chercher une recette",
+      "desc": "Tu veux faire une recette que tu n'as jamais fait de ta vie.",
+      "options": [
+        {
+          "id": "3A",
+          "desc": "ChatGPT",
+          "isCorrect": false
+        },
+        {
+          "id": "3B",
+          "desc": "Google",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "id": "9",
+      "role": "Expert IA",
+      "title": "Chercher une recette",
+      "desc": "Tu veux faire une recette que tu n'as jamais fait de ta vie.",
+      "options": [
+        {
+          "id": "3A",
+          "desc": "ChatGPT",
+          "isCorrect": false
+        },
+        {
+          "id": "3B",
+          "desc": "Google",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "id": "10",
+      "role": "Expert IA",
+      "title": "Chercher une recette",
+      "desc": "Tu veux faire une recette que tu n'as jamais fait de ta vie.",
+      "options": [
+        {
+          "id": "3A",
+          "desc": "ChatGPT",
+          "isCorrect": false
+        },
+        {
+          "id": "3B",
+          "desc": "Google",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "id": "11",
+      "role": "Expert IA",
+      "title": "Chercher une recette",
+      "desc": "Tu veux faire une recette que tu n'as jamais fait de ta vie.",
+      "options": [
+        {
+          "id": "3A",
+          "desc": "ChatGPT",
+          "isCorrect": false
+        },
+        {
+          "id": "3B",
+          "desc": "Google",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "id": "12",
+      "role": "Expert IA",
+      "title": "Chercher une recette",
+      "desc": "Tu veux faire une recette que tu n'as jamais fait de ta vie.",
+      "options": [
+        {
+          "id": "3A",
+          "desc": "ChatGPT",
+          "isCorrect": false
+        },
+        {
+          "id": "3B",
+          "desc": "Google",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "id": "13",
+      "role": "Expert IA",
+      "title": "Chercher une recette",
+      "desc": "Tu veux faire une recette que tu n'as jamais fait de ta vie.",
+      "options": [
+        {
+          "id": "3A",
+          "desc": "ChatGPT",
+          "isCorrect": false
+        },
+        {
+          "id": "3B",
+          "desc": "Google",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "id": "14",
+      "role": "Expert IA",
+      "title": "Chercher une recette",
+      "desc": "Tu veux faire une recette que tu n'as jamais fait de ta vie.",
+      "options": [
+        {
+          "id": "3A",
+          "desc": "ChatGPT",
+          "isCorrect": false
+        },
+        {
+          "id": "3B",
+          "desc": "Google",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "id": "15",
+      "role": "Expert IA",
+      "title": "Chercher une recette",
+      "desc": "Tu veux faire une recette que tu n'as jamais fait de ta vie.",
+      "options": [
+        {
+          "id": "3A",
+          "desc": "ChatGPT",
+          "isCorrect": false
+        },
+        {
+          "id": "3B",
+          "desc": "Google",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "id": "16",
+      "role": "Expert IA",
+      "title": "Chercher une recette",
+      "desc": "Tu veux faire une recette que tu n'as jamais fait de ta vie.",
+      "options": [
+        {
+          "id": "3A",
+          "desc": "ChatGPT",
+          "isCorrect": false
+        },
+        {
+          "id": "3B",
+          "desc": "Google",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "id": "17",
+      "role": "Expert IA",
+      "title": "Chercher une recette",
+      "desc": "Tu veux faire une recette que tu n'as jamais fait de ta vie.",
+      "options": [
+        {
+          "id": "3A",
+          "desc": "ChatGPT",
+          "isCorrect": false
+        },
+        {
+          "id": "3B",
+          "desc": "Google",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "id": "18",
+      "role": "Expert IA",
+      "title": "Chercher une recette",
+      "desc": "Tu veux faire une recette que tu n'as jamais fait de ta vie.",
+      "options": [
+        {
+          "id": "3A",
+          "desc": "ChatGPT",
+          "isCorrect": false
+        },
+        {
+          "id": "3B",
+          "desc": "Google",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "id": "19",
+      "role": "Expert IA",
+      "title": "Chercher une recette",
+      "desc": "Tu veux faire une recette que tu n'as jamais fait de ta vie.",
+      "options": [
+        {
+          "id": "3A",
+          "desc": "ChatGPT",
+          "isCorrect": false
+        },
+        {
+          "id": "3B",
+          "desc": "Google",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "id": "20",
+      "role": "Expert IA",
+      "title": "Chercher une recette",
+      "desc": "Tu veux faire une recette que tu n'as jamais fait de ta vie.",
+      "options": [
+        {
+          "id": "3A",
+          "desc": "ChatGPT",
+          "isCorrect": false
+        },
+        {
+          "id": "3B",
+          "desc": "Google",
           "isCorrect": true
         }
       ]
