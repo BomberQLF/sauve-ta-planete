@@ -5,14 +5,13 @@ import { useRef, useState } from "react";
 import { Lights } from "./Lights";
 import { Trees } from "./Trees";
 import { Field } from "./UI/Field/Field";
-import { Dilemma } from "./UI/Dilemma.tsx/Dilemma";
+import { Dilemma } from "./UI/Dilemma/Dilemma";
 import { Group, Vector3 } from "three";
-import { Ice } from "./Ice";
 import { gsap } from "gsap";
 import { Button } from "./UI/Button/Button";
 import { Birds } from "./Birds";
 import { Clouds } from "./Clouds";
-import { Penguin } from "./Penguin";
+import { Glacier } from "./Glacier/Glacier";
 
 export function Scene() {
   const [myDilemma, setMyDilemma] = useState("0");
@@ -20,10 +19,12 @@ export function Scene() {
   const planetGroupRef = useRef<Group>(null!);
 
   // Consequences
-  const [floodPlanet, setFloodPlanet] = useState<boolean>(false);
+  const [unfloodPlanet, setUnfloodPlanet] = useState<boolean>(false);
   const [turnPlanetGreen, setTurnPlanetGreen] = useState<boolean>(false);
   const [growTrees, setGrowTrees] = useState<boolean>(false);
-  const [meltIce, setMeltIce] = useState<boolean>(false);
+  const [unmeltIce, setUnmeltIce] = useState<boolean>(false);
+  const [cleanAir, setCleanAir] = useState<boolean>(false);
+  const [cleanWater, setCleanWater] = useState<boolean>(false);
 
   const UIRef = useRef<HTMLDivElement>(null!);
   const buttonRef = useRef<HTMLDivElement>(null!);
@@ -35,9 +36,9 @@ export function Scene() {
     if (isPlaying) {
       //zoom to scene
       // gsap.to(camera.position, {
-      //   x: () => -1,
-      //   y: () => 2,
-      //   z: () => 1,
+      //   x: () => 0,
+      //   y: () => 1,
+      //   z: () => 1.2,
       //   duration: 2,
       // });
       if ((UIRef.current, buttonRef.current)) {
@@ -49,12 +50,15 @@ export function Scene() {
       //zoom to scene
       // gsap.to(camera.position, {
       //   x: () => 0,
-      //   y: () => 2,
+      //   y: () => 0,
       //   z: () => 3,
       //   duration: 2,
       // });
-      planetGroupRef.current.rotateX(delta * 0.1);
-      planetGroupRef.current.rotateZ(delta * 0.1);
+
+      // planet constantly rotating
+      // planetGroupRef.current.rotateX(delta * 0.1);
+      // planetGroupRef.current.rotateY(delta * 0.1);
+      // planetGroupRef.current.rotateZ(delta * 0.1);
       if ((UIRef.current, buttonRef.current)) {
         UIRef.current.classList.remove("hidden");
         buttonRef.current.classList.add("hidden");
@@ -64,14 +68,20 @@ export function Scene() {
 
   return (
     <>
-      <Lights />
       <OrbitControls />
-      <group ref={planetGroupRef}>
-        <Clouds />
-        <Ice meltIce={meltIce} />
-        <Penguin />
 
-        <Planet floodPlanet={floodPlanet} turnPlanetGreen={turnPlanetGreen} />
+      <Lights />
+      <group ref={planetGroupRef}>
+        <Clouds cleanAir={cleanAir} />
+        {/* <Ice unmeltIce={unmeltIce} />
+        <Penguin /> */}
+        <Glacier unmeltIce={unmeltIce} />
+
+        <Planet
+          unfloodPlanet={unfloodPlanet}
+          turnPlanetGreen={turnPlanetGreen}
+          cleanWater={cleanWater}
+        />
         <Trees growTrees={growTrees} />
         <Birds />
       </group>
@@ -80,11 +90,13 @@ export function Scene() {
           <Field setMyDilemma={setMyDilemma} />
           <Dilemma
             myDilemma={myDilemma}
-            setFloodPlanet={setFloodPlanet}
+            setUnfloodPlanet={setUnfloodPlanet}
             setGrowTrees={setGrowTrees}
-            setMeltIce={setMeltIce}
+            setUnmeltIce={setUnmeltIce}
             setTurnPlanetGreen={setTurnPlanetGreen}
             setIsPlaying={setIsPlaying}
+            setCleanAir={setCleanAir}
+            setCleanWater={setCleanWater}
           />
         </div>
 
