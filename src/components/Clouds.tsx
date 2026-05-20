@@ -28,7 +28,7 @@ export function Clouds({ cleanAir }: { cleanAir: boolean }) {
       duration: 1,
     });
     gsap.to(cloudsRef.current.material, {
-      opacity: 0.7,
+      opacity: 0.5,
       duration: 1,
       delay: 1,
     });

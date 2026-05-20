@@ -12,6 +12,8 @@ import { Button } from "./UI/Button/Button";
 import { Birds } from "./Birds";
 import { Clouds } from "./Clouds";
 import { Glacier } from "./Glacier/Glacier";
+import { Buildings } from "./Buildings";
+import { Waste } from "./Waste";
 
 export function Scene() {
   const [myDilemma, setMyDilemma] = useState("0");
@@ -25,6 +27,8 @@ export function Scene() {
   const [unmeltIce, setUnmeltIce] = useState<boolean>(false);
   const [cleanAir, setCleanAir] = useState<boolean>(false);
   const [cleanWater, setCleanWater] = useState<boolean>(false);
+  const [replaceBuildings, setReplaceBuildings] = useState<boolean>(false);
+  const [cleanWaste, setCleanWaste] = useState<boolean>(false);
 
   const UIRef = useRef<HTMLDivElement>(null!);
   const buttonRef = useRef<HTMLDivElement>(null!);
@@ -56,9 +60,9 @@ export function Scene() {
       // });
 
       // planet constantly rotating
-      // planetGroupRef.current.rotateX(delta * 0.1);
-      // planetGroupRef.current.rotateY(delta * 0.1);
-      // planetGroupRef.current.rotateZ(delta * 0.1);
+      planetGroupRef.current.rotateX(delta * 0.1);
+      planetGroupRef.current.rotateY(delta * 0.1);
+      planetGroupRef.current.rotateZ(delta * 0.1);
       if ((UIRef.current, buttonRef.current)) {
         UIRef.current.classList.remove("hidden");
         buttonRef.current.classList.add("hidden");
@@ -84,7 +88,10 @@ export function Scene() {
         />
         <Trees growTrees={growTrees} />
         <Birds />
+        <Buildings replaceBuildings={replaceBuildings} />
+        <Waste cleanWaste={cleanWaste} />
       </group>
+
       <Html>
         <div ref={UIRef} className="">
           <Field setMyDilemma={setMyDilemma} />
@@ -97,6 +104,8 @@ export function Scene() {
             setIsPlaying={setIsPlaying}
             setCleanAir={setCleanAir}
             setCleanWater={setCleanWater}
+            setReplaceBuildings={setReplaceBuildings}
+            setCleanWaste={setCleanWaste}
           />
         </div>
 

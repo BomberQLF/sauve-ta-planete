@@ -1,5 +1,6 @@
 import "./Dilemma.css";
-import { dilemmas } from "../../../data/dilemmas.json";
+import { data } from "../../../data/dilemmas.json";
+// import data from "../../../data/data.json";
 
 interface DilemmaProps {
   myDilemma: string;
@@ -10,7 +11,11 @@ interface DilemmaProps {
   setTurnPlanetGreen: (turnPlanetGreen: boolean) => void;
   setCleanAir: (cleanAir: boolean) => void;
   setCleanWater: (cleanWater: boolean) => void;
+  setReplaceBuildings: (replaceBuildings: boolean) => void;
+  setCleanWaste: (cleanWaste: boolean) => void;
 }
+
+const history: number[] = [];
 
 export function Dilemma({
   myDilemma,
@@ -21,13 +26,23 @@ export function Dilemma({
   setTurnPlanetGreen,
   setCleanAir,
   setCleanWater,
+  setReplaceBuildings,
+  setCleanWaste,
 }: DilemmaProps) {
-  let text = dilemmas.find((e) => e.id === myDilemma);
-  if (!text) return;
+  let dilemma = data.find((e) => e.id === myDilemma);
+  if (!dilemma) return;
 
   const handleClick = (isCorrect: boolean) => {
     if (isCorrect) {
-      playAnimations(text.id);
+      // playAnimations(dilemma.id);
+      const available = [1, 2, 3, 4, 5, 6, 7].filter(
+        (n) => !history.includes(n),
+      );
+      const consequence =
+        available[Math.floor(Math.random() * available.length)];
+      playAnimations(consequence.toString());
+      history.push(consequence);
+      console.log(history);
     } else {
       setIsPlaying(true);
     }
@@ -56,16 +71,26 @@ export function Dilemma({
         setIsPlaying(true);
         setCleanWater(true);
         break;
+      case "6":
+        setIsPlaying(true);
+        setReplaceBuildings(true);
+        break;
+      case "7":
+        setIsPlaying(true);
+        setCleanWaste(true);
+        break;
     }
   };
   return (
     <div className="info-container">
       <div className="dilemma-container">
-        <h2>{text.title}</h2>
-        <p>{text.desc}</p>
+        <h2>{dilemma.title}</h2>
+        <p>{dilemma.desc}</p>
+        <p>{dilemma.options[0].desc}</p>
+        <p>{dilemma.options[1].desc}</p>
       </div>
       <div className="option-container">
-        {text.options.map((option) => (
+        {dilemma.options.map((option) => (
           <button
             key={option.id}
             className="option-button"
@@ -73,7 +98,7 @@ export function Dilemma({
               handleClick(option.isCorrect);
             }}
           >
-            {option.desc}
+            {option.id}
           </button>
         ))}
       </div>

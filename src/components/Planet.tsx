@@ -68,15 +68,14 @@ export function Planet({
   }
 
   if (cleanWater) {
-    gsap.to(pollutedWaterRef.current.material, {
-      alphaHash: true,
-      opacity: 0,
-      duration: 1,
-    });
-    console.log("test");
     gsap.to(cleanWaterRef.current.material, {
       opacity: 1,
+      duration: 3,
+    });
+    gsap.to(pollutedWaterRef.current.material, {
+      opacity: 0,
       duration: 1,
+      delay: 3,
     });
   }
 
@@ -103,57 +102,25 @@ export function Planet({
     <>
       <group dispose={null}>
         {/* Water */}
-        <group ref={waterRef} scale={1.27}>
-          <mesh
-            ref={cleanWaterRef}
-            castShadow
-            receiveShadow
-            geometry={new SphereGeometry()}
-            material={
-              new MeshBasicMaterial({
-                map: waterMap,
-                // color: "#a1a7a7",
-                color: "#37bed6",
-                transparent: true,
-                opacity: 0,
-              })
-            }
-          />
-          <mesh
-            ref={pollutedWaterRef}
-            castShadow
-            receiveShadow
-            geometry={new SphereGeometry()}
-            material={
-              new MeshBasicMaterial({
-                map: waterMap,
-                color: "#749483",
-                // transparent: true,
-                // color: "#37bed6",
-                // opacity: 1,
-              })
-            }
-          />
-          {/* <mesh ref={pollutedWaterRef}>
+        <group ref={waterRef} scale={1.265}>
+          <mesh ref={pollutedWaterRef}>
             <sphereGeometry />
             <meshBasicMaterial
               map={waterMap}
-              color={"#749483"}
-              // color={"black"}
+              color={"#70c485"}
               opacity={1}
-              // transparent
+              alphaHash={true}
             />
-          </mesh> */}
-          {/* <mesh ref={cleanWaterRef}>
+          </mesh>
+          <mesh ref={cleanWaterRef}>
             <sphereGeometry />
             <meshBasicMaterial
               map={waterMap}
               color={"#37bed6"}
-              // color={"white"}
               opacity={0}
-              transparent
+              alphaHash={true}
             />
-          </mesh> */}
+          </mesh>
         </group>
         {/* Terrain */}
         <group position={[0, 0, 0]} rotation={[0, 0, 0]}>

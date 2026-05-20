@@ -1,361 +1,361 @@
 {
-  "dilemmas": [
+  "data": [
     {
       "id": "1",
-      "role": "Expert serveurs",
-      "title": "Stocker ses photos",
-      "desc": "Tu rentres de vacances avec 500 photos et 300 vidéos sur ton téléphone. Qu'est-ce que tu fais...",
+      "category": "Expert IA",
+      "title": "Le défi Cuisine",
+      "desc": "Tu veux préparer un gâteau pour la toute première fois de ta vie. Comment trouves-tu la recette ?",
       "options": [
         {
           "id": "1A",
-          "desc": "Disque dur",
-          "isCorrect": true
+          "desc": "Tu demandes à ChatGPT de t'écrire une recette sur mesure avec plein d'explications sur les produits et des vidéos tutos générées pour toi.",
+          "isCorrect": false
         },
         {
           "id": "1B",
-          "desc": "Abonnement Google Drive",
-          "isCorrect": false
+          "desc": "Tu fais une recherche classique sur Google et tu choisis une recette grâce aux bonnes notes laissées par les internautes.",
+          "isCorrect": true
         }
       ]
     },
     {
       "id": "2",
-      "role": "Expert IA",
-      "title": "Chercher une recette",
-      "desc": "Tu veux faire une recette que tu n'as jamais fait de ta vie.",
+      "category": "Expert IA",
+      "title": "Le devoir à rendre",
+      "desc": "Tu pas fini de taper ton exposé, mais tu as peur d'avoir laissé plein de fautes d'orthographe. Que fais-tu ?",
       "options": [
         {
           "id": "2A",
-          "desc": "ChatGPT",
+          "desc": "Tu donnes tout à ChatGPT pour qu'il corrige tout d'un coup, même s'il réécrit un peu tes phrases à sa manière.",
           "isCorrect": false
         },
         {
           "id": "2B",
-          "desc": "Google",
+          "desc": "Tu utilises un correcteur en ligne classique et tu corriges tes fautes phrase par phrase, en gardant ton propre style.",
           "isCorrect": true
         }
       ]
     },
     {
       "id": "3",
-      "role": "Expert IA",
-      "title": "Chercher une recette",
-      "desc": "Tu veux faire une recette que tu n'as jamais fait de ta vie.",
+      "category": "Expert IA",
+      "title": "Le monstre d'Arts Plastiques",
+      "desc": "Le prof d'arts plastiques te demande d'inventer et de dessiner une créature fantastique super détaillée.",
       "options": [
         {
           "id": "3A",
-          "desc": "ChatGPT",
+          "desc": "Tu utilises une Intelligence Artificielle génératrice d'images sur ton téléphone pour créer un monstre incroyable, et tu le décalques.",
           "isCorrect": false
         },
         {
           "id": "3B",
-          "desc": "Google",
+          "desc": "Tu prends tes crayons et tu dessines ce qui sort de ton imagination, même si le résultat est un peu moins impressionnant.",
           "isCorrect": true
         }
       ]
     },
     {
       "id": "4",
-      "role": "Expert IA",
-      "title": "Chercher une recette",
-      "desc": "Tu veux faire une recette que tu n'as jamais fait de ta vie.",
+      "category": "Expert IA",
+      "title": "Panique au restaurant",
+      "desc": "Tu es en voyage à l'étranger, tu as faim, mais la carte du restaurant est en anglais et tu ne comprends rien.",
       "options": [
         {
           "id": "4A",
-          "desc": "ChatGPT",
+          "desc": "Tu prends le menu en photo et tu l'envoies à ChatGPT pour qu'il te traduise toute la carte instantanément.",
           "isCorrect": false
         },
         {
           "id": "4B",
-          "desc": "Google",
+          "desc": "Tu ouvres Google Traduction et tu tapes uniquement les deux ou trois mots que tu ne connais pas pour deviner le plat.",
           "isCorrect": true
         }
       ]
     },
     {
       "id": "5",
-      "role": "Expert IA",
-      "title": "Chercher une recette",
-      "desc": "Tu veux faire une recette que tu n'as jamais fait de ta vie.",
+      "category": "Expert Serveurs",
+      "title": "Retour de vacances",
+      "desc": "Tu rentres de vacances avec 500 photos et 300 vidéos, ton téléphone déborde ! Comment les sauvegarder ?",
       "options": [
         {
-          "id": "3A",
-          "desc": "ChatGPT",
-          "isCorrect": false
+          "id": "5A",
+          "desc": "Tu prends la voiture pour aller acheter un gros disque dur en magasin et tout stocker à la maison.",
+          "isCorrect": true
         },
         {
-          "id": "3B",
-          "desc": "Google",
-          "isCorrect": true
+          "id": "5B",
+          "desc": "Tu prends un abonnement 'Drive/Cloud' : toutes tes photos s'envoient sur Internet automatiquement, tu n'as rien à faire.",
+          "isCorrect": false
         }
       ]
     },
     {
       "id": "6",
-      "role": "Expert IA",
-      "title": "Chercher une recette",
-      "desc": "Tu veux faire une recette que tu n'as jamais fait de ta vie.",
+      "category": "Expert Serveurs",
+      "title": "Coucou Papy et Mamie !",
+      "desc": "C'est les fêtes, tu veux envoyer 10 belles photos de toi à tes grands-parents. Comment t'y prends-tu ?",
       "options": [
         {
-          "id": "3A",
-          "desc": "ChatGPT",
+          "id": "6A",
+          "desc": "Tu leur envoies un message très lourd avec toutes les photos attachées en pièces jointes.",
           "isCorrect": false
         },
         {
-          "id": "3B",
-          "desc": "Google",
+          "id": "6B",
+          "desc": "Tu crées un dossier sur un Drive (Cloud) et tu leur envoies juste un tout petit lien sur lequel ils doivent cliquer.",
           "isCorrect": true
         }
       ]
     },
     {
       "id": "7",
-      "role": "Expert IA",
-      "title": "Chercher une recette",
-      "desc": "Tu veux faire une recette que tu n'as jamais fait de ta vie.",
+      "category": "Expert Serveurs",
+      "title": "Le grand ménage",
+      "desc": "Ton téléphone est rempli de milliers de vieilles photos floues, de spams et de fichiers inutiles. Que fais-tu ?",
       "options": [
         {
-          "id": "3A",
-          "desc": "ChatGPT",
+          "id": "7A",
+          "desc": "Tu ne touches à rien. Ce n'est pas grave, ça prend un peu de place mais c'est beaucoup trop ennuyeux à trier !",
           "isCorrect": false
         },
         {
-          "id": "3B",
-          "desc": "Google",
+          "id": "7B",
+          "desc": "Tu prends 1 heure de ton temps pour tout nettoyer et supprimer ce qui ne sert vraiment plus à rien.",
           "isCorrect": true
         }
       ]
     },
     {
       "id": "8",
-      "role": "Expert IA",
-      "title": "Chercher une recette",
-      "desc": "Tu veux faire une recette que tu n'as jamais fait de ta vie.",
+      "category": "Expert Serveurs",
+      "title": "Souvenir de mon chat",
+      "desc": "Ton chat fait un truc trop drôle, tu veux le filmer en souvenir !",
       "options": [
         {
-          "id": "3A",
-          "desc": "ChatGPT",
+          "id": "8A",
+          "desc": "Tu filmes en qualité Ultra HD avec plein d'images par seconde pour avoir la vidéo la plus magnifique du monde, quitte à créer un fichier gigantesque.",
           "isCorrect": false
         },
         {
-          "id": "3B",
-          "desc": "Google",
+          "id": "8B",
+          "desc": "Tu filmes en qualité normale. L'image saccade un tout petit peu, mais ça fait l'affaire pour un simple souvenir.",
           "isCorrect": true
         }
       ]
     },
     {
       "id": "9",
-      "role": "Expert IA",
-      "title": "Chercher une recette",
-      "desc": "Tu veux faire une recette que tu n'as jamais fait de ta vie.",
+      "category": "Expert Réseau",
+      "title": "Soirée Série",
+      "desc": "C'est le soir, tu es dans ton lit et tu veux regarder un épisode de ta série préférée sur ton téléphone.",
       "options": [
         {
-          "id": "3A",
-          "desc": "ChatGPT",
+          "id": "9A",
+          "desc": "Tu le regardes en 4K (qualité maximale) avec tes données mobiles (4G/5G) parce que l'image est parfaite.",
           "isCorrect": false
         },
         {
-          "id": "3B",
-          "desc": "Google",
+          "id": "9B",
+          "desc": "Tu le regardes en HD (qualité normale) en te connectant au Wi-Fi de la maison, même si la qualité est un peu moins bonne.",
           "isCorrect": true
         }
       ]
     },
     {
       "id": "10",
-      "role": "Expert IA",
-      "title": "Chercher une recette",
-      "desc": "Tu veux faire une recette que tu n'as jamais fait de ta vie.",
+      "category": "Expert Réseau",
+      "title": "Le jeu dans le bus",
+      "desc": "Tu es dans le bus avec tes potes et tu veux télécharger la dernière grosse mise à jour de votre jeu mobile préféré pour y jouer tout de suite.",
       "options": [
         {
-          "id": "3A",
-          "desc": "ChatGPT",
+          "id": "10A",
+          "desc": "Tu télécharges l'énorme fichier immédiatement en utilisant la 4G de ton téléphone.",
           "isCorrect": false
         },
         {
-          "id": "3B",
-          "desc": "Google",
+          "id": "10B",
+          "desc": "Tu attends d'être rentré(e) chez toi pour télécharger la mise à jour avec le Wi-Fi, tant pis, tu ne joueras pas dans le bus.",
           "isCorrect": true
         }
       ]
     },
     {
       "id": "11",
-      "role": "Expert IA",
-      "title": "Chercher une recette",
-      "desc": "Tu veux faire une recette que tu n'as jamais fait de ta vie.",
+      "category": "Expert Réseau",
+      "title": "Ma playlist préférée",
+      "desc": "Tu as une playlist de musiques que tu écoutes absolument tous les jours.",
       "options": [
         {
-          "id": "3A",
-          "desc": "ChatGPT",
+          "id": "11A",
+          "desc": "Tu la streames en direct à chaque fois (sur Spotify, Deezer...) pour garder plein d'espace libre sur ton téléphone.",
           "isCorrect": false
         },
         {
           "id": "3B",
-          "desc": "Google",
+          "desc": "Tu la télécharges une bonne fois pour toutes pour l'écouter hors-ligne, même si ça prend de la mémoire sur ton portable.",
           "isCorrect": true
         }
       ]
     },
     {
       "id": "12",
-      "role": "Expert IA",
-      "title": "Chercher une recette",
-      "desc": "Tu veux faire une recette que tu n'as jamais fait de ta vie.",
+      "category": "Expert Réseau",
+      "title": "Appel à Mamie",
+      "desc": "Tu as besoin d'appeler ta grand-mère pour lui demander la recette de sa fameuse tarte aux pommes.",
       "options": [
         {
-          "id": "3A",
-          "desc": "ChatGPT",
+          "id": "12A",
+          "desc": "Tu l'appelles en visio (FaceTime) pour la voir en même temps.",
           "isCorrect": false
         },
         {
-          "id": "3B",
-          "desc": "Google",
+          "id": "12B",
+          "desc": "Tu lui passes un appel téléphonique normal (juste la voix).",
           "isCorrect": true
         }
       ]
     },
     {
       "id": "13",
-      "role": "Expert IA",
-      "title": "Chercher une recette",
-      "desc": "Tu veux faire une recette que tu n'as jamais fait de ta vie.",
+      "category": "Journaliste du Numérique",
+      "title": "Trajet entre amis",
+      "desc": "Tu passe 1 heure de trajet en bus assis(e) à côté de ton/ta meilleur(e) ami(e). Comment passez-vous le temps ?",
       "options": [
         {
-          "id": "3A",
-          "desc": "ChatGPT",
+          "id": "13A",
+          "desc": "Vous regardez des TikToks sur vos écrans et vous vous partagez les vidéos les plus drôles.",
           "isCorrect": false
         },
         {
-          "id": "3B",
-          "desc": "Google",
+          "id": "13B",
+          "desc": "Vous rangez les téléphones et vous essayez de trouver des sujets de discussion, même s'il y a des moments de blanc.",
           "isCorrect": true
         }
       ]
     },
     {
       "id": "14",
-      "role": "Expert IA",
-      "title": "Chercher une recette",
-      "desc": "Tu veux faire une recette que tu n'as jamais fait de ta vie.",
+      "category": "Journaliste du Numérique",
+      "title": "Soirée Gaming",
+      "desc": "Tu veux jouer en ligne avec tes potes ce soir, mais tu n'as pas le jeu !",
       "options": [
         {
-          "id": "3A",
-          "desc": "ChatGPT",
+          "id": "14A",
+          "desc": "Tu joues en 'Cloud Gaming' : pas besoin de télécharger, tu joues instantanément avec la qualité maximale, même sur une vieille console.",
           "isCorrect": false
         },
         {
-          "id": "3B",
-          "desc": "Google",
+          "id": "14B",
+          "desc": "Tu utilises et installes le jeu sur ta console : tu dois attendre 1h30 de téléchargement avant de les rejoindre, et la qualité sera un peu moins belle.",
           "isCorrect": true
         }
       ]
     },
     {
       "id": "15",
-      "role": "Expert IA",
-      "title": "Chercher une recette",
-      "desc": "Tu veux faire une recette que tu n'as jamais fait de ta vie.",
+      "category": "Journaliste du Numérique",
+      "title": "'À table !'",
+      "desc": "Tu es en pleine partie de jeu vidéo et tes parents t'appellent pour manger.",
       "options": [
         {
-          "id": "3A",
-          "desc": "ChatGPT",
+          "id": "15A",
+          "desc": "Tu mets ta console en veille : comme ça, ton jeu reste ouvert et tu reprends ta partie directement après manger.",
           "isCorrect": false
         },
         {
-          "id": "3B",
-          "desc": "Google",
+          "id": "15B",
+          "desc": "Tu éteins complètement ta console, même si tu perds du temps à tout relancer après le repas.",
           "isCorrect": true
         }
       ]
     },
     {
       "id": "16",
-      "role": "Expert IA",
-      "title": "Chercher une recette",
-      "desc": "Tu veux faire une recette que tu n'as jamais fait de ta vie.",
+      "category": "Journaliste du Numérique",
+      "title": "La folie du nouveau smartphone",
+      "desc": "Le tout nouvel iPhone vient de sortir avec une fonction révolutionnaire. Tes parents t'ont pourtant déjà acheté celui de l'année dernière.",
       "options": [
         {
-          "id": "3A",
-          "desc": "ChatGPT",
+          "id": "16A",
+          "desc": "Tu revends le tiens et tu leur demandes de changer car tu veux absolument être à la pointe de la technologie.",
           "isCorrect": false
         },
         {
-          "id": "3B",
-          "desc": "Google",
+          "id": "16B",
+          "desc": "Tu gardes ton téléphone actuel, tant pis si tu n'as pas cette nouvelle fonctionnalité à la mode.",
           "isCorrect": true
         }
       ]
     },
     {
       "id": "17",
-      "role": "Expert IA",
-      "title": "Chercher une recette",
-      "desc": "Tu veux faire une recette que tu n'as jamais fait de ta vie.",
+      "category": "Spécialiste Environnemental",
+      "title": "Le drame du téléphone cassé",
+      "desc": "Catastrophe, l'écran de ton smartphone est fissuré ! Il marche encore mais c'est super pénible à utiliser.",
       "options": [
         {
-          "id": "3A",
-          "desc": "ChatGPT",
+          "id": "17A",
+          "desc": "Tu en profites pour en acheter un tout neuf.",
           "isCorrect": false
         },
         {
-          "id": "3B",
-          "desc": "Google",
+          "id": "17B",
+          "desc": "Tu l'emmènes chez un expert pour le faire réparer.",
           "isCorrect": true
         }
       ]
     },
     {
       "id": "18",
-      "role": "Expert IA",
-      "title": "Chercher une recette",
-      "desc": "Tu veux faire une recette que tu n'as jamais fait de ta vie.",
+      "category": "Spécialiste Environnemental",
+      "title": "Rangement en musique",
+      "desc": "Tu décides de ranger ta chambre et tu veux écouter de la musique pour te motiver.",
       "options": [
         {
-          "id": "3A",
-          "desc": "ChatGPT",
+          "id": "18A",
+          "desc": "Tu mets les clips vidéos de tes chansons sur YouTube et tu laisses l'écran allumé pendant que tu ranges.",
           "isCorrect": false
         },
         {
-          "id": "3B",
-          "desc": "Google",
+          "id": "18B",
+          "desc": "Tu écoutes des musiques que tu avais déjà téléchargées à l'avance sur ton téléphone.",
           "isCorrect": true
         }
       ]
     },
     {
       "id": "19",
-      "role": "Expert IA",
-      "title": "Chercher une recette",
-      "desc": "Tu veux faire une recette que tu n'as jamais fait de ta vie.",
+      "category": "Spécialiste Environnemental",
+      "title": "Plus de batterie !",
+      "desc": "Il est l'heure de te coucher et ton téléphone n'a plus que 20% de batterie.",
       "options": [
         {
-          "id": "3A",
-          "desc": "ChatGPT",
+          "id": "19A",
+          "desc": "Tu le branches et tu le laisses charger toute la nuit pendant 8 heures.",
           "isCorrect": false
         },
         {
-          "id": "3B",
-          "desc": "Google",
+          "id": "19B",
+          "desc": "Tu attends le lendemain matin pour le brancher juste le temps de te préparer pour aller au collège.",
           "isCorrect": true
         }
       ]
     },
     {
       "id": "20",
-      "role": "Expert IA",
-      "title": "Chercher une recette",
-      "desc": "Tu veux faire une recette que tu n'as jamais fait de ta vie.",
+      "category": "Spécialiste Environnemental",
+      "title": "Départ en urgence",
+      "desc": "Tu pars au collège et tu es en retard !",
       "options": [
         {
-          "id": "3A",
-          "desc": "ChatGPT",
+          "id": "20A",
+          "desc": "Tu pars en courant et tu laisses tout allumé dans ta chambre (ordinateur, lumière, tablette...).",
           "isCorrect": false
         },
         {
-          "id": "3B",
-          "desc": "Google",
+          "id": "20B",
+          "desc": "Tu perds 10 petites secondes pour tout éteindre avant de claquer la porte.",
           "isCorrect": true
         }
       ]
