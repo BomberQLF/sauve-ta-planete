@@ -1,0 +1,89 @@
+.instructions-screen {
+  position: fixed;
+  inset: 0;
+  background-color: #ffc366;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Wrapper relatif qui sert de référence pour tous les éléments superposés */
+.instructions-frame {
+  position: relative;
+  width: clamp(300px, 42vw, 580px);
+}
+
+/* L'image du cadre prend toute la largeur du wrapper */
+.instructions-frame__bg {
+  width: 100%;
+  height: auto;
+  display: block;
+  user-select: none;
+  pointer-events: none;
+}
+
+/* Texte positionné à l'intérieur du cadre, sous le titre "COMMENT JOUER ?" */
+.instructions-frame__text {
+  position: absolute;
+  top: 23%;
+  left: 9%;
+  right: 9%;
+  bottom: 16%;
+  overflow-y: auto;
+  color: #1a1a1a;
+  font-size: clamp(0.8rem, 1.1vw, 1rem);
+  line-height: 1.7;
+}
+
+.instructions-frame__text p {
+  margin: 0 0 1em 0;
+}
+
+.instructions-frame__text p:last-child {
+  margin-bottom: 0;
+}
+
+/* Bouton centré, chevauchant la bordure basse du cadre */
+.instructions-frame__btn {
+  position: absolute;
+  bottom: -7%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  width: 72%;
+  transition: transform 0.1s ease, filter 0.1s ease;
+}
+
+.instructions-frame__btn:hover {
+  transform: translateX(-50%) translateY(-3px);
+  filter: brightness(1.05);
+}
+
+.instructions-frame__btn:active {
+  transform: translateX(-50%) translateY(2px);
+  filter: brightness(0.95);
+}
+
+.instructions-frame__btn img {
+  width: 100%;
+  height: auto;
+  display: block;
+  user-select: none;
+}
+
+@media (max-width: 768px) {
+  .instructions-frame {
+    width: clamp(280px, 80vw, 400px);
+  }
+
+  .instructions-frame__text {
+    font-size: 0.78rem;
+  }
+
+  .instructions-frame__btn {
+    width: 78%;
+  }
+}

@@ -1,0 +1,55 @@
+.start-screen {
+  position: fixed;
+  inset: 0;
+  background-color: #ffc366;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+}
+
+.start-screen__logo {
+  width: clamp(320px, 55vw, 700px);
+  height: auto;
+  user-select: none;
+  pointer-events: none;
+}
+
+.start-screen__button {
+  padding: 1rem 3.5rem;
+  background-color: #ffc366;
+  color: #1a1a1a;
+  border: 3.5px solid #1a1a1a;
+  border-radius: 60px;
+  box-shadow: 0 7px 0 #1a1a1a;
+  font-size: 1.6rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  cursor: pointer;
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+  font-family: inherit;
+  text-transform: uppercase;
+}
+
+.start-screen__button:hover {
+  transform: translateY(3px);
+  box-shadow: 0 4px 0 #1a1a1a;
+  border-color: #1a1a1a;
+}
+
+.start-screen__button:active {
+  transform: translateY(7px);
+  box-shadow: 0 0 0 #1a1a1a;
+}
+
+@media (max-width: 768px) {
+  .start-screen__logo {
+    width: clamp(260px, 80vw, 400px);
+  }
+
+  .start-screen__button {
+    font-size: 1.3rem;
+    padding: 0.85rem 2.8rem;
+  }
+}
