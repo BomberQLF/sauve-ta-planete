@@ -1,0 +1,182 @@
+[
+  {
+    "id": 1,
+    "categorie": "Expert IA",
+    "nom": "Le défi Cuisine",
+    "situation": "Tu veux préparer un gâteau pour la toute première fois de ta vie. Comment trouves-tu la recette ?",
+    "option_A": "Tu demandes à ChatGPT de t'écrire une recette sur mesure avec plein d'explications sur les produits et des vidéos tutos générées pour toi.",
+    "option_B": "Tu fais une recherche classique sur Google et tu choisis une recette grâce aux bonnes notes laissées par les internautes.",
+    "option_ecoresponsable": "B"
+  },
+  {
+    "id": 2,
+    "categorie": "Expert IA",
+    "nom": "Le devoir à rendre",
+    "situation": "Tu pas fini de taper ton exposé, mais tu as peur d'avoir laissé plein de fautes d'orthographe. Que fais-tu ?",
+    "option_A": "Tu donnes tout à ChatGPT pour qu'il corrige tout d'un coup, même s'il réécrit un peu tes phrases à sa manière.",
+    "option_B": "Tu utilises un correcteur en ligne classique et tu corriges tes fautes phrase par phrase, en gardant ton propre style.",
+    "option_ecoresponsable": "B"
+  },
+  {
+    "id": 3,
+    "categorie": "Expert IA",
+    "nom": "Le monstre d'Arts Plastiques",
+    "situation": "Le prof d'arts plastiques te demande d'inventer et de dessiner une créature fantastique super détaillée.",
+    "option_A": "Tu utilises une Intelligence Artificielle génératrice d'images sur ton téléphone pour créer un monstre incroyable, et tu le décalques.",
+    "option_B": "Tu prends tes crayons et tu dessines ce qui sort de ton imagination, même si le résultat est un peu moins impressionnant.",
+    "option_ecoresponsable": "B"
+  },
+  {
+    "id": 4,
+    "categorie": "Expert IA",
+    "nom": "Panique au restaurant",
+    "situation": "Tu es en voyage à l'étranger, tu as faim, mais la carte du restaurant est en anglais et tu ne comprends rien.",
+    "option_A": "Tu prends le menu en photo et tu l'envoies à ChatGPT pour qu'il te traduise toute la carte instantanément.",
+    "option_B": "Tu ouvres Google Traduction et tu tapes uniquement les deux ou trois mots que tu ne connais pas pour deviner le plat.",
+    "option_ecoresponsable": "B"
+  },
+  {
+    "id": 5,
+    "categorie": "Expert Serveurs",
+    "nom": "Retour de vacances",
+    "situation": "Tu rentres de vacances avec 500 photos et 300 vidéos, ton téléphone déborde ! Comment les sauvegarder ?",
+    "option_A": "Tu prends la voiture pour aller acheter un gros disque dur en magasin et tout stocker à la maison.",
+    "option_B": "Tu prends un abonnement 'Drive/Cloud' : toutes tes photos s'envoient sur Internet automatiquement, tu n'as rien à faire.",
+    "option_ecoresponsable": "A"
+  },
+  {
+    "id": 6,
+    "categorie": "Expert Serveurs",
+    "nom": "Coucou Papy et Mamie !",
+    "situation": "C'est les fêtes, tu veux envoyer 10 belles photos de toi à tes grands-parents. Comment t'y prends-tu ?",
+    "option_A": "Tu leur envoies un message très lourd avec toutes les photos attachées en pièces jointes.",
+    "option_B": "Tu crées un dossier sur un Drive (Cloud) et tu leur envoies juste un tout petit lien sur lequel ils doivent cliquer.",
+    "option_ecoresponsable": "B"
+  },
+  {
+    "id": 7,
+    "categorie": "Expert Serveurs",
+    "nom": "Le grand ménage",
+    "situation": "Ton téléphone est rempli de milliers de vieilles photos floues, de spams et de fichiers inutiles. Que fais-tu ?",
+    "option_A": "Tu ne touches à rien. Ce n'est pas grave, ça prend un peu de place mais c'est beaucoup trop ennuyeux à trier !",
+    "option_B": "Tu prends 1 heure de ton temps pour tout nettoyer et supprimer ce qui ne sert vraiment plus à rien.",
+    "option_ecoresponsable": "B"
+  },
+  {
+    "id": 8,
+    "categorie": "Expert Serveurs",
+    "nom": "Souvenir de mon chat",
+    "situation": "Ton chat fait un truc trop drôle, tu veux le filmer en souvenir !",
+    "option_A": "Tu filmes en qualité Ultra HD avec plein d'images par seconde pour avoir la vidéo la plus magnifique du monde, quitte à créer un fichier gigantesque.",
+    "option_B": "Tu filmes en qualité normale. L'image saccade un tout petit peu, mais ça fait l'affaire pour un simple souvenir.",
+    "option_ecoresponsable": "B"
+  },
+  {
+    "id": 9,
+    "categorie": "Expert Réseau",
+    "nom": "Soirée Série",
+    "situation": "C'est le soir, tu es dans ton lit et tu veux regarder un épisode de ta série préférée sur ton téléphone.",
+    "option_A": "Tu le regardes en 4K (qualité maximale) avec tes données mobiles (4G/5G) parce que l'image est parfaite.",
+    "option_B": "Tu le regardes en HD (qualité normale) en te connectant au Wi-Fi de la maison, même si la qualité est un peu moins bonne.",
+    "option_ecoresponsable": "B"
+  },
+  {
+    "id": 10,
+    "categorie": "Expert Réseau",
+    "nom": "Le jeu dans le bus",
+    "situation": "Tu es dans le bus avec tes potes et tu veux télécharger la dernière grosse mise à jour de votre jeu mobile préféré pour y jouer tout de suite.",
+    "option_A": "Tu télécharges l'énorme fichier immédiatement en utilisant la 4G de ton téléphone.",
+    "option_B": "Tu attends d'être rentré(e) chez toi pour télécharger la mise à jour avec le Wi-Fi, tant pis, tu ne joueras pas dans le bus.",
+    "option_ecoresponsable": "B"
+  },
+  {
+    "id": 11,
+    "categorie": "Expert Réseau",
+    "nom": "Ma playlist préférée",
+    "situation": "Tu as une playlist de musiques que tu écoutes absolument tous les jours.",
+    "option_A": "Tu la streames en direct à chaque fois (sur Spotify, Deezer...) pour garder plein d'espace libre sur ton téléphone.",
+    "option_B": "Tu la télécharges une bonne fois pour toutes pour l'écouter hors-ligne, même si ça prend de la mémoire sur ton portable.",
+    "option_ecoresponsable": "B"
+  },
+  {
+    "id": 12,
+    "categorie": "Expert Réseau",
+    "nom": "Appel à Mamie",
+    "situation": "Tu as besoin d'appeler ta grand-mère pour lui demander la recette de sa fameuse tarte aux pommes.",
+    "option_A": "Tu l'appelles en visio (FaceTime) pour la voir en même temps.",
+    "option_B": "Tu lui passes un appel téléphonique normal (juste la voix).",
+    "option_ecoresponsable": "B"
+  },
+  {
+    "id": 13,
+    "categorie": "Journaliste du Numérique",
+    "nom": "Trajet entre amis",
+    "situation": "Tu pas 1 heure de trajet en bus assis(e) à côté de ton/ta meilleur(e) ami(e). Comment passez-vous le temps ?",
+    "option_A": "Vous regardez des TikToks sur vos écrans et vous vous partagez les vidéos les plus drôles.",
+    "option_B": "Vous rangez les téléphones et vous essayez de trouver des sujets de discussion, même s'il y a des moments de blanc.",
+    "option_ecoresponsable": "B"
+  },
+  {
+    "id": 14,
+    "categorie": "Journaliste du Numérique",
+    "nom": "Soirée Gaming",
+    "situation": "Tu veux jouer en ligne avec tes potes ce soir, mais tu n'as pas le jeu !",
+    "option_A": "Tu joues en 'Cloud Gaming' : pas besoin de télécharger, tu joues instantanément avec la qualité maximale, même sur une vieille console.",
+    "option_B": "Tu utilises et installes le jeu sur ta console : tu dois attendre 1h30 de téléchargement avant de les rejoindre, et la qualité sera un peu moins belle.",
+    "option_ecoresponsable": "B"
+  },
+  {
+    "id": 15,
+    "categorie": "Journaliste du Numérique",
+    "nom": "'À table !'",
+    "situation": "Tu es en pleine partie de jeu vidéo et tes parents t'appellent pour manger.",
+    "option_A": "Tu mets ta console en veille : comme ça, ton jeu reste ouvert et tu reprends ta partie directement après manger.",
+    "option_B": "Tu éteins complètement ta console, même si tu perds du temps à tout relancer après le repas.",
+    "option_ecoresponsable": "B"
+  },
+  {
+    "id": 16,
+    "categorie": "Journaliste du Numérique",
+    "nom": "La folie du nouveau smartphone",
+    "situation": "Le tout nouvel iPhone vient de sortir avec une fonction révolutionnaire. Tes parents t'ont pourtant déjà acheté celui de l'année dernière.",
+    "option_A": "Tu revends le tiens et tu leur demandes de changer car tu veux absolument être à la pointe de la technologie.",
+    "option_B": "Tu gardes ton téléphone actuel, tant pis si tu n'as pas cette nouvelle fonctionnalité à la mode.",
+    "option_ecoresponsable": "B"
+  },
+  {
+    "id": 17,
+    "categorie": "Spécialiste Environnemental",
+    "nom": "Le drame du téléphone cassé",
+    "situation": "Catastrophe, l'écran de ton smartphone est fissuré ! Il marche encore mais c'est super pénible à utiliser.",
+    "option_A": "Tu en profites pour en acheter un tout neuf.",
+    "option_B": "Tu l'emmènes chez un expert pour le faire réparer.",
+    "option_ecoresponsable": "B"
+  },
+  {
+    "id": 18,
+    "categorie": "Spécialiste Environnemental",
+    "nom": "Rangement en musique",
+    "situation": "Tu décides de ranger ta chambre et tu veux écouter de la musique pour te motiver.",
+    "option_A": "Tu mets les clips vidéos de tes chansons sur YouTube et tu laisses l'écran allumé pendant que tu ranges.",
+    "option_B": "Tu écoutes des musiques que tu avais déjà téléchargées à l'avance sur ton téléphone.",
+    "option_ecoresponsable": "B"
+  },
+  {
+    "id": 19,
+    "categorie": "Spécialiste Environnemental",
+    "nom": "Plus de batterie !",
+    "situation": "Il est l'heure de te coucher et ton téléphone n'a plus que 20% de batterie.",
+    "option_A": "Tu le branches et tu le laisses charger toute la nuit pendant 8 heures.",
+    "option_B": "Tu attends le lendemain matin pour le brancher juste le temps de te préparer pour aller au collège.",
+    "option_ecoresponsable": "B"
+  },
+  {
+    "id": 20,
+    "categorie": "Spécialiste Environnemental",
+    "nom": "Départ en urgence",
+    "situation": "Tu pars au collège et tu es en retard !",
+    "option_A": "Tu pars en courant et tu laisses tout allumé dans ta chambre (ordinateur, lumière, tablette...).",
+    "option_B": "Tu perds 10 petites secondes pour tout éteindre avant de claquer la porte.",
+    "option_ecoresponsable": "B"
+  }
+]
