@@ -43,6 +43,7 @@ export function Scene() {
     const isFormVisible = myDilemma === "0" || myDilemma === "NaN";
 
     if (isFormVisible) {
+      // Form : caméra zoomée + planète centrée
       gsap.to(camera.position, {
         x: 0, y: -0.8, z: 5,
         duration: 1, ease: "power2.out",
@@ -51,8 +52,18 @@ export function Scene() {
         x: 0, y: 0, z: 0,
         duration: 1, ease: "power2.out",
       });
+    } else if (isPlaying) {
+      // Étape Continuer/Terminer : planète recentrée pour bien voir le résultat
+      gsap.to(camera.rotation, {
+        x: 0, y: 0, z: 0,
+        duration: 1, ease: "power2.out",
+      });
+      gsap.to(planetGroupRef.current.position, {
+        x: 0, y: 0, z: 0,
+        duration: 1, ease: "power2.out",
+      });
     } else {
-      // Caméra reculée + rotation reset à (0,0,0) = regarde droit devant (-Z), donc à l'origine
+      // Dilemme actif (avant clic réponse) : planète décalée pour laisser place aux panneaux
       gsap.to(camera.position, {
         x: 0, y: 0, z: 15,
         duration: 1, ease: "power2.out",
@@ -61,13 +72,12 @@ export function Scene() {
         x: 0, y: 0, z: 0,
         duration: 1, ease: "power2.out",
       });
-      // Planète déplacée à gauche-haut dans le monde 3D
       gsap.to(planetGroupRef.current.position, {
-        x: .7, y: -.5, z: 0,
+        x: 0.7, y: -0.5, z: 0,
         duration: 1, ease: "power2.out",
       });
     }
-  }, [myDilemma]);
+  }, [myDilemma, isPlaying]);
 
   //Animate
   useFrame((state, delta) => {
