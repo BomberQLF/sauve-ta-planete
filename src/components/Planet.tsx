@@ -63,7 +63,7 @@ export function Planet({
       y: 1.2,
       z: 1.2,
       duration: 3,
-      delay: 3,
+      delay: 2,
     });
   }
 
@@ -71,11 +71,12 @@ export function Planet({
     gsap.to(cleanWaterRef.current.material, {
       opacity: 1,
       duration: 3,
+      delay: 1,
     });
     gsap.to(pollutedWaterRef.current.material, {
       opacity: 0,
       duration: 1,
-      delay: 3,
+      delay: 4,
     });
   }
 
@@ -85,12 +86,14 @@ export function Planet({
       y: 1,
       z: 1,
       duration: 2,
+      delay: 2,
     });
     gsap.to(badTerrainRef.current.scale, {
       x: 0.9,
       y: 0.9,
       z: 0.9,
       duration: 6,
+      delay: 2,
     });
   }
 

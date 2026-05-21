@@ -22,15 +22,17 @@ export function Clouds({ cleanAir }: { cleanAir: boolean }) {
     smokeRef.current.rotateX(delta * 0.15);
   });
 
+  // Animation
   if (cleanAir) {
     gsap.to(smokeRef.current.material, {
       opacity: 0,
       duration: 1,
+      delay: 2,
     });
     gsap.to(cloudsRef.current.material, {
       opacity: 0.5,
       duration: 1,
-      delay: 1,
+      delay: 3,
     });
   }
 
@@ -40,9 +42,10 @@ export function Clouds({ cleanAir }: { cleanAir: boolean }) {
         <sphereGeometry args={[1.5]} />
         <meshBasicMaterial
           map={cloudColorMap}
-          color={"black"}
+          // color={"black"}
+          color={"#614d45"}
           transparent
-          opacity={0.3}
+          opacity={0.5}
         />
       </mesh>
       <mesh ref={cloudsRef}>

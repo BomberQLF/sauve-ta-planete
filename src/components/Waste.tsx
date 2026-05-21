@@ -163,7 +163,7 @@ export function Waste({ cleanWaste }: { cleanWaste: boolean }) {
       y: 0.5,
       z: 0.5,
       duration: 3,
-      delay: 1,
+      delay: 2,
     });
   }
 

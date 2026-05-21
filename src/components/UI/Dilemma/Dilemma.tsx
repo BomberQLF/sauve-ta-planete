@@ -49,13 +49,25 @@ export function Dilemma({
   const handleClick = (isCorrect: boolean) => {
     if (isCorrect) {
       // playAnimations(dilemma.id);
-      const available = [1, 2, 3, 4, 5, 6].filter((n) => !history.includes(n));
-      const consequence =
-        available[Math.floor(Math.random() * available.length)];
-      playAnimations(consequence.toString());
-      history.push(consequence);
-      console.log(history);
-      playAnimations(String(consequence));
+      const available = [1, 2, 3, 4, 5, 6, 7].filter(
+        (n) => !history.includes(n),
+      );
+      // when all consequences have played, do nothing/just stop rotations
+      if (available.length === 0) {
+        setIsPlaying(true);
+      } else if (available.includes(1)) {
+        // unflood always first because it makes other animations harder to see
+        const consequence = 1;
+        playAnimations(consequence.toString());
+        history.push(consequence);
+        playAnimations(String(consequence));
+      } else {
+        const consequence =
+          available[Math.floor(Math.random() * available.length)];
+        playAnimations(consequence.toString());
+        history.push(consequence);
+        playAnimations(String(consequence));
+      }
     } else {
       setIsPlaying(true);
     }
