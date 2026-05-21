@@ -1,31 +1,121 @@
 .info-container {
   position: absolute;
-  width: 50vw;
+  width: 100vw;
   height: 100vh;
   top: -50vh;
-  left: 0;
+  left: -50vw;
 }
 
-.dilemma-container {
-  max-width: 400px;
+
+.dilemma-wrapper {
   position: absolute;
   top: 40px;
   right: 40px;
-  background-color: white;
-  border-radius: 16px;
-  padding: 20px;
-  color: black;
+  width: clamp(240px, 23vw, 380px);
 }
 
-.option-container {
+.dilemma-frame {
+  width: 100%;
+  height: auto;
+  display: block;
+  pointer-events: none;
+  user-select: none;
+}
+
+.dilemma-overlay {
+  position: absolute;
+  inset: 0;
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 9% 9% 10%;
+}
+
+.dilemma-number {
+  display: flex;
+  justify-content: center;
+  gap: 0.25em;
+  width: 100%;
+  margin-bottom: 0.5em;
+}
+
+.dilemma-digit {
+  font-size: clamp(1.8rem, 3.5vw, 3rem);
+  font-weight: 900;
+  color: #1a1a1a;
+  line-height: 1;
+  padding-bottom: 5px;
+  border-bottom: 3.5px solid #1a1a1a;
+  min-width: 1.1ch;
+  text-align: center;
+}
+
+.dilemma-visual {
+  width: 100%;
+  flex: 0 0 36%;
+  background-color: #d9d9d9;
+  border-radius: 6px;
+  margin: 0.6em 0;
+}
+
+.dilemma-desc {
+  flex: 1;
+  width: 100%;
+  margin: 0;
+  font-size: clamp(0.65rem, 0.95vw, 0.85rem);
+  line-height: 1.65;
+  color: #1a1a1a;
+  overflow-y: auto;
+}
+
+.reponses-wrapper {
   position: absolute;
   bottom: 40px;
-  right: 40px;
+  left: 40px;
+  width: clamp(360px, 48vw, 700px);
+}
+
+.reponses-frame {
+  width: 100%;
+  height: auto;
+  display: block;
+  pointer-events: none;
+  user-select: none;
+}
+
+.reponses-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8% 7%;
+  gap: 5%;
 }
 
 .option-button {
-  margin: 0 0 0 40px;
-  width: 200px;
-  height: 120px;
+  flex: 1;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.15);
+  color: #1a1a1a;
+  border: none;
+  border-radius: 12px;
+  font-size: clamp(0.7rem, 1vw, 0.9rem);
+  font-weight: 700;
+  cursor: pointer;
+  text-align: center;
+  padding: 0.6rem;
+  line-height: 1.4;
+  transition: transform 0.1s ease, background-color 0.15s ease;
+  word-break: break-word;
+}
+
+.option-button:hover {
+  background-color: rgba(255, 255, 255, 0.35);
+  transform: scale(1.03);
+}
+
+.option-button:active {
+  transform: scale(0.97);
 }

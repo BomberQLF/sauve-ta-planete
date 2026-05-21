@@ -1,6 +1,7 @@
+import rectangleDesignImg from "../../../assets/rectangleDesign.png";
+import backReponseImg from "../../../assets/backReponse.png";
 import "./Dilemma.css";
-import { data } from "../../../data/dilemmas.json";
-// import data from "../../../data/data.json";
+import data from "../../../data/data.json";
 
 interface DilemmaProps {
   myDilemma: string;
@@ -29,27 +30,32 @@ export function Dilemma({
   setReplaceBuildings,
   setCleanWaste,
 }: DilemmaProps) {
-  let dilemma = data.find((e) => e.id === myDilemma);
-  if (!dilemma) return;
+  const text = data.find((e) => String(e.id) === myDilemma);
+  if (!text) return null;
+
+  const options = [
+    {
+      id: `${text.id}A`,
+      desc: text.option_A,
+      isCorrect: text.option_ecoresponsable === "A",
+    },
+    {
+      id: `${text.id}B`,
+      desc: text.option_B,
+      isCorrect: text.option_ecoresponsable === "B",
+    },
+  ];
 
   const handleClick = (isCorrect: boolean) => {
     if (isCorrect) {
-      // playAnimations(dilemma.id);
-      const available = [1, 2, 3, 4, 5, 6, 7].filter(
-        (n) => !history.includes(n),
-      );
-      const consequence =
-        available[Math.floor(Math.random() * available.length)];
-      playAnimations(consequence.toString());
-      history.push(consequence);
-      console.log(history);
+      playAnimations(String(text.id));
     } else {
       setIsPlaying(true);
     }
   };
 
-  const playAnimations = (dilemma: string) => {
-    switch (dilemma) {
+  const playAnimations = (dilemmaId: string) => {
+    switch (dilemmaId) {
       case "1":
         setIsPlaying(true);
         setUnmeltIce(true);
@@ -71,37 +77,47 @@ export function Dilemma({
         setIsPlaying(true);
         setCleanWater(true);
         break;
-      case "6":
+      default:
         setIsPlaying(true);
-        setReplaceBuildings(true);
-        break;
-      case "7":
-        setIsPlaying(true);
-        setCleanWaste(true);
         break;
     }
   };
+
+  const paddedId = String(text.id).padStart(2, "0");
+
   return (
     <div className="info-container">
-      <div className="dilemma-container">
-        <h2>{dilemma.title}</h2>
-        <p>{dilemma.desc}</p>
-        <p>{dilemma.options[0].desc}</p>
-        <p>{dilemma.options[1].desc}</p>
+
+      {/* ── Carte dilemme (droite) ── */}
+      <div className="dilemma-wrapper">
+        <img src={rectangleDesignImg} alt="" className="dilemma-frame" draggable={false} />
+        <div className="dilemma-overlay">
+          <div className="dilemma-number">
+            {paddedId.split("").map((digit, i) => (
+              <span key={i} className="dilemma-digit">{digit}</span>
+            ))}
+          </div>
+          <div className="dilemma-visual" />
+          <p className="dilemma-desc">{text.situation}</p>
+        </div>
       </div>
-      <div className="option-container">
-        {dilemma.options.map((option) => (
-          <button
-            key={option.id}
-            className="option-button"
-            onClick={() => {
-              handleClick(option.isCorrect);
-            }}
-          >
-            {option.id}
-          </button>
-        ))}
+
+      {/* ── Réponses (bas gauche) ── */}
+      <div className="reponses-wrapper">
+        <img src={backReponseImg} alt="" className="reponses-frame" draggable={false} />
+        <div className="reponses-overlay">
+          {options.map((option) => (
+            <button
+              key={option.id}
+              className="option-button"
+              onClick={() => handleClick(option.isCorrect)}
+            >
+              {option.desc}
+            </button>
+          ))}
+        </div>
       </div>
+
     </div>
   );
 }
