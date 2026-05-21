@@ -52,17 +52,18 @@ export function Scene() {
         duration: 1, ease: "power2.out",
       });
     } else {
+      // Caméra reculée + rotation reset à (0,0,0) = regarde droit devant (-Z), donc à l'origine
       gsap.to(camera.position, {
         x: 0, y: 0, z: 15,
         duration: 1, ease: "power2.out",
-        onUpdate: () => {
-          camera.up.set(0, 1, 0);
-          camera.lookAt(0, 0, 0);
-        },
       });
-      // Planète déplacée dans le monde → apparaît en haut à gauche
+      gsap.to(camera.rotation, {
+        x: 0, y: 0, z: 0,
+        duration: 1, ease: "power2.out",
+      });
+      // Planète déplacée à gauche-haut dans le monde 3D
       gsap.to(planetGroupRef.current.position, {
-        x: -10, y: 8, z: 0,
+        x: .7, y: -.5, z: 0,
         duration: 1, ease: "power2.out",
       });
     }

@@ -71,7 +71,7 @@
 .reponses-wrapper {
   position: absolute;
   bottom: 40px;
-  left: 40px;
+  left: 15%;
   width: clamp(360px, 48vw, 700px);
 }
 
