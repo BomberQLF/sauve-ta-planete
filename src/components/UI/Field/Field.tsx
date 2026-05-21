@@ -1,4 +1,5 @@
 import { useState } from "react";
+import btnImg from "../../../assets/BTN.png";
 import "./Field.css";
 
 interface FieldProps {
@@ -18,28 +19,36 @@ export function Field({ setMyDilemma }: FieldProps) {
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>): void {
     e.preventDefault();
-    setMyDilemma(input);
+    setMyDilemma(String(parseInt(input, 10)));
   }
+
+  const displayValue = input.length === 1 ? "0" + input : input;
 
   return (
     <div className="form-wrapper">
       <form className="form-container" onSubmit={handleSubmit}>
-        <div className="text-input-container">
-          <label>Dilemma:</label>
+        <label className="form-label">Votre numéro de dilemme</label>
+
+        <div className="digit-display">
+          {[0, 1].map((i) => (
+            <span key={i} className="field-digit">
+              {displayValue[i] ?? " "}
+            </span>
+          ))}
           <input
-            className="text-input"
+            className="text-input-hidden"
             type="text"
             value={input}
             onChange={handleChange}
             onClick={handleClick}
             maxLength={2}
+            autoComplete="off"
           />
         </div>
-        <input
-          className="submit-button"
-          type="submit"
-          value="Submit"
-        />
+
+        <button className="submit-btn-img" type="submit">
+          <img src={btnImg} alt="Valider" draggable={false} />
+        </button>
       </form>
     </div>
   );

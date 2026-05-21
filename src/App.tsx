@@ -26,7 +26,7 @@ export default function App() {
             fov: 75,
             near: 0.1,
             far: 100,
-            position: [0, 0, 3],
+            position: [0, -0.35, 4],
           }}
         >
           <Scene />

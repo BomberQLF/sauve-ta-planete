@@ -1,27 +1,102 @@
 .form-container {
   position: absolute;
-  left: -50vw;
-  top: -50vh;
-  padding: 40px;
-  display: flex;
-  flex-direction: column;
-  width: 62px;
-  color: white;
-}
-
-.text-input-container {
+  top: 25vh;
+  left: -14vw;
+  padding: 32px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 20px;
+  min-width: 16rem;
+  color: white;
 }
 
-.text-input {
+/* ── Label titre ── */
+.form-label {
+  font-size: clamp(0.9rem, 1.7vw, 1.3rem);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #ffffff;
+  text-shadow:
+    2px  2px 0 #1a1a1a,
+   -2px  2px 0 #1a1a1a,
+    2px -2px 0 #1a1a1a,
+   -2px -2px 0 #1a1a1a,
+    3px  4px 0 #1a1a1a;
+  white-space: nowrap;
+}
+
+/* ── Conteneur des deux chiffres ── */
+.digit-display {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  gap: 0.4em;
+}
+
+/* ── Chaque chiffre ── */
+.field-digit {
+  font-size: clamp(2rem, 3.8vw, 3.2rem);
+  font-weight: 900;
+  color: #ffffff;
+  line-height: 1;
+  padding-bottom: 5px;
+  border-bottom: 3px solid #ffffff;
+  width: 2ch;
+  flex-shrink: 0;
+  text-align: center;
+  text-shadow:
+    2px  2px 0 #1a1a1a,
+   -2px  2px 0 #1a1a1a,
+    2px -2px 0 #1a1a1a,
+   -2px -2px 0 #1a1a1a,
+    3px  4px 0 #1a1a1a;
+}
+
+/* ── Input transparent par-dessus les spans ── */
+.text-input-hidden {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: text;
+  font-size: 1rem;
   background: none;
   border: none;
-  border-bottom: solid 1px white;
+  outline: none;
+}
+
+/* ── Bouton BTN.png ── */
+.submit-btn-img {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  width: clamp(160px, 16vw, 240px);
+  transition: transform 0.1s ease, filter 0.1s ease;
+  outline: none;
+}
+
+.submit-btn-img:focus,
+.submit-btn-img:focus-visible {
+  outline: none;
+}
+
+.submit-btn-img:hover {
+  transform: translateY(-3px);
+  filter: brightness(1.05);
+}
+
+.submit-btn-img:active {
+  transform: translateY(2px);
+  filter: brightness(0.95);
+}
+
+.submit-btn-img img {
   width: 100%;
-  font-size: 2rem;
-  text-align: center;
-  margin-bottom: 12px;
-  color: white;
+  height: auto;
+  display: block;
+  user-select: none;
 }

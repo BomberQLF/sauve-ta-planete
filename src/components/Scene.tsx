@@ -1,7 +1,7 @@
 import { Planet } from "./Planet";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { Html, OrbitControls } from "@react-three/drei";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { Lights } from "./Lights";
 import { Trees } from "./Trees";
 import { Field } from "./UI/Field/Field";
@@ -34,6 +34,16 @@ export function Scene() {
   const buttonRef = useRef<HTMLDivElement>(null!);
 
   const { gl, camera } = useThree();
+
+  // Caméra : légèrement plus loin + planète haute quand le formulaire est visible
+  useEffect(() => {
+    const isFormVisible = myDilemma === "0" || myDilemma === "NaN";
+    if (isFormVisible) {
+      gsap.to(camera.position, { x: 0, y: -0.8, z: 4, duration: 1, ease: "power2.out" });
+    } else {
+      gsap.to(camera.position, { x: 0, y: 0, z: 3, duration: 1, ease: "power2.out" });
+    }
+  }, [myDilemma]);
 
   //Animate
   useFrame((state, delta) => {
@@ -94,7 +104,9 @@ export function Scene() {
 
       <Html>
         <div ref={UIRef} className="">
-          <Field setMyDilemma={setMyDilemma} />
+          {myDilemma === "0" || myDilemma === "NaN" ? (
+            <Field setMyDilemma={setMyDilemma} />
+          ) : null}
           <Dilemma
             myDilemma={myDilemma}
             setUnfloodPlanet={setUnfloodPlanet}
