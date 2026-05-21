@@ -43,6 +43,7 @@ export function Field({ setMyDilemma }: FieldProps) {
             onClick={handleClick}
             maxLength={2}
             autoComplete="off"
+            autoFocus={true}
           />
         </div>
 
