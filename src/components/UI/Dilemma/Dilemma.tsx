@@ -48,7 +48,14 @@ export function Dilemma({
 
   const handleClick = (isCorrect: boolean) => {
     if (isCorrect) {
-      playAnimations(String(text.id));
+      // playAnimations(dilemma.id);
+      const available = [1, 2, 3, 4, 5, 6].filter((n) => !history.includes(n));
+      const consequence =
+        available[Math.floor(Math.random() * available.length)];
+      playAnimations(consequence.toString());
+      history.push(consequence);
+      console.log(history);
+      playAnimations(String(consequence));
     } else {
       setIsPlaying(true);
     }
@@ -77,6 +84,14 @@ export function Dilemma({
         setIsPlaying(true);
         setCleanWater(true);
         break;
+      case "6":
+        setIsPlaying(true);
+        setReplaceBuildings(true);
+        break;
+      case "7":
+        setIsPlaying(true);
+        setCleanWaste(true);
+        break;
       default:
         setIsPlaying(true);
         break;
@@ -87,14 +102,20 @@ export function Dilemma({
 
   return (
     <div className="info-container">
-
       {/* ── Carte dilemme (droite) ── */}
       <div className="dilemma-wrapper">
-        <img src={rectangleDesignImg} alt="" className="dilemma-frame" draggable={false} />
+        <img
+          src={rectangleDesignImg}
+          alt=""
+          className="dilemma-frame"
+          draggable={false}
+        />
         <div className="dilemma-overlay">
           <div className="dilemma-number">
             {paddedId.split("").map((digit, i) => (
-              <span key={i} className="dilemma-digit">{digit}</span>
+              <span key={i} className="dilemma-digit">
+                {digit}
+              </span>
             ))}
           </div>
           <div className="dilemma-visual" />
@@ -104,7 +125,12 @@ export function Dilemma({
 
       {/* ── Réponses (bas gauche) ── */}
       <div className="reponses-wrapper">
-        <img src={backReponseImg} alt="" className="reponses-frame" draggable={false} />
+        <img
+          src={backReponseImg}
+          alt=""
+          className="reponses-frame"
+          draggable={false}
+        />
         <div className="reponses-overlay">
           {options.map((option) => (
             <button
@@ -117,7 +143,6 @@ export function Dilemma({
           ))}
         </div>
       </div>
-
     </div>
   );
 }

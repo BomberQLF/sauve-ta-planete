@@ -93,6 +93,60 @@ function FuelBarrel(props: JSX.IntrinsicElements["group"]) {
         position={[0.5, 0.4, -1.05]}
         rotation={[0, 0, 1]}
       />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.FuelBarrel_Low_FuelBarrel_0.geometry}
+        material={materials.FuelBarrel}
+        scale={0.001}
+        position={[0.9, -0.6, 0.8]}
+        rotation={[0, 0, 1]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.FuelBarrel_Low_FuelBarrel_0.geometry}
+        material={materials.FuelBarrel}
+        scale={0.001}
+        position={[0, -0.2, 1.25]}
+        rotation={[0, 0, 1]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.FuelBarrel_Low_FuelBarrel_0.geometry}
+        material={materials.FuelBarrel}
+        scale={0.001}
+        position={[0, -0.9, -0.9]}
+        rotation={[0, 0, 1]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.FuelBarrel_Low_FuelBarrel_0.geometry}
+        material={materials.FuelBarrel}
+        scale={0.001}
+        position={[-0.7, -1, -0.3]}
+        rotation={[0, 0, 1]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.FuelBarrel_Low_FuelBarrel_0.geometry}
+        material={materials.FuelBarrel}
+        scale={0.001}
+        position={[-0.7, -1, -0.3]}
+        rotation={[0, 0, 1]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.FuelBarrel_Low_FuelBarrel_0.geometry}
+        material={materials.FuelBarrel}
+        scale={0.001}
+        position={[-1.5, -1, -0.3]}
+        rotation={[0, 0, 1]}
+      />
     </group>
   );
 }
