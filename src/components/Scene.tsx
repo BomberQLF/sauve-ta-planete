@@ -6,7 +6,7 @@ import { Lights } from "./Lights";
 import { Trees } from "./Trees";
 import { Field } from "./UI/Field/Field";
 import { Dilemma } from "./UI/Dilemma/Dilemma";
-import { Group, Vector3 } from "three";
+import { Group } from "three";
 import { gsap } from "gsap";
 import { Button } from "./UI/Button/Button";
 import { Birds } from "./Birds";
@@ -35,13 +35,36 @@ export function Scene() {
 
   const { gl, camera } = useThree();
 
-  // Caméra : légèrement plus loin + planète haute quand le formulaire est visible
+  // Form : caméra zoomée, planète centrée (OrbitControls gère l'orientation)
+  // Dilemme : caméra reculée qui regarde toujours l'origine (pour ancrer les <Html>),
+  // on déplace la planète dans le monde pour qu'elle apparaisse en haut-gauche
   useEffect(() => {
+    if (!planetGroupRef.current) return;
     const isFormVisible = myDilemma === "0" || myDilemma === "NaN";
+
     if (isFormVisible) {
-      gsap.to(camera.position, { x: 0, y: -0.8, z: 4, duration: 1, ease: "power2.out" });
+      gsap.to(camera.position, {
+        x: 0, y: -0.8, z: 5,
+        duration: 1, ease: "power2.out",
+      });
+      gsap.to(planetGroupRef.current.position, {
+        x: 0, y: 0, z: 0,
+        duration: 1, ease: "power2.out",
+      });
     } else {
-      gsap.to(camera.position, { x: 0, y: 0, z: 3, duration: 1, ease: "power2.out" });
+      gsap.to(camera.position, {
+        x: 0, y: 0, z: 15,
+        duration: 1, ease: "power2.out",
+        onUpdate: () => {
+          camera.up.set(0, 1, 0);
+          camera.lookAt(0, 0, 0);
+        },
+      });
+      // Planète déplacée dans le monde → apparaît en haut à gauche
+      gsap.to(planetGroupRef.current.position, {
+        x: -10, y: 8, z: 0,
+        duration: 1, ease: "power2.out",
+      });
     }
   }, [myDilemma]);
 
@@ -82,7 +105,8 @@ export function Scene() {
 
   return (
     <>
-      <OrbitControls />
+      {/* OrbitControls actif uniquement quand le formulaire est visible */}
+      {(myDilemma === "0" || myDilemma === "NaN") && <OrbitControls />}
 
       <Lights />
       <group ref={planetGroupRef}>
