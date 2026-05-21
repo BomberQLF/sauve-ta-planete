@@ -1,8 +1,7 @@
 import rectangleDesignImg from "../../../assets/rectangleDesign.png";
 import backReponseImg from "../../../assets/backReponse.png";
 import "./Dilemma.css";
-// import data from "../../../data/data.json";
-import { data } from "../../../data/dilemmas.json";
+import data from "../../../data/data.json";
 
 interface DilemmaProps {
   myDilemma: string;
@@ -34,24 +33,20 @@ export function Dilemma({
   const text = data.find((e) => String(e.id) === myDilemma);
   if (!text) return null;
 
-  // const options = [
-  //   {
-  //     id: `${text.id}A`,
-  //     desc: text.option_A,
-  //     isCorrect: text.option_ecoresponsable === "A" ? true : false,
-  //   },
-  //   {
-  //     id: `${text.id}B`,
-  //     desc: text.option_B,
-  //     isCorrect: text.option_ecoresponsable === "B" ? true : false,
-  //   },
-  // ];
-
-  const failureAudio = new Audio("/failure-sound.mp3");
-  const successAudio = new Audio("/sparkle.mp3");
+  const options = [
+    {
+      id: `${text.id}A`,
+      desc: text.option_A,
+      isCorrect: text.option_ecoresponsable === "A",
+    },
+    {
+      id: `${text.id}B`,
+      desc: text.option_B,
+      isCorrect: text.option_ecoresponsable === "B",
+    },
+  ];
 
   const handleClick = (isCorrect: boolean) => {
-    console.log(isCorrect);
     if (isCorrect) {
       // playAnimations(dilemma.id);
       const available = [1, 2, 3, 4, 5, 6].filter((n) => !history.includes(n));
@@ -59,10 +54,9 @@ export function Dilemma({
         available[Math.floor(Math.random() * available.length)];
       playAnimations(consequence.toString());
       history.push(consequence);
-      successAudio.play();
+      console.log(history);
       playAnimations(String(consequence));
     } else {
-      failureAudio.play();
       setIsPlaying(true);
     }
   };
@@ -125,7 +119,7 @@ export function Dilemma({
             ))}
           </div>
           <div className="dilemma-visual" />
-          <p className="dilemma-desc">{text.desc}</p>
+          <p className="dilemma-desc">{text.situation}</p>
         </div>
       </div>
 
@@ -138,7 +132,7 @@ export function Dilemma({
           draggable={false}
         />
         <div className="reponses-overlay">
-          {text.options.map((option) => (
+          {options.map((option) => (
             <button
               key={option.id}
               className="option-button"
