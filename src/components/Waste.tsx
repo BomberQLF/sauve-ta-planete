@@ -144,7 +144,7 @@ function FuelBarrel(props: JSX.IntrinsicElements["group"]) {
         geometry={nodes.FuelBarrel_Low_FuelBarrel_0.geometry}
         material={materials.FuelBarrel}
         scale={0.001}
-        position={[-1.5, -1, -0.3]}
+        position={[-0.7, -0, -1]}
         rotation={[0, 0, 1]}
       />
     </group>
