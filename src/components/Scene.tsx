@@ -9,6 +9,8 @@ import { Dilemma } from "./UI/Dilemma/Dilemma";
 import { Group } from "three";
 import { gsap } from "gsap";
 import { Button } from "./UI/Button/Button";
+import { ProgressBar } from "./UI/ProgressBar/ProgressBar";
+import data from "../data/data.json";
 import { Birds } from "./Birds";
 import { Clouds } from "./Clouds";
 import { Glacier } from "./Glacier/Glacier";
@@ -29,6 +31,11 @@ export function Scene() {
   const [cleanWater, setCleanWater] = useState<boolean>(false);
   const [replaceBuildings, setReplaceBuildings] = useState<boolean>(false);
   const [cleanWaste, setCleanWaste] = useState<boolean>(false);
+
+  // Progression — ids des dilemmes répondus correctement (Set évite les doublons)
+  const [correctIds, setCorrectIds] = useState<Set<string>>(new Set());
+  const addCorrectId = (id: string) =>
+    setCorrectIds((prev) => new Set(prev).add(id));
 
   const UIRef = useRef<HTMLDivElement>(null!);
   const buttonRef = useRef<HTMLDivElement>(null!);
@@ -153,10 +160,12 @@ export function Scene() {
             setCleanWater={setCleanWater}
             setReplaceBuildings={setReplaceBuildings}
             setCleanWaste={setCleanWaste}
+            onCorrectAnswer={addCorrectId}
           />
         </div>
 
         <div ref={buttonRef} className="">
+          <ProgressBar current={correctIds.size} total={data.length} />
           <Button setIsPlaying={setIsPlaying} setMyDilemma={setMyDilemma} />
         </div>
       </Html>

@@ -14,6 +14,7 @@ interface DilemmaProps {
   setCleanWater: (cleanWater: boolean) => void;
   setReplaceBuildings: (replaceBuildings: boolean) => void;
   setCleanWaste: (cleanWaste: boolean) => void;
+  onCorrectAnswer: (id: string) => void;
 }
 
 const history: number[] = [];
@@ -29,6 +30,7 @@ export function Dilemma({
   setCleanWater,
   setReplaceBuildings,
   setCleanWaste,
+  onCorrectAnswer,
 }: DilemmaProps) {
   const text = data.find((e) => String(e.id) === myDilemma);
   if (!text) return null;
@@ -48,6 +50,7 @@ export function Dilemma({
 
   const handleClick = (isCorrect: boolean) => {
     if (isCorrect) {
+      onCorrectAnswer(String(text.id));
       // playAnimations(dilemma.id);
       const available = [1, 2, 3, 4, 5, 6, 7].filter(
         (n) => !history.includes(n),
@@ -111,6 +114,10 @@ export function Dilemma({
   };
 
   const paddedId = String(text.id).padStart(2, "0");
+  const dilemmaImg = new URL(
+    `../../../assets/img/${paddedId}.jpg`,
+    import.meta.url,
+  ).href;
 
   return (
     <div className="info-container">
@@ -130,7 +137,12 @@ export function Dilemma({
               </span>
             ))}
           </div>
-          <div className="dilemma-visual" />
+          <img
+            src={dilemmaImg}
+            alt={`Dilemme ${paddedId}`}
+            className="dilemma-visual"
+            draggable={false}
+          />
           <p className="dilemma-desc">{text.situation}</p>
         </div>
       </div>

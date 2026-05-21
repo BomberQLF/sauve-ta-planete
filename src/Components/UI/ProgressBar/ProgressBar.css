@@ -1,0 +1,95 @@
+.progress-bar-wrapper {
+  position: absolute;
+  top: -45vh;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  width: clamp(380px, 46vw, 660px);
+}
+
+/* ── Label ── */
+.progress-bar-label {
+  margin: 0;
+  font-size: clamp(0.9rem, 1.4vw, 1.2rem);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #ffffff;
+  text-shadow:
+    2px  2px 0 #1a1a1a,
+   -2px  2px 0 #1a1a1a,
+    2px -2px 0 #1a1a1a,
+   -2px -2px 0 #1a1a1a,
+    3px  4px 0 #1a1a1a;
+}
+
+/* ── Ligne barre + % ── */
+.progress-bar-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+}
+
+/* Wrapper qui forme la bordure multicolore (pattern des autres panneaux) */
+.progress-bar-border {
+  flex: 1;
+  padding: 6px;
+  border-radius: 999px;
+  background: conic-gradient(
+    from 90deg,
+    #48cb5f 0%,
+    #48cb5f 25%,
+    #ffc366 25%,
+    #ffc366 50%,
+    #f37c6b 50%,
+    #f37c6b 75%,
+    #ec96b3 75%,
+    #ec96b3 100%
+  );
+  box-shadow: 0 5px 0 #1a1a1a;
+}
+
+/* Track blanc à l'intérieur */
+.progress-bar-track {
+  height: 32px;
+  background-color: #ffffff;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+/* Fill vert qui progresse */
+.progress-bar-fill {
+  height: 100%;
+  background-color: #48cb5f;
+  border-radius: 999px;
+  transition: width 0.5s ease-out;
+}
+
+/* Pourcentage à droite */
+.progress-bar-text {
+  font-size: clamp(1.1rem, 1.6vw, 1.5rem);
+  font-weight: 900;
+  color: #ffffff;
+  text-shadow:
+    2px  2px 0 #1a1a1a,
+   -2px  2px 0 #1a1a1a,
+    2px -2px 0 #1a1a1a,
+   -2px -2px 0 #1a1a1a,
+    3px  4px 0 #1a1a1a;
+  min-width: 4.5ch;
+  text-align: right;
+}
+
+/* Compteur X / Y */
+.progress-bar-count {
+  margin: 0;
+  font-size: clamp(0.75rem, 1vw, 0.95rem);
+  font-weight: 700;
+  color: #ffffff;
+  text-shadow: 1px 1px 0 #1a1a1a;
+  letter-spacing: 0.05em;
+}

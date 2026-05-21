@@ -53,9 +53,11 @@
 .dilemma-visual {
   width: 100%;
   flex: 0 0 36%;
-  background-color: #d9d9d9;
+  object-fit: cover;
   border-radius: 6px;
   margin: 0.6em 0;
+  display: block;
+  user-select: none;
 }
 
 .dilemma-desc {
