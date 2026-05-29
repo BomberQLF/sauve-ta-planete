@@ -16,6 +16,8 @@ import { Clouds } from "./Clouds";
 import { Glacier } from "./Glacier/Glacier";
 import { Buildings } from "./Buildings";
 import { Waste } from "./Waste";
+import { RenewableEnergy } from "./RenewableEnergy";
+import { Animals } from "./Animals";
 
 export function Scene() {
   const [myDilemma, setMyDilemma] = useState("0");
@@ -31,6 +33,10 @@ export function Scene() {
   const [cleanWater, setCleanWater] = useState<boolean>(false);
   const [replaceBuildings, setReplaceBuildings] = useState<boolean>(false);
   const [cleanWaste, setCleanWaste] = useState<boolean>(false);
+  const [transitionEnergy, setTransitionEnergy] = useState<boolean>(false);
+
+  //to add
+  const [addAnimals, setAddAnimals] = useState<boolean>(false);
 
   // Progression — ids des dilemmes répondus correctement (Set évite les doublons)
   const [correctIds, setCorrectIds] = useState<Set<string>>(new Set());
@@ -52,36 +58,57 @@ export function Scene() {
     if (isFormVisible) {
       // Form : caméra zoomée + planète centrée
       gsap.to(camera.position, {
-        x: 0, y: -0.8, z: 5,
-        duration: 1, ease: "power2.out",
+        x: 0,
+        y: -0.8,
+        z: 5,
+        duration: 1,
+        ease: "power2.out",
       });
       gsap.to(planetGroupRef.current.position, {
-        x: 0, y: 0, z: 0,
-        duration: 1, ease: "power2.out",
+        x: 0,
+        y: 0,
+        z: 0,
+        duration: 1,
+        ease: "power2.out",
       });
     } else if (isPlaying) {
       // Étape Continuer/Terminer : planète recentrée pour bien voir le résultat
       gsap.to(camera.rotation, {
-        x: 0, y: 0, z: 0,
-        duration: 1, ease: "power2.out",
+        x: 0,
+        y: 0,
+        z: 0,
+        duration: 1,
+        ease: "power2.out",
       });
       gsap.to(planetGroupRef.current.position, {
-        x: 0, y: 0, z: 0,
-        duration: 1, ease: "power2.out",
+        x: 0,
+        y: 0,
+        z: 0,
+        duration: 1,
+        ease: "power2.out",
       });
     } else {
       // Dilemme actif (avant clic réponse) : planète décalée pour laisser place aux panneaux
       gsap.to(camera.position, {
-        x: 0, y: 0, z: 15,
-        duration: 1, ease: "power2.out",
+        x: 0,
+        y: 0,
+        z: 15,
+        duration: 1,
+        ease: "power2.out",
       });
       gsap.to(camera.rotation, {
-        x: 0, y: 0, z: 0,
-        duration: 1, ease: "power2.out",
+        x: 0,
+        y: 0,
+        z: 0,
+        duration: 1,
+        ease: "power2.out",
       });
       gsap.to(planetGroupRef.current.position, {
-        x: 0.7, y: -0.5, z: 0,
-        duration: 1, ease: "power2.out",
+        x: 0.7,
+        y: -0.5,
+        z: 0,
+        duration: 1,
+        ease: "power2.out",
       });
     }
   }, [myDilemma, isPlaying]);
@@ -111,9 +138,9 @@ export function Scene() {
       // });
 
       // planet constantly rotating
-      planetGroupRef.current.rotateX(delta * 0.1);
-      planetGroupRef.current.rotateY(delta * 0.1);
-      planetGroupRef.current.rotateZ(delta * 0.1);
+      // planetGroupRef.current.rotateX(delta * 0.1);
+      // planetGroupRef.current.rotateY(delta * 0.1);
+      // planetGroupRef.current.rotateZ(delta * 0.1);
       if ((UIRef.current, buttonRef.current)) {
         UIRef.current.classList.remove("hidden");
         buttonRef.current.classList.add("hidden");
@@ -124,24 +151,28 @@ export function Scene() {
   return (
     <>
       {/* OrbitControls actif uniquement quand le formulaire est visible */}
-      {(myDilemma === "0" || myDilemma === "NaN") && <OrbitControls />}
+      {/* {(myDilemma === "0" || myDilemma === "NaN") && <OrbitControls />} */}
+
+      {/* Pour le dev */}
+      <OrbitControls />
 
       <Lights />
       <group ref={planetGroupRef}>
+        <Animals />
         <Clouds cleanAir={cleanAir} />
-        {/* <Ice unmeltIce={unmeltIce} />
-        <Penguin /> */}
-        <Glacier unmeltIce={unmeltIce} />
+        <Glacier unmeltIce={unmeltIce} addAnimals={addAnimals} />
 
         <Planet
           unfloodPlanet={unfloodPlanet}
           turnPlanetGreen={turnPlanetGreen}
           cleanWater={cleanWater}
+          addAnimals={addAnimals}
         />
         <Trees growTrees={growTrees} />
-        <Birds />
+        <Birds addAnimals={addAnimals} />
         <Buildings replaceBuildings={replaceBuildings} />
         <Waste cleanWaste={cleanWaste} />
+        <RenewableEnergy transitionEnergy={transitionEnergy} />
       </group>
 
       <Html>
@@ -160,12 +191,18 @@ export function Scene() {
             setCleanWater={setCleanWater}
             setReplaceBuildings={setReplaceBuildings}
             setCleanWaste={setCleanWaste}
+            setTransitionEnergy={setTransitionEnergy}
+            setAddAnimals={setAddAnimals}
             onCorrectAnswer={addCorrectId}
           />
         </div>
 
         <div ref={buttonRef} className="">
-          <ProgressBar current={correctIds.size} total={data.length} />
+          {/* Total = nb dilemmas */}
+          {/* <ProgressBar current={correctIds.size} total={data.length} /> */}
+
+          {/* Total = nb consequences */}
+          {/* <ProgressBar current={correctIds.size} total={10} /> */}
           <Button setIsPlaying={setIsPlaying} setMyDilemma={setMyDilemma} />
         </div>
       </Html>

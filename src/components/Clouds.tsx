@@ -13,7 +13,10 @@ import { gsap } from "gsap";
 import { useFrame, useLoader } from "@react-three/fiber";
 
 export function Clouds({ cleanAir }: { cleanAir: boolean }) {
-  const cloudColorMap = useLoader(TextureLoader, "/clouds-color-map.webp");
+  const cloudColorMap = useLoader(
+    TextureLoader,
+    "/textures/clouds-color-map.webp",
+  );
   const cloudsRef = useRef<Mesh>(null!);
   const smokeRef = useRef<Mesh>(null!);
 
@@ -38,21 +41,23 @@ export function Clouds({ cleanAir }: { cleanAir: boolean }) {
 
   return (
     <group>
-      <mesh ref={smokeRef}>
+      <mesh ref={smokeRef} renderOrder={9}>
         <sphereGeometry args={[1.5]} />
         <meshBasicMaterial
           map={cloudColorMap}
           // color={"black"}
           color={"#614d45"}
+          // alphaHash
           transparent
           opacity={0.5}
         />
       </mesh>
-      <mesh ref={cloudsRef}>
+      <mesh ref={cloudsRef} renderOrder={10}>
         <sphereGeometry args={[1.5]} />
         <meshBasicMaterial
           map={cloudColorMap}
           color={"white"}
+          // alphaHash
           transparent
           opacity={0}
         />

@@ -14,6 +14,8 @@ interface DilemmaProps {
   setCleanWater: (cleanWater: boolean) => void;
   setReplaceBuildings: (replaceBuildings: boolean) => void;
   setCleanWaste: (cleanWaste: boolean) => void;
+  setTransitionEnergy: (transitionEnergy: boolean) => void;
+  setAddAnimals: (addAnimals: boolean) => void;
   onCorrectAnswer: (id: string) => void;
 }
 
@@ -30,6 +32,8 @@ export function Dilemma({
   setCleanWater,
   setReplaceBuildings,
   setCleanWaste,
+  setTransitionEnergy,
+  setAddAnimals,
   onCorrectAnswer,
 }: DilemmaProps) {
   const text = data.find((e) => String(e.id) === myDilemma);
@@ -52,13 +56,14 @@ export function Dilemma({
     if (isCorrect) {
       onCorrectAnswer(String(text.id));
       // playAnimations(dilemma.id);
-      const available = [1, 2, 3, 4, 5, 6, 7].filter(
+      const available = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].filter(
         (n) => !history.includes(n),
       );
       // when all consequences have played, do nothing/just stop rotations
       if (available.length === 0) {
         setIsPlaying(true);
-      } else if (available.includes(1)) {
+      }
+      if (history.length === 0) {
         // unflood always first because it makes other animations harder to see
         const consequence = 1;
         playAnimations(consequence.toString());
@@ -106,6 +111,20 @@ export function Dilemma({
       case "7":
         setIsPlaying(true);
         setCleanWaste(true);
+        break;
+      case "8":
+        setIsPlaying(true);
+        setTransitionEnergy(true);
+        break;
+      case "8":
+        setIsPlaying(true);
+        break;
+      case "9":
+        setIsPlaying(true);
+        break;
+      case "10":
+        setIsPlaying(true);
+        setAddAnimals(true);
         break;
       default:
         setIsPlaying(true);

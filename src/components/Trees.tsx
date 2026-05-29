@@ -20,7 +20,9 @@ type GLTFResult = GLTF & {
 };
 
 export function Trees({ growTrees }: { growTrees: boolean }) {
-  const { nodes, materials } = useGLTF("/arbres.glb") as unknown as GLTFResult;
+  const { nodes, materials } = useGLTF(
+    "/models/arbres.glb",
+  ) as unknown as GLTFResult;
   const deadTreeRef = useRef<Mesh>(null!);
   const treeRef = useRef<Mesh>(null!);
   const containerRef = useRef<Group>(null!);
@@ -76,4 +78,4 @@ export function Trees({ growTrees }: { growTrees: boolean }) {
   );
 }
 
-useGLTF.preload("/arbres.glb");
+useGLTF.preload("/models/arbres.glb");

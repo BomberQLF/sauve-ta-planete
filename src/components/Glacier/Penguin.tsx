@@ -7,6 +7,7 @@ import { useRef, type JSX } from "react";
 import { useGLTF } from "@react-three/drei";
 import type { GLTF } from "three-stdlib";
 import gsap from "gsap";
+import { useFrame } from "@react-three/fiber";
 
 type GLTFResult = GLTF & {
   nodes: {
@@ -17,17 +18,37 @@ type GLTFResult = GLTF & {
   };
 };
 
-export function Penguin({ unmeltIce }: { unmeltIce: boolean }) {
-  const { nodes, materials } = useGLTF("/penguin.glb") as unknown as GLTFResult;
+export function Penguin({
+  unmeltIce,
+  addAnimals,
+}: {
+  unmeltIce: boolean;
+  addAnimals: boolean;
+}) {
+  const { nodes, materials } = useGLTF(
+    "/models/penguin.glb",
+  ) as unknown as GLTFResult;
 
   const penguinsRef = useRef<Group>(null!);
 
-  // Animation;
+  // Animation
+  useFrame((_, delta) => {
+    penguinsRef.current.rotateY(-delta * 0.3);
+  });
+
+  if (addAnimals) {
+    gsap.to(penguinsRef.current.scale, {
+      x: 0.09,
+      y: 0.09,
+      z: 0.09,
+      duration: 1,
+      delay: 2,
+    });
+  }
+
   if (unmeltIce) {
     gsap.to(penguinsRef.current.position, {
-      x: 0,
-      y: -1.24,
-      z: 0,
+      y: -1.15,
       duration: 3,
       delay: 3,
     });
@@ -37,15 +58,17 @@ export function Penguin({ unmeltIce }: { unmeltIce: boolean }) {
     <group
       ref={penguinsRef}
       dispose={null}
-      position={[0, 0, 0]}
-      rotation={[Math.PI, Math.PI, 0]}
-      scale={0.09}
+      position={[0.1, 0, 0.4]}
+      rotation={[2.5, 2, 0.35]}
+      scale={0.02}
     >
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.penguin.geometry}
         material={materials.Material}
+        position={[-2.5, 0, 0]}
+        rotation={[0, 2.2, 0]}
       />
       <mesh
         castShadow
@@ -53,6 +76,7 @@ export function Penguin({ unmeltIce }: { unmeltIce: boolean }) {
         geometry={nodes.penguin.geometry}
         material={materials.Material}
         position={[2, 0, 0]}
+        rotation={[0, -0.5, 0]}
       />
       <mesh
         castShadow
@@ -60,9 +84,10 @@ export function Penguin({ unmeltIce }: { unmeltIce: boolean }) {
         geometry={nodes.penguin.geometry}
         material={materials.Material}
         position={[0, -0.3, 3]}
+        rotation={[0, -2, 0]}
       />
     </group>
   );
 }
 
-useGLTF.preload("/penguin.glb");
+useGLTF.preload("/models/penguin.glb");

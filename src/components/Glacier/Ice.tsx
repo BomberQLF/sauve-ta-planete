@@ -23,7 +23,7 @@ type GLTFActions = Record<ActionName, AnimationAction>;
 export function Ice({ unmeltIce }: { unmeltIce: boolean }) {
   const group = useRef<Group>(null!);
   const { nodes, materials, animations } = useGLTF(
-    "/ice.glb",
+    "/models/ice.glb",
   ) as unknown as GLTFResult;
   // const { actions } = useAnimations<GLTFActions>(animations, group);
   const iceRef = useRef<Mesh>(null!);
@@ -58,4 +58,4 @@ export function Ice({ unmeltIce }: { unmeltIce: boolean }) {
   );
 }
 
-useGLTF.preload("/ice.glb");
+useGLTF.preload("/models/ice.glb");

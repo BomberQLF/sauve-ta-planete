@@ -9,30 +9,45 @@ Title: Low Poly Bird (Animated)
 import * as THREE from "three";
 import { useEffect, useMemo, useRef, type JSX } from "react";
 import { useGLTF, useAnimations } from "@react-three/drei";
-import type { GLTF } from "three-stdlib";
-import { useFrame } from "@react-three/fiber";
-import { AnimationMixer } from "three";
+import { SkeletonUtils, type GLTF } from "three-stdlib";
+import { useFrame, useGraph } from "@react-three/fiber";
+import { gsap } from "gsap";
 
-type GLTFResult = GLTF & {
-  nodes: {
-    Object_7: THREE.SkinnedMesh;
-    _rootJoint: THREE.Bone;
-  };
-  materials: {
-    blinn2: THREE.MeshStandardMaterial;
-  };
-};
+// type GLTFResult = GLTF & {
+//   nodes: {
+//     Object_7: THREE.SkinnedMesh;
+//     _rootJoint: THREE.Bone;
+//   };
+//   materials: {
+//     blinn2: THREE.MeshStandardMaterial;
+//   };
+// };
 
 type ActionName = "Take 001";
 type GLTFActions = Record<ActionName, THREE.AnimationAction>;
 
-export function Birds(props: JSX.IntrinsicElements["group"]) {
+function Bird({
+  orbitAxis,
+  rotateBird,
+}: {
+  orbitAxis: string;
+  rotateBird: [x: number, y: number, z: number];
+}) {
   const group = useRef<THREE.Group>(null!);
-  const { nodes, materials, animations } = useGLTF(
-    "/low_poly_bird_animated.glb",
-  ) as unknown as GLTFResult;
+  // const { nodes, materials, animations } = useGLTF(
+  //   "/models/low_poly_bird_animated.glb",
+  // ) as unknown as GLTFResult;
+
+  const { scene, animations } = useGLTF("/models/low_poly_bird_animated.glb");
+
   const { ref, actions } = useAnimations(animations, group);
-  // const mixer = useMemo(() => new AnimationMixer(), []);
+
+  //https://codesandbox.io/p/sandbox/k8phr?file=%2Fsrc%2FApp.js%3A18%2C21
+  // Skinned meshes cannot be re-used in threejs without cloning them
+  const clone = useMemo(() => SkeletonUtils.clone(scene), [scene]);
+  // useGraph creates two flat object collections for nodes and materials
+  const { nodes, materials } = useGraph(clone);
+
   useEffect(() => {
     actions["Take 001"]?.play();
   }, []);
@@ -41,29 +56,44 @@ export function Birds(props: JSX.IntrinsicElements["group"]) {
   useFrame((_, delta) => {
     elapsedRef.current += delta * 0.5;
     if (ref.current) {
-      ref.current.position.x = 1.4 * Math.cos(elapsedRef.current);
-      ref.current.position.y = -1.4 * Math.sin(elapsedRef.current);
-      // ref.current.rotation.y = elapsedRef.current * 2;
+      if (orbitAxis == "z") {
+        ref.current.rotation.z = elapsedRef.current * 0.8;
+        ref.current.rotation.y = elapsedRef.current * 0.8;
+      } else ref.current.rotation.x = elapsedRef.current;
     }
   });
   return (
-    <group
-      ref={ref}
-      {...props}
-      dispose={null}
-      scale={0.02}
-      position={[0, 5, 0]}
-      rotation={[0, Math.PI / 2, 0]}
-    >
-      <primitive object={nodes._rootJoint} />
-      <skinnedMesh
-        name="Object_7"
-        geometry={nodes.Object_7.geometry}
-        material={materials.blinn2}
-        skeleton={nodes.Object_7.skeleton}
-      />
+    <group ref={ref} dispose={null}>
+      <group scale={0.02} position={[0, 1.4, 0]} rotation={rotateBird}>
+        <primitive object={nodes._rootJoint} />
+        <skinnedMesh
+          name="Object_7"
+          geometry={nodes.Object_7.geometry}
+          material={materials.blinn2}
+          skeleton={nodes.Object_7.skeleton}
+        />
+      </group>
     </group>
   );
 }
 
-useGLTF.preload("/low_poly_bird_animated.glb");
+useGLTF.preload("/models/low_poly_bird_animated.glb");
+
+export function Birds({ addAnimals }: { addAnimals: boolean }) {
+  const birdsRef = useRef<THREE.Group>(null!);
+  if (addAnimals) {
+    gsap.to(birdsRef.current.scale, {
+      x: 1,
+      y: 1,
+      z: 1,
+      duration: 1,
+      delay: 2,
+    });
+  }
+  return (
+    <group ref={birdsRef} scale={0.7}>
+      <Bird orbitAxis={"xy"} rotateBird={[0, 0, 0]} />
+      <Bird orbitAxis={"z"} rotateBird={[0, -Math.PI / 2, 0]} />
+    </group>
+  );
+}

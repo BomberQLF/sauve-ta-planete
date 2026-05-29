@@ -39,17 +39,24 @@ export function Planet({
   unfloodPlanet,
   turnPlanetGreen,
   cleanWater,
+  addAnimals,
 }: {
   unfloodPlanet: boolean;
   turnPlanetGreen: boolean;
   cleanWater: boolean;
+  addAnimals: boolean;
 }) {
-  const { nodes, materials } = useGLTF("/surface.glb") as unknown as GLTFResult;
-  const waterMap = useLoader(TextureLoader, "/waterTexture.jpg");
+  const { nodes, materials } = useGLTF(
+    "/models/surface.glb",
+  ) as unknown as GLTFResult;
+  const waterMap = useLoader(TextureLoader, "/textures/waterTexture.jpg");
+  const fishMap = useLoader(TextureLoader, "/textures/fishMap.png");
 
   const containerRef = useRef<Group>(null!);
 
   const waterRef = useRef<Mesh>(null!);
+  const fishRef = useRef<Mesh>(null!);
+
   const pollutedWaterRef = useRef<Mesh>(null!);
   const cleanWaterRef = useRef<Mesh>(null!);
 
@@ -57,6 +64,14 @@ export function Planet({
   const badTerrainRef = useRef<Mesh>(null!);
 
   // Animation
+  if (addAnimals) {
+    gsap.to(fishRef.current.material, {
+      opacity: 0.1,
+      duration: 1,
+      delay: 2,
+    });
+  }
+
   if (unfloodPlanet) {
     gsap.to(waterRef.current.scale, {
       x: 1.2,
@@ -99,23 +114,42 @@ export function Planet({
 
   useFrame((_, delta) => {
     waterRef.current.rotateX(delta * 0.05);
+    fishRef.current.rotateY(delta * 0.5);
+    fishRef.current.rotateZ(delta * 0.05);
   });
 
   return (
     <>
       <group dispose={null}>
         {/* Water */}
+        {/* <mesh>
+          <sphereGeometry args={[1.6]} />
+          <meshBasicMaterial
+            map={fishMap}
+            transparent
+            opacity={0.5}
+          />
+        </mesh> */}
         <group ref={waterRef} scale={1.265}>
-          <mesh ref={pollutedWaterRef}>
+          <mesh ref={fishRef} renderOrder={3}>
+            <sphereGeometry args={[1.006]} />
+            <meshBasicMaterial
+              map={fishMap}
+              color={"black"}
+              transparent
+              opacity={0}
+            />
+          </mesh>
+          <mesh ref={pollutedWaterRef} renderOrder={2}>
             <sphereGeometry />
             <meshBasicMaterial
               map={waterMap}
-              color={"#70c485"}
+              color={"#59a16b"}
               opacity={1}
               alphaHash={true}
             />
           </mesh>
-          <mesh ref={cleanWaterRef}>
+          <mesh ref={cleanWaterRef} renderOrder={1}>
             <sphereGeometry />
             <meshBasicMaterial
               map={waterMap}
@@ -140,7 +174,7 @@ export function Planet({
             castShadow
             receiveShadow
             geometry={nodes.Earth_1.geometry}
-            material={new MeshStandardMaterial({ color: "#CA8D16" })}
+            material={new MeshStandardMaterial({ color: "#c4973d" })}
           />
           <mesh
             castShadow
@@ -184,4 +218,4 @@ export function Planet({
   );
 }
 
-useGLTF.preload("/surface.glb");
+useGLTF.preload("/models/surface.glb");
