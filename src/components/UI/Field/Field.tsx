@@ -1,5 +1,4 @@
 import { useState } from "react";
-import btnImg from "../../../assets/BTN.png";
 import "./Field.css";
 
 interface FieldProps {
@@ -32,7 +31,7 @@ export function Field({ setMyDilemma }: FieldProps) {
         <div className="digit-display">
           {[0, 1].map((i) => (
             <span key={i} className="field-digit">
-              {displayValue[i] ?? " "}
+              {displayValue[i] ?? " "}
             </span>
           ))}
           <input
@@ -47,8 +46,8 @@ export function Field({ setMyDilemma }: FieldProps) {
           />
         </div>
 
-        <button className="submit-btn-img" type="submit">
-          <img src={btnImg} alt="Valider" draggable={false} />
+        <button className="btn-multicolor submit-btn" type="submit">
+          Valider
         </button>
       </form>
     </div>

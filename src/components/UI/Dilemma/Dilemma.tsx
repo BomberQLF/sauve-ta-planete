@@ -1,5 +1,3 @@
-import rectangleDesignImg from "../../../assets/rectangleDesign.png";
-import backReponseImg from "../../../assets/backReponse.png";
 import "./Dilemma.css";
 import data from "../../../data/data.json";
 
@@ -57,16 +55,13 @@ export function Dilemma({
   const handleClick = (isCorrect: boolean) => {
     if (isCorrect) {
       onCorrectAnswer(String(text.id));
-      // playAnimations(dilemma.id);
       const available = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].filter(
         (n) => !history.includes(n),
       );
-      // when all consequences have played, do nothing/just stop rotations
       if (available.length === 0) {
         setIsPlaying(true);
       }
       if (history.length === 0) {
-        // unflood always first because it makes other animations harder to see
         const consequence = 1;
         playAnimations(consequence.toString());
         history.push(consequence);
@@ -168,26 +163,35 @@ export function Dilemma({
         </div>
       </div>
 
-      {/* ── Réponses (bas gauche) ── */}
-      <div className="reponses-wrapper">
-        <img
-          src={backReponseImg}
-          alt=""
-          className="reponses-frame"
-          draggable={false}
-        />
-        <div className="reponses-overlay">
-          {options.map((option) => (
-            <button
-              key={option.id}
-              className="option-button"
-              onClick={() => handleClick(option.isCorrect)}
-            >
-              {option.desc}
-            </button>
+      {/* ── Carte dilemme (haut droite) ── */}
+      <div className="dilemma-card">
+        <div className="dilemma-number">
+          {paddedId.split("").map((digit, i) => (
+            <span key={i} className="dilemma-digit">{digit}</span>
           ))}
         </div>
+        <img
+          src={dilemmaImg}
+          alt={`Dilemme ${paddedId}`}
+          className="dilemma-visual"
+          draggable={false}
+        />
+        <p className="dilemma-desc">{text.situation}</p>
       </div>
+
+      {/* ── Panneau réponses (bas) ── */}
+      <div className="reponses-card">
+        {options.map((option) => (
+          <button
+            key={option.id}
+            className="option-button"
+            onClick={() => handleClick(option.isCorrect)}
+          >
+            {option.desc}
+          </button>
+        ))}
+      </div>
+
     </div>
   );
 }

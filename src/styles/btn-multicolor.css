@@ -1,0 +1,29 @@
+/* ── Bouton multicolore partagé ── */
+.btn-multicolor {
+  -webkit-appearance: none;
+  appearance: none;
+  background:
+    linear-gradient(#ffffff, #ffffff) padding-box,
+    conic-gradient(
+      from 90deg,
+      #ffc366 0%,   #ffc366 20%,
+      #f37c6b 20%,  #f37c6b 40%,
+      #ec96b3 40%,  #ec96b3 60%,
+      #48cb5f 60%,  #48cb5f 80%,
+      #058cd7 80%,  #058cd7 100%
+    ) border-box;
+  border: 4px solid transparent;
+  border-radius: 60px;
+  color: #1a1a1a;
+  font-family: inherit;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: transform 0.1s ease;
+}
+
+.btn-multicolor:focus,
+.btn-multicolor:focus-visible {
+  outline: none;
+}

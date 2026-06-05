@@ -1,3 +1,4 @@
+/* ── Overlay plein écran ancré à l'origine 3D ── */
 .info-container {
   position: absolute;
   width: 100vw;
@@ -6,37 +7,41 @@
   left: -50vw;
 }
 
-
-.dilemma-wrapper {
+/* ══════════════════════════════════════
+   Carte dilemme — haut droite
+══════════════════════════════════════ */
+.dilemma-card {
   position: absolute;
   top: 40px;
+  bottom: 40px;
   right: 40px;
-  width: clamp(240px, 23vw, 380px);
-}
+  width: clamp(240px, 23vw, 360px);
 
-.dilemma-frame {
-  width: 100%;
-  height: auto;
-  display: block;
-  pointer-events: none;
-  user-select: none;
-}
-
-.dilemma-overlay {
-  position: absolute;
-  inset: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 9% 9% 10%;
+  gap: 0.6rem;
+  padding: 1rem 1rem 1.2rem;
+
+  background:
+    linear-gradient(#ffffff, #ffffff) padding-box,
+    conic-gradient(
+      from 90deg,
+      #ffc366 0%,   #ffc366 20%,
+      #f37c6b 20%,  #f37c6b 40%,
+      #ec96b3 40%,  #ec96b3 60%,
+      #48cb5f 60%,  #48cb5f 80%,
+      #058cd7 80%,  #058cd7 100%
+    ) border-box;
+  border: 10px solid transparent;
+  border-radius: 18px;
 }
 
+/* ── Numéro du dilemme ── */
 .dilemma-number {
   display: flex;
   justify-content: center;
   gap: 0.25em;
-  width: 100%;
-  margin-bottom: 0.5em;
 }
 
 .dilemma-digit {
@@ -50,16 +55,17 @@
   text-align: center;
 }
 
+/* ── Illustration ── */
 .dilemma-visual {
   width: 100%;
-  flex: 0 0 36%;
+  aspect-ratio: 4 / 3;
   object-fit: cover;
-  border-radius: 6px;
-  margin: 0.6em 0;
+  border-radius: 8px;
   display: block;
   user-select: none;
 }
 
+/* ── Texte de situation ── */
 .dilemma-desc {
   flex: 1;
   width: 100%;
@@ -70,54 +76,76 @@
   overflow-y: auto;
 }
 
-.reponses-wrapper {
+/* ══════════════════════════════════════
+   Panneau réponses — bas centré
+══════════════════════════════════════ */
+.reponses-card {
   position: absolute;
   bottom: 40px;
-  left: 15%;
-  width: clamp(360px, 48vw, 700px);
-}
+  left: 40px;
+  right: calc(clamp(240px, 23vw, 360px) + 120px);
 
-.reponses-frame {
-  width: 100%;
-  height: auto;
-  display: block;
-  pointer-events: none;
-  user-select: none;
-}
-
-.reponses-overlay {
-  position: absolute;
-  inset: 0;
   display: flex;
   flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  padding: 8% 7%;
-  gap: 5%;
+  gap: 1rem;
+  padding: 1.4rem;
+
+  background:
+    linear-gradient(#ffffff, #ffffff) padding-box,
+    conic-gradient(
+      from 90deg,
+      #ffc366 0%,   #ffc366 20%,
+      #f37c6b 20%,  #f37c6b 40%,
+      #ec96b3 40%,  #ec96b3 60%,
+      #48cb5f 60%,  #48cb5f 80%,
+      #058cd7 80%,  #058cd7 100%
+    ) border-box;
+  border: 10px solid transparent;
+  border-radius: 18px;
+  height: 17vh;
 }
 
+/* ── Boutons de réponse ── */
 .option-button {
+  -webkit-appearance: none;
+  appearance: none;
   flex: 1;
-  height: 100%;
-  background-color: rgba(255, 255, 255, 0.15);
-  color: #1a1a1a;
-  border: none;
+  min-height: 110px;
+
+  background:
+    linear-gradient(#ffffff, #ffffff) padding-box,
+    conic-gradient(
+      from 90deg,
+      #ffc366 0%,   #ffc366 20%,
+      #f37c6b 20%,  #f37c6b 40%,
+      #ec96b3 40%,  #ec96b3 60%,
+      #48cb5f 60%,  #48cb5f 80%,
+      #058cd7 80%,  #058cd7 100%
+    ) border-box;
+  border: 4px solid transparent;
   border-radius: 12px;
+
+  color: #1a1a1a;
+  font-family: inherit;
   font-size: clamp(0.7rem, 1vw, 0.9rem);
   font-weight: 700;
   cursor: pointer;
   text-align: center;
-  padding: 0.6rem;
+  padding: 0.7rem;
   line-height: 1.4;
-  transition: transform 0.1s ease, background-color 0.15s ease;
   word-break: break-word;
+  transition: transform 0.1s ease;
 }
 
 .option-button:hover {
-  background-color: rgba(255, 255, 255, 0.35);
   transform: scale(1.03);
 }
 
 .option-button:active {
   transform: scale(0.97);
+}
+
+.option-button:focus,
+.option-button:focus-visible {
+  outline: none;
 }

@@ -5,85 +5,138 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
 }
 
-/* Wrapper relatif qui sert de référence pour tous les éléments superposés */
+/* ── Rotating background image ── */
+.instructions-screen__bg-rotate {
+  position: absolute;
+  width: 160vmax;
+  height: 160vmax;
+  top: 50%;
+  left: 50%;
+  animation: rotateCW 30s linear infinite;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+}
+
+@keyframes rotateCW {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to   { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* ── Carte consignes ── */
 .instructions-frame {
   position: relative;
-  width: clamp(300px, 42vw, 580px);
+  z-index: 1;
+  width: clamp(300px, 42vw, 600px);
+  max-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 2rem 2.2rem 3.2rem;
+  background:
+    linear-gradient(#ffffff, #ffffff) padding-box,
+    conic-gradient(
+      from 90deg,
+      #ffc366 0%,   #ffc366 20%,
+      #f37c6b 20%,  #f37c6b 40%,
+      #ec96b3 40%,  #ec96b3 60%,
+      #48cb5f 60%,  #48cb5f 80%,
+      #058cd7 80%,  #058cd7 100%
+    ) border-box;
+  border: 10px solid transparent;
+  border-radius: 20px;
 }
 
-/* L'image du cadre prend toute la largeur du wrapper */
-.instructions-frame__bg {
-  width: 100%;
-  height: auto;
-  display: block;
-  user-select: none;
-  pointer-events: none;
+/* ── Titre ── */
+.instructions-frame__title {
+  margin: 0 0 0.25rem;
+  text-align: center;
+  font-size: clamp(1.4rem, 2.8vw, 2.1rem);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #1a1a1a;
+  text-shadow:
+    2px  2px 0 #ffffff,
+   -2px  2px 0 #ffffff,
+    2px -2px 0 #ffffff,
+   -2px -2px 0 #ffffff,
+    3px  4px 0 rgba(0, 0, 0, 0.18);
 }
 
-/* Texte positionné à l'intérieur du cadre, sous le titre "COMMENT JOUER ?" */
+/* ── Texte scrollable ── */
 .instructions-frame__text {
-  position: absolute;
-  top: 23%;
-  left: 9%;
-  right: 9%;
-  bottom: 16%;
+  flex: 1;
   overflow-y: auto;
   color: #1a1a1a;
-  font-size: clamp(0.8rem, 1.1vw, 1rem);
+  font-size: clamp(0.78rem, 1.05vw, 0.95rem);
   line-height: 1.7;
+  padding-right: 0.4rem;
 }
 
-.instructions-frame__text p {
-  margin: 0 0 1em 0;
+.instructions-frame__text h3 {
+  margin: 0.9em 0 0.2em;
+  font-size: clamp(0.78rem, 1.05vw, 0.95rem);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
 }
 
-.instructions-frame__text p:last-child {
-  margin-bottom: 0;
+.instructions-frame__text h3:first-child {
+  margin-top: 0;
 }
 
-/* Bouton centré, chevauchant la bordure basse du cadre */
+.instructions-frame__text p,
+.instructions-frame__text ol {
+  margin: 0 0 0.55em;
+}
+
+.instructions-frame__text ol {
+  padding-left: 1.3em;
+}
+
+.instructions-frame__text li {
+  margin-bottom: 0.2em;
+}
+
+.instructions-frame__note {
+  border-left: 3px solid #1a1a1a;
+  padding-left: 0.6em;
+  font-style: italic;
+  opacity: 0.75;
+  margin-bottom: 0 !important;
+}
+
+/* ── Bouton centré, chevauchant la bordure basse ── */
 .instructions-frame__btn {
   position: absolute;
-  bottom: -7%;
+  bottom: -1.6rem;
   left: 50%;
   transform: translateX(-50%);
-  background: none;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  width: 72%;
-  transition: transform 0.1s ease, filter 0.1s ease;
+  white-space: nowrap;
+  padding: 0.9rem 3.2rem;
+  font-size: clamp(1.1rem, 1.6vw, 1.4rem);
+  border-width: 10px;
 }
 
 .instructions-frame__btn:hover {
-  transform: translateX(-50%) translateY(-3px);
-  filter: brightness(1.05);
+  transform: translateX(-50%) translateY(-2px);
 }
 
 .instructions-frame__btn:active {
   transform: translateX(-50%) translateY(2px);
-  filter: brightness(0.95);
-}
-
-.instructions-frame__btn img {
-  width: 100%;
-  height: auto;
-  display: block;
-  user-select: none;
 }
 
 @media (max-width: 768px) {
   .instructions-frame {
-    width: clamp(280px, 80vw, 400px);
+    width: clamp(280px, 85vw, 420px);
+    padding: 1.6rem 1.6rem 2.8rem;
   }
 
   .instructions-frame__text {
     font-size: 0.78rem;
-  }
-
-  .instructions-frame__btn {
-    width: 78%;
   }
 }

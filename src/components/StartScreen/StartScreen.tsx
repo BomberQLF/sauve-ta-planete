@@ -1,4 +1,5 @@
 import terraLogo from "../../assets/terra_logo.png";
+import multicolorBackImg from "../../assets/multicolorBack.png";
 import "./StartScreen.css";
 
 interface StartScreenProps {
@@ -8,8 +9,14 @@ interface StartScreenProps {
 export default function StartScreen({ onStart }: StartScreenProps) {
   return (
     <div className="start-screen">
+      <img
+        src={multicolorBackImg}
+        aria-hidden="true"
+        className="start-screen__bg-rotate"
+        draggable={false}
+      />
       <img src={terraLogo} alt="Terra" className="start-screen__logo" />
-      <button className="start-screen__button" onClick={onStart}>
+      <button className="btn-multicolor start-screen__button" onClick={onStart}>
         JOUER
       </button>
     </div>

@@ -7,40 +7,50 @@
   align-items: center;
   justify-content: center;
   gap: 3rem;
+  overflow: hidden;
+}
+
+/* ── Rotating background image ── */
+.start-screen__bg-rotate {
+  position: absolute;
+  width: 160vmax;
+  height: 160vmax;
+  top: 50%;
+  left: 50%;
+  animation: rotateCW 30s linear infinite;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+}
+
+@keyframes rotateCW {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to   { transform: translate(-50%, -50%) rotate(360deg); }
 }
 
 .start-screen__logo {
+  position: relative;
+  z-index: 1;
   width: clamp(320px, 55vw, 700px);
   height: auto;
   user-select: none;
   pointer-events: none;
 }
 
+/* ── Taille spécifique au contexte Start ── */
 .start-screen__button {
+  position: relative;
+  z-index: 1;
   padding: 1rem 3.5rem;
-  background-color: #ffc366;
-  color: #1a1a1a;
-  border: 3.5px solid #1a1a1a;
-  border-radius: 60px;
-  box-shadow: 0 7px 0 #1a1a1a;
   font-size: 1.6rem;
-  font-weight: 900;
-  letter-spacing: 0.12em;
-  cursor: pointer;
-  transition: transform 0.1s ease, box-shadow 0.1s ease;
-  font-family: inherit;
-  text-transform: uppercase;
 }
 
 .start-screen__button:hover {
-  transform: translateY(3px);
-  box-shadow: 0 4px 0 #1a1a1a;
-  border-color: #1a1a1a;
+  transform: translateY(-2px);
 }
 
 .start-screen__button:active {
-  transform: translateY(7px);
-  box-shadow: 0 0 0 #1a1a1a;
+  transform: translateY(2px);
 }
 
 @media (max-width: 768px) {
