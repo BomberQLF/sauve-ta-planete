@@ -8,7 +8,7 @@
 }
 
 /* ══════════════════════════════════════
-   Carte dilemme — haut droite
+   Carte dilemme — droite, pleine hauteur
 ══════════════════════════════════════ */
 .dilemma-card {
   position: absolute;
@@ -21,7 +21,7 @@
   flex-direction: column;
   align-items: center;
   gap: 0.6rem;
-  padding: 1rem 1rem 1.2rem;
+  padding: 1rem;
 
   background:
     linear-gradient(#ffffff, #ffffff) padding-box,
@@ -37,11 +37,12 @@
   border-radius: 18px;
 }
 
-/* ── Numéro du dilemme ── */
+/* ── Numéro ── */
 .dilemma-number {
   display: flex;
   justify-content: center;
   gap: 0.25em;
+  flex-shrink: 0;
 }
 
 .dilemma-digit {
@@ -58,32 +59,113 @@
 /* ── Illustration ── */
 .dilemma-visual {
   width: 100%;
-  aspect-ratio: 4 / 3;
+  flex-shrink: 0;
+  max-height: 22vh;
   object-fit: cover;
   border-radius: 8px;
   display: block;
   user-select: none;
 }
 
-/* ── Texte de situation ── */
+/* ── Description ── */
 .dilemma-desc {
   flex: 1;
+  min-height: 4em;
   width: 100%;
   margin: 0;
-  font-size: clamp(0.65rem, 0.95vw, 0.85rem);
-  line-height: 1.65;
+  font-size: clamp(0.9rem, 1.3vw, 1.1rem);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  line-height: 1.5;
+  text-align: center;
   color: #1a1a1a;
+  text-shadow:
+    2px  2px 0 #ffffff,
+   -2px  2px 0 #ffffff,
+    2px -2px 0 #ffffff,
+   -2px -2px 0 #ffffff,
+    3px  4px 0 rgba(0, 0, 0, 0.18);
   overflow-y: auto;
 }
 
 /* ══════════════════════════════════════
-   Panneau réponses — bas centré
+   Codes couleur — affichage dans la carte
+══════════════════════════════════════ */
+.dilemma-options-display {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  width: 100%;
+  flex-shrink: 0;
+  border-top: 2px solid #e8e8e8;
+  padding-top: 0.65rem;
+  gap: 0;
+}
+
+.dilemma-option-display {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0 0.3rem;
+}
+
+.dilemma-options-divider {
+  width: 2px;
+  background-color: #e8e8e8;
+  align-self: stretch;
+  flex-shrink: 0;
+}
+
+/* ── Icônes ── */
+.option-icon {
+  width: clamp(44px, 4.5vw, 66px);
+  height: clamp(44px, 4.5vw, 66px);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.option-icon--a { background-color: #48cb5f; }
+.option-icon--b { background-color: #058cd7; }
+
+.option-icon__diamond {
+  width: 44%;
+  height: 44%;
+  background-color: #ffffff;
+  transform: rotate(45deg);
+  border-radius: 2px;
+}
+
+.option-icon__circle {
+  width: 50%;
+  height: 50%;
+  background-color: #ffffff;
+  border-radius: 50%;
+}
+
+.option-display__text {
+  margin: 0;
+  font-size: clamp(0.58rem, 0.8vw, 0.74rem);
+  font-weight: 600;
+  color: #1a1a1a;
+  line-height: 1.35;
+  text-align: center;
+}
+
+/* ══════════════════════════════════════
+   Panneau réponses cliquables — bas
 ══════════════════════════════════════ */
 .reponses-card {
   position: absolute;
   bottom: 40px;
   left: 40px;
   right: calc(clamp(240px, 23vw, 360px) + 120px);
+  height: 17vh;
 
   display: flex;
   flex-direction: row;
@@ -102,7 +184,6 @@
     ) border-box;
   border: 10px solid transparent;
   border-radius: 18px;
-  height: 17vh;
 }
 
 /* ── Boutons de réponse ── */
@@ -110,42 +191,40 @@
   -webkit-appearance: none;
   appearance: none;
   flex: 1;
-  min-height: 110px;
-
-  background:
-    linear-gradient(#ffffff, #ffffff) padding-box,
-    conic-gradient(
-      from 90deg,
-      #ffc366 0%,   #ffc366 20%,
-      #f37c6b 20%,  #f37c6b 40%,
-      #ec96b3 40%,  #ec96b3 60%,
-      #48cb5f 60%,  #48cb5f 80%,
-      #058cd7 80%,  #058cd7 100%
-    ) border-box;
-  border: 4px solid transparent;
-  border-radius: 12px;
-
-  color: #1a1a1a;
-  font-family: inherit;
-  font-size: clamp(0.7rem, 1vw, 0.9rem);
-  font-weight: 700;
+  height: 100%;
+  border: none;
+  border-radius: 10px;
   cursor: pointer;
-  text-align: center;
-  padding: 0.7rem;
-  line-height: 1.4;
-  word-break: break-word;
-  transition: transform 0.1s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.1s ease, filter 0.1s ease;
 }
 
-.option-button:hover {
-  transform: scale(1.03);
-}
+.option-button--a { background-color: #48cb5f; }
+.option-button--b { background-color: #058cd7; }
 
-.option-button:active {
-  transform: scale(0.97);
-}
+.option-button:hover  { transform: scale(1.03); }
+.option-button:active { transform: scale(0.97); filter: brightness(0.92); }
 
 .option-button:focus,
-.option-button:focus-visible {
-  outline: none;
+.option-button:focus-visible { outline: none; }
+
+/* ── Icônes dans les boutons ── */
+.option-btn-shape {
+  background-color: #ffffff;
+  pointer-events: none;
+}
+
+.option-btn-shape--square {
+  width: 5rem;
+  height: 5rem;
+  rotate: 45deg;
+  border-radius: 6px;
+}
+
+.option-btn-shape--diamond {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
 }
