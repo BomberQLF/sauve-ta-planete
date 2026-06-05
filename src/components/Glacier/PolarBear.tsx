@@ -6,6 +6,7 @@ import * as THREE from "three";
 import React, { useRef, type JSX } from "react";
 import { useGLTF } from "@react-three/drei";
 import type { GLTF } from "three-stdlib";
+import { gsap } from "gsap";
 
 type GLTFResult = GLTF & {
   nodes: {
@@ -20,12 +21,44 @@ type GLTFResult = GLTF & {
   };
 };
 
-export function PolarBear(props: JSX.IntrinsicElements["group"]) {
+export function PolarBear({
+  unmeltIce,
+  addAnimals,
+}: {
+  unmeltIce: boolean;
+  addAnimals: boolean;
+}) {
   const { nodes, materials } = useGLTF(
     "/models/polar-bear.glb",
   ) as unknown as GLTFResult;
+
+  const polarBearsRef = useRef<THREE.Group>(null!);
+
+  if (addAnimals) {
+    gsap.to(polarBearsRef.current.scale, {
+      x: 1,
+      y: 1,
+      z: 1,
+      duration: 1,
+      delay: 2,
+    });
+  }
+
+  if (unmeltIce) {
+    gsap.to(polarBearsRef.current.position, {
+      y: 0,
+      duration: 2,
+      delay: 2,
+    });
+  }
   return (
-    <group {...props} dispose={null} rotation={[0, 0, 0.3]}>
+    <group
+      ref={polarBearsRef}
+      dispose={null}
+      position={[0, -1, 0]}
+      rotation={[0, 0, 0.3]}
+      scale={0.8}
+    >
       <group
         scale={0.04}
         position={[0.2, 1.2, -0.2]}
@@ -50,11 +83,7 @@ export function PolarBear(props: JSX.IntrinsicElements["group"]) {
           material={materials["Material.003"]}
         />
       </group>
-      <group
-        scale={0.04}
-        position={[0, 1.26, 0]}
-        rotation={[0, Math.PI / 2, 0]}
-      >
+      <group scale={0.04} position={[0.1, 1.26, 0]} rotation={[0, 1, 0]}>
         <mesh
           castShadow
           receiveShadow

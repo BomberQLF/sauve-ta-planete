@@ -65,15 +65,18 @@ export function Dilemma({
         const consequence = 1;
         playAnimations(consequence.toString());
         history.push(consequence);
+        playAnimations(String(consequence));
       } else if (history.length === 1) {
         const consequence = 2;
         playAnimations(consequence.toString());
         history.push(consequence);
+        playAnimations(String(consequence));
       } else {
         const consequence =
           available[Math.floor(Math.random() * available.length)];
         playAnimations(consequence.toString());
         history.push(consequence);
+        playAnimations(String(consequence));
       }
     } else {
       setIsPlaying(true);
@@ -144,7 +147,9 @@ export function Dilemma({
         {/* Numéro */}
         <div className="dilemma-number">
           {paddedId.split("").map((digit, i) => (
-            <span key={i} className="dilemma-digit">{digit}</span>
+            <span key={i} className="dilemma-digit">
+              {digit}
+            </span>
           ))}
         </div>
 
@@ -193,7 +198,6 @@ export function Dilemma({
           </button>
         ))}
       </div>
-
     </div>
   );
 }

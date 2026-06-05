@@ -13,7 +13,7 @@ export function Glacier({
     <>
       <Ice unmeltIce={unmeltIce} />
       <Penguin unmeltIce={unmeltIce} addAnimals={addAnimals} />
-      <PolarBear />
+      <PolarBear unmeltIce={unmeltIce} addAnimals={addAnimals} />
     </>
   );
 }
