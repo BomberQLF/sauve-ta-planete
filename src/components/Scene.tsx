@@ -10,14 +10,12 @@ import { Group } from "three";
 import { gsap } from "gsap";
 import { Button } from "./UI/Button/Button";
 import { ProgressBar } from "./UI/ProgressBar/ProgressBar";
-import data from "../data/data.json";
 import { Birds } from "./Birds";
 import { Clouds } from "./Clouds";
 import { Glacier } from "./Glacier/Glacier";
 import { Buildings } from "./Buildings";
 import { Waste } from "./Waste";
 import { RenewableEnergy } from "./RenewableEnergy";
-import { LandAnimals } from "./LandAnimals";
 import { Fire } from "./Fire";
 
 export function Scene() {
@@ -160,7 +158,6 @@ export function Scene() {
 
       <Lights />
       <group ref={planetGroupRef}>
-        {/* <LandAnimals /> */}
         <Clouds cleanAir={cleanAir} />
         <Glacier unmeltIce={unmeltIce} addAnimals={addAnimals} />
         <Fire extinguishFire={extinguishFire} />

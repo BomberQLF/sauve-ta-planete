@@ -66,7 +66,7 @@ export function Planet({
   // Animation
   if (addAnimals) {
     gsap.to(fishRef.current.material, {
-      opacity: 0.1,
+      opacity: 0.25,
       duration: 1,
       delay: 2,
     });

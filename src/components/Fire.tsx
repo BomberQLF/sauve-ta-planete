@@ -7,12 +7,8 @@ import React, { useEffect, useRef, type JSX } from "react";
 import { useGLTF } from "@react-three/drei";
 import type { GLTF } from "three-stdlib";
 import { useFrame, useLoader } from "@react-three/fiber";
-import {
-  EffectComposer,
-  Bloom,
-  ToneMapping,
-} from "@react-three/postprocessing";
-import gsap from "gsap";
+import { EffectComposer, Bloom } from "@react-three/postprocessing";
+import { gsap } from "gsap";
 
 type GLTFResult = GLTF & {
   nodes: {
@@ -64,6 +60,13 @@ export function Fire({ extinguishFire }: { extinguishFire: boolean }) {
       opacity: 0,
       duration: 2,
       delay: 2,
+    });
+    gsap.to(fireRef.current.scale, {
+      x: 0,
+      y: 0,
+      z: 0,
+      duration: 1,
+      delay: 4,
     });
   }
 
