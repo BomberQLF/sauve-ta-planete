@@ -2,20 +2,20 @@
   {
     "id": "1",
     "categorie": "Expert IA",
-    "nom": "Le défi Cuisine",
-    "situation": "Tu veux préparer un gâteau pour la toute première fois de ta vie. Comment trouves-tu la recette ?",
-    "option_A": "Tu demandes à ChatGPT de t'écrire une recette sur mesure avec plein d'explications sur les produits et des vidéos tutos générées pour toi.",
-    "option_B": "Tu fais une recherche classique sur Google et tu choisis une recette grâce aux bonnes notes laissées par les internautes.",
+    "nom": "Le devoir de mathématiques",
+    "situation": "Tu dois faire tes exercices de mathématiques pour demain matin 8h30 or il est 22h et tu n'as toujours rien fait que fais tu ? ",
+    "option_A": "Tu envoies une photo de ton devoir à CHATGPT pour qu'il t'aide à le faire rapidement comme ça tu peux aller dormir tôt",
+    "option_B": "Tu fais tes exercices toi-même, même si ça prend plus de temps et tu arrives demain fatigué en cours.",
     "option_ecoresponsable": "B"
   },
   {
     "id": "2",
     "categorie": "Expert IA",
-    "nom": "Le devoir à rendre",
-    "situation": "Tu pas fini de taper ton exposé, mais tu as peur d'avoir laissé plein de fautes d'orthographe. Que fais-tu ?",
-    "option_A": "Tu donnes tout à ChatGPT pour qu'il corrige tout d'un coup, même s'il réécrit un peu tes phrases à sa manière.",
-    "option_B": "Tu utilises un correcteur en ligne classique et tu corriges tes fautes phrase par phrase, en gardant ton propre style.",
-    "option_ecoresponsable": "B"
+    "nom": "Idée de recette",
+    "situation": "C’est l’heure du goûter, tu as super faim, mais il ne reste quasiment rien dans les placards : juste une banane toute noire et écrasée que personne ne veut manger. Que fais-tu ?",
+    "option_A": "Tu demandes à ChatGPT de t'inventer une recette. En ajoutant juste un peu de farine et un fond de lait, l'IA te montre comment faire un gateau.",
+    "option_B": "C'est trop difficile de faire quelque chose avec ça. Tu jettes la banane à la poubelle et tu ouvres un paquet neuf de biscuits au chocolat trop bons.",
+    "option_ecoresponsable": "A"
   },
   {
     "id": "3",
@@ -29,65 +29,65 @@
   {
     "id": "4",
     "categorie": "Expert IA",
-    "nom": "Panique au restaurant",
-    "situation": "Tu es en voyage à l'étranger, tu as faim, mais la carte du restaurant est en anglais et tu ne comprends rien.",
-    "option_A": "Tu prends le menu en photo et tu l'envoies à ChatGPT pour qu'il te traduise toute la carte instantanément.",
-    "option_B": "Tu ouvres Google Traduction et tu tapes uniquement les deux ou trois mots que tu ne connais pas pour deviner le plat.",
-    "option_ecoresponsable": "B"
+    "nom": "Traduction de l'exercice d'anglais",
+    "situation": "t'as professeur te donnes du texte en anglais à traduire en français.",
+    "option_A": "Tu essaies de faire la traduction toi-même, en utilisant un traducteur en ligne pour essayer de comprendre les mots que tu ne connais pas.",
+    "option_B": "Tu traduis tout t'es exercices avec CHATGPT tu ne sais pas ce qu'il a fait mais tu c'est que c'est bon car c'est l'IA qu'il l'a dit.",
+    "option_ecoresponsable": "A"
   },
   {
     "id": "5",
-    "categorie": "Expert Serveurs",
+    "categorie": "Expert Stockage",
     "nom": "Retour de vacances",
     "situation": "Tu rentres de vacances avec 500 photos et 300 vidéos, ton téléphone déborde ! Comment les sauvegarder ?",
-    "option_A": "Tu prends la voiture pour aller acheter un gros disque dur en magasin et tout stocker à la maison.",
-    "option_B": "Tu prends un abonnement 'Drive/Cloud' : toutes tes photos s'envoient sur Internet automatiquement, tu n'as rien à faire.",
+    "option_A": "Tu demande à tes parents de prendre la voiture pour aller acheter un gros disque dur en magasin et tout stocker à la maison.",
+    "option_B": "Tu prends un abonnement 'Drive/Cloud' : toutes tes photos s'envoient sur Internet automatiquement, tu n'as rien à faire !",
     "option_ecoresponsable": "A"
   },
   {
     "id": "6",
-    "categorie": "Expert Serveurs",
+    "categorie": "Expert Stockage ",
     "nom": "Coucou Papy et Mamie !",
-    "situation": "C'est les fêtes, tu veux envoyer 10 belles photos de toi à tes grands-parents. Comment t'y prends-tu ?",
-    "option_A": "Tu leur envoies un message très lourd avec toutes les photos attachées en pièces jointes.",
-    "option_B": "Tu crées un dossier sur un Drive (Cloud) et tu leur envoies juste un tout petit lien sur lequel ils doivent cliquer.",
+    "situation": "C'est ton anniversaire, tu veux envoyer plein de belles photos de toi à tes grands-parents et à t'as famille.",
+    "option_A": "Tu leur envoies un message avec toutes les photos à chacun.",
+    "option_B": "Tu crées un dossier sur le cloud ou tu mets toutes tes photos et tu leur envoies le lien pour voir les photos.",
     "option_ecoresponsable": "B"
   },
   {
     "id": "7",
-    "categorie": "Expert Serveurs",
-    "nom": "Le grand ménage",
-    "situation": "Ton téléphone est rempli de milliers de vieilles photos floues, de spams et de fichiers inutiles. Que fais-tu ?",
-    "option_A": "Tu ne touches à rien. Ce n'est pas grave, ça prend un peu de place mais c'est beaucoup trop ennuyeux à trier !",
-    "option_B": "Tu prends 1 heure de ton temps pour tout nettoyer et supprimer ce qui ne sert vraiment plus à rien.",
-    "option_ecoresponsable": "B"
+    "categorie": "Expert Stockage",
+    "nom": "Soirée Gaming",
+    "situation": "Tu veux jouer en ligne avec tes potes ce soir, mais tu n'as pas le jeu !",
+    "option_A": "Tu utilises et installes le jeu sur ta console : tu dois attendre 1h30 de téléchargement avant de les rejoindre, et la qualité sera un peu moins belle.",
+    "option_B": "Tu joues en 'Cloud Gaming' : pas besoin de télécharger, tu joues instantanément avec la qualité maximale, même sur une vieille console.",
+    "option_ecoresponsable": "A"
   },
   {
     "id": "8",
-    "categorie": "Expert Serveurs",
+    "categorie": "Expert Stockage",
     "nom": "Souvenir de mon chat",
-    "situation": "Ton chat fait un truc trop drôle, tu veux le filmer en souvenir !",
-    "option_A": "Tu filmes en qualité Ultra HD avec plein d'images par seconde pour avoir la vidéo la plus magnifique du monde, quitte à créer un fichier gigantesque.",
-    "option_B": "Tu filmes en qualité normale. L'image saccade un tout petit peu, mais ça fait l'affaire pour un simple souvenir.",
-    "option_ecoresponsable": "B"
+    "situation": "Tu as plein de photos de ton chat, même des photos ratés",
+    "option_A": "Tu les stockes toutes sur ton téléphone, même les photos floues. Car c'est trop long à trier",
+    "option_B": "Tu prends le temps de faire du tri et tu ne gardes que les meilleures photos de ton chat, même si ça prend du temps.",
+    "option_ecoresponsable": "A"
   },
   {
     "id": "9",
     "categorie": "Expert Réseau",
     "nom": "Soirée Série",
-    "situation": "C'est le soir, tu es dans ton lit et tu veux regarder un épisode de ta série préférée sur ton téléphone.",
-    "option_A": "Tu le regardes en 4K (qualité maximale) avec tes données mobiles (4G/5G) parce que l'image est parfaite.",
-    "option_B": "Tu le regardes en HD (qualité normale) en te connectant au Wi-Fi de la maison, même si la qualité est un peu moins bonne.",
+    "situation": "Tu veux regarder un épisode de ta série préférée sur ton téléphone ou t'as tablette.",
+    "option_A": "Tu le regardes en 4G/5G parce que l'image est parfaite et car ça fonctionne mieux que le WIFI.",
+    "option_B": "Tu regarde avec le Wi-Fi de la maison, même si il ne fonctionne pas parfaitement.",
     "option_ecoresponsable": "B"
   },
   {
     "id": "10",
     "categorie": "Expert Réseau",
-    "nom": "Le jeu dans le bus",
-    "situation": "Tu es dans le bus avec tes potes et tu veux télécharger la dernière grosse mise à jour de votre jeu mobile préféré pour y jouer tout de suite.",
-    "option_A": "Tu télécharges l'énorme fichier immédiatement en utilisant la 4G de ton téléphone.",
-    "option_B": "Tu attends d'être rentré(e) chez toi pour télécharger la mise à jour avec le Wi-Fi, tant pis, tu ne joueras pas dans le bus.",
-    "option_ecoresponsable": "B"
+    "nom": "Soirée Série 2" ,
+    "situation": "Tu veux regarder une série ou une vidéo Youtube sur ton téléphone !",
+    "option_A": "Tu regardes en qualité normale, même si l'image est moins belle.",
+    "option_B": "Tu mets de la 4K comme ça l'image est super détaillé tu vois tout parfaitement !",
+    "option_ecoresponsable": "A"
   },
   {
     "id": "11",
@@ -109,38 +109,40 @@
   },
   {
     "id": "13",
-    "categorie": "Journaliste du Numérique",
-    "nom": "Trajet entre amis",
-    "situation": "Tu pas 1 heure de trajet en bus assis(e) à côté de ton/ta meilleur(e) ami(e). Comment passez-vous le temps ?",
-    "option_A": "Vous regardez des TikToks sur vos écrans et vous vous partagez les vidéos les plus drôles.",
-    "option_B": "Vous rangez les téléphones et vous essayez de trouver des sujets de discussion, même s'il y a des moments de blanc.",
-    "option_ecoresponsable": "B"
+    "categorie": "Influenceur ",
+    "nom": "Lecture auto sur YouTube",
+    "situation": "Tu regardes des vidéos sur YouTube. À la fin de chaque vidéo, le site lance automatiquement la vidéo suivante au bout de 5 secondes.",
+    "option_A": "Tu désactives le bouton 'lecture automatique' pour choisir toi-même de lancer une vidéo.",
+    "option_B": "Tu laisses l'option activée car c'est pratique, même si parfois tu fais autre chose dans ta chambre et que la vidéo tourne dans le vide.",
+    "option_ecoresponsable": "A"
   },
   {
     "id": "14",
-    "categorie": "Journaliste du Numérique",
-    "nom": "Soirée Gaming",
-    "situation": "Tu veux jouer en ligne avec tes potes ce soir, mais tu n'as pas le jeu !",
-    "option_A": "Tu joues en 'Cloud Gaming' : pas besoin de télécharger, tu joues instantanément avec la qualité maximale, même sur une vieille console.",
-    "option_B": "Tu utilises et installes le jeu sur ta console : tu dois attendre 1h30 de téléchargement avant de les rejoindre, et la qualité sera un peu moins belle.",
+    "categorie": "Influenceur",
+    "nom": "La newsletter",
+    "situation": "Tu reçois des centaines de mails tous les jours car tu es abonné à plein de newsletters.",
+    "option_A": "Tu laisses les mails passer, tu catégorises les marques qui ne t'intéressent plus en spam",
+    "option_B": "Tu prends le temps de te désabonner de toutes les newsletters que tu ne lis jamais, même si tu dois faire du tri dans ta boîte mail.",
     "option_ecoresponsable": "B"
+
   },
   {
     "id": "15",
-    "categorie": "Journaliste du Numérique",
-    "nom": "'À table !'",
-    "situation": "Tu es en pleine partie de jeu vidéo et tes parents t'appellent pour manger.",
-    "option_A": "Tu mets ta console en veille : comme ça, ton jeu reste ouvert et tu reprends ta partie directement après manger.",
-    "option_B": "Tu éteins complètement ta console, même si tu perds du temps à tout relancer après le repas.",
-    "option_ecoresponsable": "B"
+    "categorie": "Influenceur",
+    "nom": "Les notifs youtube",
+    "situation": "Tu es abonné à plein de chaînes YouTube et tu reçois des notifications à chaque fois qu'une nouvelle vidéo sort.",
+    "option_A": "Tu laisses les notifications actives pour ne rien rater",
+    "option_B": "Tu prends le temps de te désabonner de toutes les chaînes que tu ne regardes jamais",
+    "option_ecoresponsable": "A"
+    
   },
   {
     "id": "16",
-    "categorie": "Journaliste du Numérique",
+    "categorie": "Influenceur",
     "nom": "La folie du nouveau smartphone",
-    "situation": "Le tout nouvel iPhone vient de sortir avec une fonction révolutionnaire. Tes parents t'ont pourtant déjà acheté celui de l'année dernière.",
-    "option_A": "Tu revends le tiens et tu leur demandes de changer car tu veux absolument être à la pointe de la technologie.",
-    "option_B": "Tu gardes ton téléphone actuel, tant pis si tu n'as pas cette nouvelle fonctionnalité à la mode.",
+    "situation": "Un youtubeur Roblox fait un tuto pour devenir millionnaire dans ton 'Simulator' préféré. Son astuce : laisser ton personnage tourner en rond (AFK) et laisser ton ordinateur allumé toute la nuit pendant que tu dors pour farmer des pièces.",
+    "option_A": "Tu suis son conseil et tu laisses ton ordinateur allumé toute la nuit pour gagner plein de pièces.",
+    "option_B": "Tu ne suis pas son conseil et tu éteins ton ordinateur pour économiser de l'énergie.",
     "option_ecoresponsable": "B"
   },
   {
@@ -155,11 +157,11 @@
   {
     "id": "18",
     "categorie": "Spécialiste Environnemental",
-    "nom": "Rangement en musique",
-    "situation": "Tu décides de ranger ta chambre et tu veux écouter de la musique pour te motiver.",
-    "option_A": "Tu mets les clips vidéos de tes chansons sur YouTube et tu laisses l'écran allumé pendant que tu ranges.",
-    "option_B": "Tu écoutes des musiques que tu avais déjà téléchargées à l'avance sur ton téléphone.",
-    "option_ecoresponsable": "B"
+    "nom": "'À table !'",
+    "situation": "Tu es en pleine partie de jeu vidéo et tes parents t'appellent pour manger.",
+    "option_A": "Tu éteins complètement ta console, même si tu perds du temps à tout relancer après le repas.",
+    "option_B": "Tu mets ta console en veille : comme ça, ton jeu reste ouvert et tu reprends ta partie directement après manger.",
+    "option_ecoresponsable": "A"
   },
   {
     "id": "19",
