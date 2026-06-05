@@ -17,7 +17,7 @@ import { Glacier } from "./Glacier/Glacier";
 import { Buildings } from "./Buildings";
 import { Waste } from "./Waste";
 import { RenewableEnergy } from "./RenewableEnergy";
-import { LandAnimals } from "./LandAnimals";
+// import { LandAnimals } from "./LandAnimals";
 import { Fire } from "./Fire";
 
 export function Scene() {

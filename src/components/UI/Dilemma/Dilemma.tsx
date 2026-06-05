@@ -137,57 +137,59 @@ export function Dilemma({
 
   return (
     <div className="info-container">
-      {/* ── Carte dilemme (droite) ── */}
-      <div className="dilemma-wrapper">
-        <img
-          src={rectangleDesignImg}
-          alt=""
-          className="dilemma-frame"
-          draggable={false}
-        />
-        <div className="dilemma-overlay">
-          <div className="dilemma-number">
-            {paddedId.split("").map((digit, i) => (
-              <span key={i} className="dilemma-digit">
-                {digit}
-              </span>
-            ))}
-          </div>
-          {/* <img
-            src={dilemmaImg}
-            alt={`Dilemme ${paddedId}`}
-            className="dilemma-visual"
-            draggable={false}
-          /> */}
-          <p className="dilemma-desc">{text.situation}</p>
-        </div>
-      </div>
 
-      {/* ── Carte dilemme (haut droite) ── */}
+      {/* ── Carte dilemme (droite, pleine hauteur) ── */}
       <div className="dilemma-card">
+
+        {/* Numéro */}
         <div className="dilemma-number">
           {paddedId.split("").map((digit, i) => (
             <span key={i} className="dilemma-digit">{digit}</span>
           ))}
         </div>
+
+        {/* Illustration */}
         <img
           src={dilemmaImg}
           alt={`Dilemme ${paddedId}`}
           className="dilemma-visual"
           draggable={false}
         />
+
+        {/* Description */}
         <p className="dilemma-desc">{text.situation}</p>
+
+        {/* ── Codes couleur des réponses (affichage, non cliquable) ── */}
+        <div className="dilemma-options-display">
+          <div className="dilemma-option-display">
+            <div className="option-icon option-icon--a">
+              <div className="option-icon__diamond" />
+            </div>
+            <p className="option-display__text">{text.option_A}</p>
+          </div>
+          <div className="dilemma-options-divider" />
+          <div className="dilemma-option-display">
+            <div className="option-icon option-icon--b">
+              <div className="option-icon__circle" />
+            </div>
+            <p className="option-display__text">{text.option_B}</p>
+          </div>
+        </div>
+
       </div>
 
-      {/* ── Panneau réponses (bas) ── */}
+      {/* ── Panneau réponses cliquables (bas) ── */}
       <div className="reponses-card">
-        {options.map((option) => (
+        {options.map((option, index) => (
           <button
             key={option.id}
-            className="option-button"
+            className={`option-button option-button--${index === 0 ? "a" : "b"}`}
             onClick={() => handleClick(option.isCorrect)}
           >
-            {option.desc}
+            {index === 0
+              ? <div className="option-btn-shape option-btn-shape--square" />
+              : <div className="option-btn-shape option-btn-shape--diamond" />
+            }
           </button>
         ))}
       </div>
