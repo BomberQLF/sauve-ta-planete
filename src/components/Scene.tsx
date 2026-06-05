@@ -17,7 +17,8 @@ import { Glacier } from "./Glacier/Glacier";
 import { Buildings } from "./Buildings";
 import { Waste } from "./Waste";
 import { RenewableEnergy } from "./RenewableEnergy";
-import { Animals } from "./Animals";
+import { LandAnimals } from "./LandAnimals";
+import { Fire } from "./Fire";
 
 export function Scene() {
   const [myDilemma, setMyDilemma] = useState("0");
@@ -34,6 +35,7 @@ export function Scene() {
   const [replaceBuildings, setReplaceBuildings] = useState<boolean>(false);
   const [cleanWaste, setCleanWaste] = useState<boolean>(false);
   const [transitionEnergy, setTransitionEnergy] = useState<boolean>(false);
+  const [extinguishFire, setExtinguishFire] = useState<boolean>(false);
 
   //to add
   const [addAnimals, setAddAnimals] = useState<boolean>(false);
@@ -138,9 +140,9 @@ export function Scene() {
       // });
 
       // planet constantly rotating
-      // planetGroupRef.current.rotateX(delta * 0.1);
-      // planetGroupRef.current.rotateY(delta * 0.1);
-      // planetGroupRef.current.rotateZ(delta * 0.1);
+      planetGroupRef.current.rotateX(delta * 0.1);
+      planetGroupRef.current.rotateY(delta * 0.1);
+      planetGroupRef.current.rotateZ(delta * 0.1);
       if ((UIRef.current, buttonRef.current)) {
         UIRef.current.classList.remove("hidden");
         buttonRef.current.classList.add("hidden");
@@ -151,17 +153,17 @@ export function Scene() {
   return (
     <>
       {/* OrbitControls actif uniquement quand le formulaire est visible */}
-      {/* {(myDilemma === "0" || myDilemma === "NaN") && <OrbitControls />} */}
+      {(myDilemma === "0" || myDilemma === "NaN") && <OrbitControls />}
 
       {/* Pour le dev */}
-      <OrbitControls />
+      {/* <OrbitControls /> */}
 
       <Lights />
       <group ref={planetGroupRef}>
-        <Animals />
+        {/* <LandAnimals /> */}
         <Clouds cleanAir={cleanAir} />
         <Glacier unmeltIce={unmeltIce} addAnimals={addAnimals} />
-
+        <Fire extinguishFire={extinguishFire} />
         <Planet
           unfloodPlanet={unfloodPlanet}
           turnPlanetGreen={turnPlanetGreen}
@@ -193,6 +195,7 @@ export function Scene() {
             setCleanWaste={setCleanWaste}
             setTransitionEnergy={setTransitionEnergy}
             setAddAnimals={setAddAnimals}
+            setExtinguishFire={setExtinguishFire}
             onCorrectAnswer={addCorrectId}
           />
         </div>
@@ -202,7 +205,7 @@ export function Scene() {
           {/* <ProgressBar current={correctIds.size} total={data.length} /> */}
 
           {/* Total = nb consequences */}
-          {/* <ProgressBar current={correctIds.size} total={10} /> */}
+          <ProgressBar current={correctIds.size} total={10} />
           <Button setIsPlaying={setIsPlaying} setMyDilemma={setMyDilemma} />
         </div>
       </Html>

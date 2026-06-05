@@ -16,6 +16,7 @@ interface DilemmaProps {
   setCleanWaste: (cleanWaste: boolean) => void;
   setTransitionEnergy: (transitionEnergy: boolean) => void;
   setAddAnimals: (addAnimals: boolean) => void;
+  setExtinguishFire: (extinguishFire: boolean) => void;
   onCorrectAnswer: (id: string) => void;
 }
 
@@ -34,6 +35,7 @@ export function Dilemma({
   setCleanWaste,
   setTransitionEnergy,
   setAddAnimals,
+  setExtinguishFire,
   onCorrectAnswer,
 }: DilemmaProps) {
   const text = data.find((e) => String(e.id) === myDilemma);
@@ -68,13 +70,15 @@ export function Dilemma({
         const consequence = 1;
         playAnimations(consequence.toString());
         history.push(consequence);
-        playAnimations(String(consequence));
+      } else if (history.length === 1) {
+        const consequence = 2;
+        playAnimations(consequence.toString());
+        history.push(consequence);
       } else {
         const consequence =
           available[Math.floor(Math.random() * available.length)];
         playAnimations(consequence.toString());
         history.push(consequence);
-        playAnimations(String(consequence));
       }
     } else {
       setIsPlaying(true);
@@ -85,42 +89,40 @@ export function Dilemma({
     switch (dilemmaId) {
       case "1":
         setIsPlaying(true);
-        setUnmeltIce(true);
-        setUnfloodPlanet(true);
+        setExtinguishFire(true);
         break;
       case "2":
         setIsPlaying(true);
-        setTurnPlanetGreen(true);
+        setUnmeltIce(true);
+        setUnfloodPlanet(true);
         break;
       case "3":
         setIsPlaying(true);
-        setGrowTrees(true);
+        setTurnPlanetGreen(true);
         break;
       case "4":
         setIsPlaying(true);
-        setCleanAir(true);
+        setGrowTrees(true);
         break;
       case "5":
         setIsPlaying(true);
-        setCleanWater(true);
+        setCleanAir(true);
         break;
       case "6":
         setIsPlaying(true);
-        setReplaceBuildings(true);
+        setCleanWater(true);
         break;
       case "7":
         setIsPlaying(true);
+        setReplaceBuildings(true);
+        break;
+      case "8":
+        setIsPlaying(true);
         setCleanWaste(true);
-        break;
-      case "8":
-        setIsPlaying(true);
-        setTransitionEnergy(true);
-        break;
-      case "8":
-        setIsPlaying(true);
         break;
       case "9":
         setIsPlaying(true);
+        setTransitionEnergy(true);
         break;
       case "10":
         setIsPlaying(true);
@@ -156,12 +158,12 @@ export function Dilemma({
               </span>
             ))}
           </div>
-          <img
+          {/* <img
             src={dilemmaImg}
             alt={`Dilemme ${paddedId}`}
             className="dilemma-visual"
             draggable={false}
-          />
+          /> */}
           <p className="dilemma-desc">{text.situation}</p>
         </div>
       </div>

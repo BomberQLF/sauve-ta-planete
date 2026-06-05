@@ -1,5 +1,6 @@
 import { Ice } from "./Ice";
 import { Penguin } from "./Penguin";
+import { PolarBear } from "./PolarBear";
 
 export function Glacier({
   unmeltIce,
@@ -12,6 +13,7 @@ export function Glacier({
     <>
       <Ice unmeltIce={unmeltIce} />
       <Penguin unmeltIce={unmeltIce} addAnimals={addAnimals} />
+      <PolarBear />
     </>
   );
 }

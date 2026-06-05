@@ -56,9 +56,12 @@ function Bird({
   useFrame((_, delta) => {
     elapsedRef.current += delta * 0.5;
     if (ref.current) {
-      if (orbitAxis == "z") {
+      if (orbitAxis === "z") {
         ref.current.rotation.z = elapsedRef.current * 0.8;
         ref.current.rotation.y = elapsedRef.current * 0.8;
+      } else if (orbitAxis === "y") {
+        ref.current.rotation.z = 0.5;
+        ref.current.rotation.y = elapsedRef.current * 1.3 + 4;
       } else ref.current.rotation.x = elapsedRef.current;
     }
   });
@@ -92,7 +95,8 @@ export function Birds({ addAnimals }: { addAnimals: boolean }) {
   }
   return (
     <group ref={birdsRef} scale={0.7}>
-      <Bird orbitAxis={"xy"} rotateBird={[0, 0, 0]} />
+      <Bird orbitAxis={"x"} rotateBird={[0, 0, 0]} />
+      <Bird orbitAxis={"y"} rotateBird={[0, 0, 0]} />
       <Bird orbitAxis={"z"} rotateBird={[0, -Math.PI / 2, 0]} />
     </group>
   );
