@@ -1,13 +1,17 @@
 .button-container {
   position: absolute;
   bottom: -50vh;
-  left: -40vw;
+  left: -46vw;
   display: flex;
   flex-direction: column;
+  gap: 12px;
 }
 
 .button {
-  background-color: white;
-  color: black;
-  margin: 10px 0;
+  padding: 0.85rem 2.8rem;
+  font-size: clamp(1rem, 1.4vw, 1.25rem);
+  border-width: 10px;
 }
+
+.button:hover  { transform: translateY(-2px); }
+.button:active { transform: translateY(2px); }

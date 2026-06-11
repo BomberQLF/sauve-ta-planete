@@ -1,6 +1,6 @@
 .progress-bar-wrapper {
-  position: absolute;
-  top: 37vh;
+  position: fixed;
+  top: -21rem;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -17,6 +17,7 @@
   font-weight: 900;
   text-transform: uppercase;
   letter-spacing: 0.08em;
+  text-align: center;
   color: #ffffff;
   text-shadow:
     2px  2px 0 #1a1a1a,
@@ -28,15 +29,13 @@
 
 /* ── Ligne barre + % ── */
 .progress-bar-row {
-  display: flex;
-  align-items: center;
-  gap: 16px;
+  position: relative;
   width: 100%;
 }
 
 /* Wrapper qui forme la bordure multicolore (pattern des autres panneaux) */
 .progress-bar-border {
-  flex: 1;
+  width: 100%;
   padding: 6px;
   border-radius: 999px;
   background: conic-gradient(
@@ -69,26 +68,13 @@
   transition: width 0.5s ease-out;
 }
 
-/* Pourcentage à droite */
-.progress-bar-text {
-  font-size: clamp(1.1rem, 1.6vw, 1.5rem);
-  font-weight: 900;
-  color: #ffffff;
-  text-shadow:
-    2px  2px 0 #1a1a1a,
-   -2px  2px 0 #1a1a1a,
-    2px -2px 0 #1a1a1a,
-   -2px -2px 0 #1a1a1a,
-    3px  4px 0 #1a1a1a;
-  min-width: 4.5ch;
-  text-align: right;
-}
 
 /* Compteur X / Y */
 .progress-bar-count {
   margin: 0;
   font-size: clamp(0.75rem, 1vw, 0.95rem);
   font-weight: 700;
+  text-align: center;
   color: #ffffff;
   text-shadow: 1px 1px 0 #1a1a1a;
   letter-spacing: 0.05em;

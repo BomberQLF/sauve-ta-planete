@@ -10,7 +10,7 @@ export function ProgressBar({ current, total }: ProgressBarProps) {
 
   return (
     <div className="progress-bar-wrapper">
-      <p className="progress-bar-label">Progression</p>
+      <p className="progress-bar-label">Santé de la planète : {percentage}%</p>
 
       <div className="progress-bar-row">
         <div className="progress-bar-border">
@@ -21,7 +21,6 @@ export function ProgressBar({ current, total }: ProgressBarProps) {
             />
           </div>
         </div>
-        <span className="progress-bar-text">{percentage}%</span>
       </div>
 
       <p className="progress-bar-count">

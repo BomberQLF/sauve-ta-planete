@@ -59,12 +59,6 @@
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: #1a1a1a;
-  text-shadow:
-    2px  2px 0 #ffffff,
-   -2px  2px 0 #ffffff,
-    2px -2px 0 #ffffff,
-   -2px -2px 0 #ffffff,
-    3px  4px 0 rgba(0, 0, 0, 0.18);
 }
 
 /* ── Texte scrollable ── */

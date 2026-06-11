@@ -1,5 +1,27 @@
+/* ══════════════════════════════════════
+   Fonts
+══════════════════════════════════════ */
+@font-face {
+  font-family: 'BigZubo';
+  src: url('./fonts/Big-Zubo-Exfont2e3c.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Quicksand';
+  src: url('./fonts/Quicksand/Quicksand-VariableFont_wght.ttf') format('truetype');
+  font-weight: 300 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ══════════════════════════════════════
+   Base
+══════════════════════════════════════ */
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'BigZubo', system-ui, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
@@ -13,27 +35,12 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
 body {
   margin: 0;
   display: flex;
   place-items: center;
-  min-width: 320px;
   min-width: 100vw;
   min-height: 100vh;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
 }
 
 button {
@@ -41,15 +48,14 @@ button {
   cursor: pointer;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+/* ── Textes descriptifs → Quicksand ── */
+.dilemma-desc,
+.option-display__text,
+.option-btn__text,
+.instructions-frame__text,
+.instructions-frame__text p,
+.instructions-frame__text li,
+.instructions-frame__note,
+.progress-bar-count {
+  font-family: 'Quicksand', system-ui, Arial, sans-serif;
 }
