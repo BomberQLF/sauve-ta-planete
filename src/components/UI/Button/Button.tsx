@@ -18,7 +18,7 @@ export const Button = ({ setIsPlaying, setMyDilemma }: ButtonProps) => {
         <p>Change planet</p>
       </div> */}
       <button
-        className="button"
+        className="btn-multicolor button"
         ref={continueRef}
         onClick={() => {
           setIsPlaying(false);
@@ -28,7 +28,7 @@ export const Button = ({ setIsPlaying, setMyDilemma }: ButtonProps) => {
         Continuer
       </button>
       <button
-        className="button"
+        className="btn-multicolor button"
         ref={endRef}
         onClick={() => {
           setIsPlaying(false);
