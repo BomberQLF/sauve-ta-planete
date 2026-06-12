@@ -52,8 +52,6 @@ export function Planet({
   const waterMap = useLoader(TextureLoader, "/textures/waterTexture.jpg");
   const fishMap = useLoader(TextureLoader, "/textures/fishMap.png");
 
-  const containerRef = useRef<Group>(null!);
-
   const waterRef = useRef<Mesh>(null!);
   const fishRef = useRef<Mesh>(null!);
 

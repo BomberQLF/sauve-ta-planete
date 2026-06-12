@@ -47,11 +47,11 @@ export function Fire({ extinguishFire }: { extinguishFire: boolean }) {
     if (!extinguishFire) {
       elapsedRef.current += delta * 3;
       fireRef.current.scale.x =
-        Math.sin(elapsedRef.current) * 0.02 + fixedScale;
+        Math.sin(elapsedRef.current) * 0.025 + fixedScale;
       fireRef.current.scale.y =
-        Math.sin(elapsedRef.current) * 0.02 + fixedScale;
+        Math.sin(elapsedRef.current) * 0.025 + fixedScale;
       fireRef.current.scale.z =
-        Math.sin(elapsedRef.current) * 0.02 + fixedScale;
+        Math.sin(elapsedRef.current) * 0.025 + fixedScale;
     }
   });
 
@@ -73,7 +73,7 @@ export function Fire({ extinguishFire }: { extinguishFire: boolean }) {
   return (
     <group dispose={null} ref={fireRef} scale={fixedScale}>
       <EffectComposer>
-        <Bloom mipmapBlur luminanceThreshold={1} />
+        <Bloom mipmapBlur luminanceThreshold={0.6} />
       </EffectComposer>
       <mesh
         position={[0.35, 1.2, 0]}

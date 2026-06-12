@@ -1,5 +1,7 @@
 import "./Dilemma.css";
 import data from "../../../data/data.json";
+import { useEffect } from "react";
+import { gsap } from "gsap";
 
 interface DilemmaProps {
   myDilemma: string;
@@ -131,7 +133,6 @@ export function Dilemma({
         break;
     }
   };
-
   const paddedId = String(text.id).padStart(2, "0");
   const dilemmaImg = new URL(
     `../../../assets/img/${paddedId}.jpg`,
@@ -140,10 +141,8 @@ export function Dilemma({
 
   return (
     <div className="info-container">
-
       {/* ── Carte dilemme (droite, pleine hauteur) ── */}
       <div className="dilemma-card">
-
         {/* Numéro */}
         <div className="dilemma-number">
           {paddedId.split("").map((digit, i) => (
@@ -180,7 +179,6 @@ export function Dilemma({
             <p className="option-display__text">{text.option_B}</p>
           </div>
         </div>
-
       </div>
 
       {/* ── Panneau réponses cliquables (bas) ── */}
@@ -191,10 +189,11 @@ export function Dilemma({
             className={`option-button option-button--${index === 0 ? "a" : "b"}`}
             onClick={() => handleClick(option.isCorrect)}
           >
-            {index === 0
-              ? <div className="option-btn-shape option-btn-shape--square" />
-              : <div className="option-btn-shape option-btn-shape--diamond" />
-            }
+            {index === 0 ? (
+              <div className="option-btn-shape option-btn-shape--square" />
+            ) : (
+              <div className="option-btn-shape option-btn-shape--diamond" />
+            )}
           </button>
         ))}
       </div>

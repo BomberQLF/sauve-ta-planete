@@ -3,9 +3,9 @@
     "id": "1",
     "categorie": "Expert IA",
     "nom": "Le devoir de mathématiques",
-    "situation": "Tu dois faire tes exercices de mathématiques pour demain matin 8h30 or il est 22h et tu n'as toujours rien fait que fais tu ? ",
-    "option_A": "Tu envoies une photo de ton devoir à CHATGPT pour qu'il t'aide à le faire rapidement comme ça tu peux aller dormir tôt",
-    "option_B": "Tu fais tes exercices toi-même, même si ça prend plus de temps et tu arrives demain fatigué en cours.",
+    "situation": "Tu dois faire tes exercices de mathématiques pour demain matin 8h30 or il est 22h et tu n'as toujours rien fait, que fais-tu ? ",
+    "option_A": "Tu envoies une photo de ton devoir à CHATGPT pour qu'il t'aide à le faire rapidement comme ça tu peux aller dormir tôt.",
+    "option_B": "Tu fais tes exercices toi-même, même si ça prend plus de temps et que tu arrives demain fatigué en cours.",
     "option_ecoresponsable": "B"
   },
   {
@@ -13,7 +13,7 @@
     "categorie": "Expert IA",
     "nom": "Idée de recette",
     "situation": "C’est l’heure du goûter, tu as super faim, mais il ne reste quasiment rien dans les placards : juste une banane toute noire et écrasée que personne ne veut manger. Que fais-tu ?",
-    "option_A": "Tu demandes à ChatGPT de t'inventer une recette. En ajoutant juste un peu de farine et un fond de lait, l'IA te montre comment faire un gateau.",
+    "option_A": "Tu demandes à ChatGPT de t'inventer une recette. En ajoutant juste un peu de farine et un fond de lait, l'IA te montre comment faire un gâteau.",
     "option_B": "C'est trop difficile de faire quelque chose avec ça. Tu jettes la banane à la poubelle et tu ouvres un paquet neuf de biscuits au chocolat trop bons.",
     "option_ecoresponsable": "A"
   },
@@ -30,9 +30,9 @@
     "id": "4",
     "categorie": "Expert IA",
     "nom": "Traduction de l'exercice d'anglais",
-    "situation": "t'as professeur te donnes du texte en anglais à traduire en français.",
+    "situation": "Ta professeure te donne du texte en anglais à traduire en français.",
     "option_A": "Tu essaies de faire la traduction toi-même, en utilisant un traducteur en ligne pour essayer de comprendre les mots que tu ne connais pas.",
-    "option_B": "Tu traduis tout t'es exercices avec CHATGPT tu ne sais pas ce qu'il a fait mais tu c'est que c'est bon car c'est l'IA qu'il l'a dit.",
+    "option_B": "Tu traduis tous tes exercices avec CHATGPT tu ne sais pas ce qu'il a fait mais tu sais que c'est bon car c'est l'IA qui l'a dit.",
     "option_ecoresponsable": "A"
   },
   {
@@ -40,17 +40,17 @@
     "categorie": "Expert Stockage",
     "nom": "Retour de vacances",
     "situation": "Tu rentres de vacances avec 500 photos et 300 vidéos, ton téléphone déborde ! Comment les sauvegarder ?",
-    "option_A": "Tu demande à tes parents de prendre la voiture pour aller acheter un gros disque dur en magasin et tout stocker à la maison.",
+    "option_A": "Tu demandes à tes parents de prendre la voiture pour aller acheter un gros disque dur en magasin et tout stocker à la maison.",
     "option_B": "Tu prends un abonnement 'Drive/Cloud' : toutes tes photos s'envoient sur Internet automatiquement, tu n'as rien à faire !",
     "option_ecoresponsable": "A"
   },
   {
     "id": "6",
-    "categorie": "Expert Stockage ",
+    "categorie": "Expert Stockage",
     "nom": "Coucou Papy et Mamie !",
-    "situation": "C'est ton anniversaire, tu veux envoyer plein de belles photos de toi à tes grands-parents et à t'as famille.",
+    "situation": "C'est ton anniversaire, tu veux envoyer plein de belles photos de toi à tes grands-parents et à ta famille.",
     "option_A": "Tu leur envoies un message avec toutes les photos à chacun.",
-    "option_B": "Tu crées un dossier sur le cloud ou tu mets toutes tes photos et tu leur envoies le lien pour voir les photos.",
+    "option_B": "Tu crées un dossier sur le cloud où tu mets toutes tes photos et tu leur envoies le lien pour voir les photos.",
     "option_ecoresponsable": "B"
   },
   {
@@ -58,7 +58,7 @@
     "categorie": "Expert Stockage",
     "nom": "Soirée Gaming",
     "situation": "Tu veux jouer en ligne avec tes potes ce soir, mais tu n'as pas le jeu !",
-    "option_A": "Tu utilises et installes le jeu sur ta console : tu dois attendre 1h30 de téléchargement avant de les rejoindre, et la qualité sera un peu moins belle.",
+    "option_A": "Tu installes le jeu sur ta console : tu dois attendre 1h30 de téléchargement avant de les rejoindre, et la qualité sera un peu moins belle.",
     "option_B": "Tu joues en 'Cloud Gaming' : pas besoin de télécharger, tu joues instantanément avec la qualité maximale, même sur une vieille console.",
     "option_ecoresponsable": "A"
   },
@@ -66,8 +66,8 @@
     "id": "8",
     "categorie": "Expert Stockage",
     "nom": "Souvenir de mon chat",
-    "situation": "Tu as plein de photos de ton chat, même des photos ratés",
-    "option_A": "Tu les stockes toutes sur ton téléphone, même les photos floues. Car c'est trop long à trier",
+    "situation": "Tu as plein de photos de ton chat, même des photos ratées",
+    "option_A": "Tu les stockes toutes sur ton téléphone, même les photos floues. Car c'est trop long à trier.",
     "option_B": "Tu prends le temps de faire du tri et tu ne gardes que les meilleures photos de ton chat, même si ça prend du temps.",
     "option_ecoresponsable": "A"
   },
@@ -75,27 +75,27 @@
     "id": "9",
     "categorie": "Expert Réseau",
     "nom": "Soirée Série",
-    "situation": "Tu veux regarder un épisode de ta série préférée sur ton téléphone ou t'as tablette.",
+    "situation": "Tu veux regarder un épisode de ta série préférée sur ton téléphone ou ta tablette.",
     "option_A": "Tu le regardes en 4G/5G parce que l'image est parfaite et car ça fonctionne mieux que le WIFI.",
-    "option_B": "Tu regarde avec le Wi-Fi de la maison, même si il ne fonctionne pas parfaitement.",
+    "option_B": "Tu regardes avec le Wi-Fi de la maison, même s'il ne fonctionne pas parfaitement.",
     "option_ecoresponsable": "B"
   },
   {
     "id": "10",
     "categorie": "Expert Réseau",
-    "nom": "Soirée Série 2" ,
-    "situation": "Tu veux regarder une série ou une vidéo Youtube sur ton téléphone !",
+    "nom": "Soirée Série 2",
+    "situation": "Tu veux regarder une série ou une vidéo YouTube sur ton téléphone !",
     "option_A": "Tu regardes en qualité normale, même si l'image est moins belle.",
-    "option_B": "Tu mets de la 4K comme ça l'image est super détaillé tu vois tout parfaitement !",
+    "option_B": "Tu mets de la 4K comme ça l'image est super détaillée, tu vois tout parfaitement !",
     "option_ecoresponsable": "A"
   },
   {
     "id": "11",
     "categorie": "Expert Réseau",
     "nom": "Ma playlist préférée",
-    "situation": "Tu as une playlist de musiques que tu écoutes absolument tous les jours.",
+    "situation": "Tu as une playlist de musique que tu écoutes absolument tous les jours.",
     "option_A": "Tu la streames en direct à chaque fois (sur Spotify, Deezer...) pour garder plein d'espace libre sur ton téléphone.",
-    "option_B": "Tu la télécharges une bonne fois pour toutes pour l'écouter hors-ligne, même si ça prend de la mémoire sur ton portable.",
+    "option_B": "Tu la télécharges une bonne fois pour toutes pour l'écouter hors ligne, même si ça prend de la mémoire sur ton portable.",
     "option_ecoresponsable": "B"
   },
   {
@@ -121,20 +121,18 @@
     "categorie": "Influenceur",
     "nom": "La newsletter",
     "situation": "Tu reçois des centaines de mails tous les jours car tu es abonné à plein de newsletters.",
-    "option_A": "Tu laisses les mails passer, tu catégorises les marques qui ne t'intéressent plus en spam",
+    "option_A": "Tu laisses les mails passer, tu catégorises les marques qui ne t'intéressent plus en spam.",
     "option_B": "Tu prends le temps de te désabonner de toutes les newsletters que tu ne lis jamais, même si tu dois faire du tri dans ta boîte mail.",
     "option_ecoresponsable": "B"
-
   },
   {
     "id": "15",
     "categorie": "Influenceur",
-    "nom": "Les notifs youtube",
+    "nom": "Les notifs YouTube",
     "situation": "Tu es abonné à plein de chaînes YouTube et tu reçois des notifications à chaque fois qu'une nouvelle vidéo sort.",
-    "option_A": "Tu laisses les notifications actives pour ne rien rater",
-    "option_B": "Tu prends le temps de te désabonner de toutes les chaînes que tu ne regardes jamais",
+    "option_A": "Tu laisses les notifications actives pour ne rien rater.",
+    "option_B": "Tu prends le temps de te désabonner de toutes les chaînes que tu ne regardes jamais.",
     "option_ecoresponsable": "A"
-    
   },
   {
     "id": "16",
@@ -149,7 +147,7 @@
     "id": "17",
     "categorie": "Spécialiste Environnemental",
     "nom": "Le drame du téléphone cassé",
-    "situation": "Catastrophe, l'écran de ton smartphone est fissuré ! Il marche encore mais c'est super pénible à utiliser.",
+    "situation": "Catastrophe, l'écran de ton smartphone est fissuré ! Il fonctionne encore mais c'est super pénible à utiliser.",
     "option_A": "Tu en profites pour en acheter un tout neuf.",
     "option_B": "Tu l'emmènes chez un expert pour le faire réparer.",
     "option_ecoresponsable": "B"

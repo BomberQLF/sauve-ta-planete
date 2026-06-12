@@ -33,7 +33,7 @@ export function Penguin({
 
   // Animation
   useFrame((_, delta) => {
-    penguinsRef.current.rotateY(-delta * 0.3);
+    penguinsRef.current.rotateY(-delta * 0.25);
   });
 
   if (addAnimals) {
@@ -83,8 +83,32 @@ export function Penguin({
         receiveShadow
         geometry={nodes.penguin.geometry}
         material={materials.Material}
+        position={[0, 0.3, 0.5]}
+        rotation={[0, 0, 0]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.penguin.geometry}
+        material={materials.Material}
+        position={[-0.5, 0, -0.9]}
+        rotation={[0, 0.9, 0]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.penguin.geometry}
+        material={materials.Material}
         position={[0, -0.3, 3]}
         rotation={[0, -2, 0]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.penguin.geometry}
+        material={materials.Material}
+        position={[-0.8, -0.1, 2]}
+        rotation={[0, -2.7, 0]}
       />
     </group>
   );

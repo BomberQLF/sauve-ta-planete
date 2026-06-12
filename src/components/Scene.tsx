@@ -34,8 +34,6 @@ export function Scene() {
   const [cleanWaste, setCleanWaste] = useState<boolean>(false);
   const [transitionEnergy, setTransitionEnergy] = useState<boolean>(false);
   const [extinguishFire, setExtinguishFire] = useState<boolean>(false);
-
-  //to add
   const [addAnimals, setAddAnimals] = useState<boolean>(false);
 
   // Progression — ids des dilemmes répondus correctement (Set évite les doublons)
@@ -116,27 +114,12 @@ export function Scene() {
   //Animate
   useFrame((state, delta) => {
     if (isPlaying) {
-      //zoom to scene
-      // gsap.to(camera.position, {
-      //   x: () => 0,
-      //   y: () => 1,
-      //   z: () => 1.2,
-      //   duration: 2,
-      // });
       if ((UIRef.current, buttonRef.current)) {
         UIRef.current.classList.add("hidden");
         buttonRef.current.classList.remove("hidden");
       }
     }
     if (!isPlaying) {
-      //zoom to scene
-      // gsap.to(camera.position, {
-      //   x: () => 0,
-      //   y: () => 0,
-      //   z: () => 3,
-      //   duration: 2,
-      // });
-
       // planet constantly rotating
       planetGroupRef.current.rotateX(delta * 0.1);
       planetGroupRef.current.rotateY(delta * 0.1);
@@ -148,13 +131,92 @@ export function Scene() {
     }
   });
 
+  //Audio
+  const oceanAudio = new Audio("/audio/ocean.mp3");
+  const waveAudio = new Audio("/audio/ocean-waves.mp3");
+  const fireAudio = new Audio("/audio/fire.mp3");
+  const buildingAudio = new Audio("/audio/building.mp3");
+  const birdsAudio = new Audio("/audio/birds.mp3");
+  const treesAudio = new Audio("/audio/trees.mp3");
+  const cicadasAudio = new Audio("/audio/cicadas.mp3");
+  const sparkleAudio = new Audio("/audio/sparkle.mp3");
+  const wasteAudio = new Audio("/audio/waste.mp3");
+
+  const fadeInAudio = (audio: HTMLAudioElement, volume?: number) => {
+    audio.loop = true;
+    audio.volume = 0;
+    audio.play();
+    gsap.to(audio, {
+      volume: volume ? volume : 1,
+      duration: 1,
+      delay: 1,
+    });
+  };
+
+  const fadeOutAudio = (audio: HTMLAudioElement) => {
+    gsap.to(audio, {
+      volume: 0,
+      duration: 2,
+      delay: 2,
+    });
+    setTimeout(() => {
+      audio.pause();
+    }, 4000);
+  };
+
+  // Audio
+  useEffect(() => {
+    fadeInAudio(oceanAudio, 0.1);
+  }, []);
+
+  useEffect(() => {
+    if (addAnimals) {
+      fadeInAudio(birdsAudio, 0.5);
+    }
+  }, [addAnimals]);
+
+  useEffect(() => {
+    if (unfloodPlanet || cleanWater) {
+      setTimeout(() => {
+        waveAudio.play();
+        fadeOutAudio(waveAudio);
+      }, 2000);
+    }
+  }, [unfloodPlanet, cleanWater]);
+
+  useEffect(() => {
+    if (turnPlanetGreen || growTrees) {
+      // setTimeout(() => {
+      fadeInAudio(treesAudio, 0.7);
+      fadeInAudio(cicadasAudio, 0.7);
+      // }, 2000);
+    }
+  }, [turnPlanetGreen, growTrees]);
+
+  useEffect(() => {
+    if (cleanWaste) {
+      fadeInAudio(wasteAudio, 0.7);
+      setTimeout(() => {
+        wasteAudio.pause();
+      }, 2500);
+    }
+  }, [cleanWaste]);
+
+  useEffect(() => {
+    if (replaceBuildings || transitionEnergy) {
+      setTimeout(() => {
+        buildingAudio.play();
+      }, 1500);
+    }
+  }, [replaceBuildings, transitionEnergy]);
+
   return (
     <>
       {/* OrbitControls actif uniquement quand le formulaire est visible */}
-      {(myDilemma === "0" || myDilemma === "NaN") && <OrbitControls />}
+      {/* {(myDilemma === "0" || myDilemma === "NaN") && <OrbitControls />} */}
 
       {/* Pour le dev */}
-      {/* <OrbitControls /> */}
+      <OrbitControls />
 
       <Lights />
       <group ref={planetGroupRef}>
