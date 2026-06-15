@@ -1,11 +1,15 @@
 .button-container {
   position: absolute;
-  bottom: -50vh;
+  bottom: -48vh;
   left: -6rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 50vw;
+}
+
+.button-container.single {
+  left: 15vw;
 }
 
 .button {

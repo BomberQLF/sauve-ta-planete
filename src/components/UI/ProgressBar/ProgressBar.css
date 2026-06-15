@@ -1,6 +1,6 @@
 .progress-bar-wrapper {
   position: fixed;
-  top: -28rem;
+  top: -30rem;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
