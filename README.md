@@ -1,4 +1,4 @@
-# 🌍 Terra : Sauvons la planète, un geste numérique à la fois
+# 🌍 Terra : Sauvons la planète
 
 Un jeu interactif 3D éducatif qui sensibilise les jeunes aux enjeux environnementaux liés aux choix numériques et à l'utilisation responsable de l'Intelligence Artificielle.
 
@@ -15,7 +15,6 @@ Terra est une expérience interactive immersive en 3D qui invite les joueurs à 
 ### Prérequis
 
 - Node.js 16+ et npm/yarn
-- Un navigateur moderne (Chrome, Firefox, Safari, Edge)
 
 ### Étapes
 
@@ -45,6 +44,7 @@ Terra est une expérience interactive immersive en 3D qui invite les joueurs à 
    ```bash
    npm run preview
    ```
+6. **Récupérer et héberger le dossier dist**
 
 ---
 
@@ -103,6 +103,6 @@ Thuy hang, Tom et Nicolas.
 
 ## 📄 Licence
 
-Ce projet est fourni à des fins éducatives dans le cadre du cursus SAE MMI.
+Ce projet est fourni à des fins éducatives dans le cadre de notre projet de SAE Terra.
 
 ---
