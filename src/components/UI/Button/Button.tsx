@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import "./Button.css";
 
 interface ButtonProps {
@@ -14,15 +14,13 @@ export const Button = ({
   setEndGame,
   onRestart,
 }: ButtonProps) => {
-  const continueRef = useRef<HTMLButtonElement>(null!);
-  const endRef = useRef<HTMLButtonElement>(null!);
-  const restartRef = useRef<HTMLButtonElement>(null!);
+  const [terminated, setTerminated] = useState(false);
 
   return (
     <div className="button-container">
+      {/* Continuer */}
       <button
-        className="btn-multicolor button"
-        ref={continueRef}
+        className={`btn-multicolor button${terminated ? " button--fade-out" : ""}`}
         onClick={() => {
           setIsPlaying(false);
           setMyDilemma("0");
@@ -30,24 +28,22 @@ export const Button = ({
       >
         Continuer
       </button>
+
+      {/* Terminer */}
       <button
-        className="btn-multicolor button"
-        ref={endRef}
+        className={`btn-multicolor button${terminated ? " button--fade-out" : ""}`}
         onClick={() => {
-          setIsPlaying(false);
+          setTerminated(true);
           setEndGame(true);
         }}
       >
         Terminer
       </button>
+
+      {/* Recommencer — toujours dans le DOM, opacity 0 au départ */}
       <button
-        className="btn-multicolor button"
-        ref={restartRef}
-        onClick={() => {
-          onRestart?.();
-          setIsPlaying(false);
-          setMyDilemma("0");
-        }}
+        className={`btn-multicolor button button--restart${terminated ? " button--restart--visible" : ""}`}
+        onClick={() => onRestart?.()}
       >
         Recommencer
       </button>

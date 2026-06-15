@@ -1,17 +1,45 @@
 .button-container {
   position: absolute;
   bottom: -50vh;
-  left: -46vw;
+  left: -50vw;
   display: flex;
-  flex-direction: column;
-  gap: 12px;
+  justify-content: space-around;
+  align-items: center;
+  width: 100vw;
 }
 
 .button {
   padding: 0.85rem 2.8rem;
   font-size: clamp(1rem, 1.4vw, 1.25rem);
   border-width: 10px;
+  transition: opacity 0.4s ease;
 }
 
 .button:hover  { transform: translateY(-2px); }
 .button:active { transform: translateY(2px); }
+
+/* Continuer + Terminer disparaissent */
+.button--fade-out {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Recommencer : centré absolument, invisible par défaut */
+.button--restart {
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  /* légère attente pour que les deux autres finissent de disparaître */
+  transition: opacity 0.5s ease 0.35s;
+}
+
+.button--restart--visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Hover du Recommencer — préserve le centrage */
+.button--restart--visible:hover  { transform: translateX(-50%) translateY(-2px); }
+.button--restart--visible:active { transform: translateX(-50%) translateY(2px); }
