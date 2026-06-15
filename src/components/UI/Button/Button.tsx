@@ -17,7 +17,7 @@ export const Button = ({
   const [terminated, setTerminated] = useState(false);
 
   return (
-    <div className="button-container">
+    <div className={`button-container ${terminated ? " single" : ""}`}>
       {/* Continuer */}
       <button
         className={`btn-multicolor button${terminated ? " button--fade-out" : ""}`}
