@@ -1,5 +1,5 @@
 import * as THREE from "three";
-import React, { useRef, type JSX } from "react";
+import React, { useRef, useEffect, type JSX } from "react";
 import { useGLTF } from "@react-three/drei";
 import type { GLTF } from "three-stdlib";
 import { gsap } from "gsap";
@@ -390,22 +390,24 @@ export function Buildings({ replaceBuildings }: { replaceBuildings: boolean }) {
   const factoryRef = useRef<THREE.Group>(null!);
 
   //Animation
-  if (replaceBuildings) {
-    gsap.to(factoryRef.current.scale, {
-      x: 0.5,
-      y: 0.5,
-      z: 0.5,
-      duration: 3,
-      delay: 2,
-    });
-    gsap.to(housesRef.current.scale, {
-      x: 1,
-      y: 1,
-      z: 1,
-      duration: 2,
-      delay: 2,
-    });
-  }
+  useEffect(() => {
+    if (replaceBuildings && factoryRef.current && housesRef.current) {
+      gsap.to(factoryRef.current.scale, {
+        x: 0.5,
+        y: 0.5,
+        z: 0.5,
+        duration: 3,
+        delay: 2,
+      });
+      gsap.to(housesRef.current.scale, {
+        x: 1,
+        y: 1,
+        z: 1,
+        duration: 2,
+        delay: 2,
+      });
+    }
+  }, [replaceBuildings]);
 
   return (
     <>

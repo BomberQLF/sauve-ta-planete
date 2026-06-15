@@ -6,7 +6,7 @@ import {
   SphereGeometry,
   TextureLoader,
 } from "three";
-import { useRef, type JSX } from "react";
+import { useRef, useEffect, type JSX } from "react";
 import { useGLTF } from "@react-three/drei";
 import type { GLTF } from "three-stdlib";
 import { gsap } from "gsap";
@@ -28,18 +28,20 @@ export function Clouds({ cleanAir }: { cleanAir: boolean }) {
   });
 
   // Animation
-  if (cleanAir) {
-    gsap.to(smokeRef.current.material, {
-      opacity: 0,
-      duration: 1,
-      delay: 2,
-    });
-    gsap.to(cloudsRef.current.material, {
-      opacity: 0.2,
-      duration: 1,
-      delay: 3,
-    });
-  }
+  useEffect(() => {
+    if (cleanAir && smokeRef.current && cloudsRef.current) {
+      gsap.to(smokeRef.current.material, {
+        opacity: 0,
+        duration: 1,
+        delay: 2,
+      });
+      gsap.to(cloudsRef.current.material, {
+        opacity: 0.2,
+        duration: 1,
+        delay: 3,
+      });
+    }
+  }, [cleanAir]);
 
   return (
     <group>

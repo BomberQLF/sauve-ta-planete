@@ -55,20 +55,22 @@ export function Fire({ extinguishFire }: { extinguishFire: boolean }) {
     }
   });
 
-  if (extinguishFire) {
-    gsap.to(fireMaterial, {
-      opacity: 0,
-      duration: 2,
-      delay: 2,
-    });
-    gsap.to(fireRef.current.scale, {
-      x: 0,
-      y: 0,
-      z: 0,
-      duration: 1,
-      delay: 4,
-    });
-  }
+  useEffect(() => {
+    if (extinguishFire && fireRef.current) {
+      gsap.to(fireMaterial, {
+        opacity: 0,
+        duration: 2,
+        delay: 2,
+      });
+      gsap.to(fireRef.current.scale, {
+        x: 0,
+        y: 0,
+        z: 0,
+        duration: 1,
+        delay: 4,
+      });
+    }
+  }, [extinguishFire]);
 
   return (
     <group dispose={null} ref={fireRef} scale={fixedScale}>

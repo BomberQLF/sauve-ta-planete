@@ -1,4 +1,4 @@
-import multicolorBackImg from "../../assets/multicolorBack.png";
+import multicolorBackImg from "../../assets/multicolorBack.jpg";
 import "./InstructionsScreen.css";
 
 interface InstructionsScreenProps {

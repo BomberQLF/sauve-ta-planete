@@ -3,12 +3,13 @@ import { Canvas } from "@react-three/fiber";
 import { Scene } from "./components/Scene";
 import StartScreen from "./components/StartScreen/StartScreen";
 import InstructionsScreen from "./components/InstructionsScreen/InstructionsScreen";
+import { hasSavedGame } from "./utils/storage";
 import "./App.css";
 
 type Screen = "start" | "instructions" | "game";
 
 export default function App() {
-  const [screen, setScreen] = useState<Screen>("start");
+  const [screen, setScreen] = useState<Screen>(hasSavedGame() ? "game" : "start");
 
   if (screen === "start") {
     return <StartScreen onStart={() => setScreen("instructions")} />;

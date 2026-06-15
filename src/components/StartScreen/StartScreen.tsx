@@ -1,5 +1,5 @@
 import terraLogo from "../../assets/terra_logo.png";
-import multicolorBackImg from "../../assets/multicolorBack.png";
+import multicolorBackImg from "../../assets/multicolorBack.jpg";
 import "./StartScreen.css";
 
 interface StartScreenProps {

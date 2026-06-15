@@ -200,15 +200,17 @@ export function RenewableEnergy({
   const renewablesRef = useRef<THREE.Group>(null!);
 
   //Animation
-  if (transitionEnergy) {
-    gsap.to(renewablesRef.current.scale, {
-      x: 1,
-      y: 1,
-      z: 1,
-      duration: 3,
-      delay: 2,
-    });
-  }
+  useEffect(() => {
+    if (transitionEnergy && renewablesRef.current) {
+      gsap.to(renewablesRef.current.scale, {
+        x: 1,
+        y: 1,
+        z: 1,
+        duration: 3,
+        delay: 2,
+      });
+    }
+  }, [transitionEnergy]);
   return (
     <group ref={renewablesRef} scale={0.5}>
       <WindTurbine />

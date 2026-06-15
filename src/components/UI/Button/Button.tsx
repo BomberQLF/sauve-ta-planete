@@ -4,19 +4,15 @@ import "./Button.css";
 interface ButtonProps {
   setIsPlaying: (isPlaying: boolean) => void;
   setMyDilemma: (dilemma: string) => void;
+  onTerminate?: () => void;
 }
 
-export const Button = ({ setIsPlaying, setMyDilemma }: ButtonProps) => {
+export const Button = ({ setIsPlaying, setMyDilemma, onTerminate }: ButtonProps) => {
   const continueRef = useRef<HTMLButtonElement>(null!);
   const endRef = useRef<HTMLButtonElement>(null!);
 
-  const endGame = () => {};
-
   return (
     <div className="button-container">
-      {/* <div className="button-container" onClick={changePlanet}>
-        <p>Change planet</p>
-      </div> */}
       <button
         className="btn-multicolor button"
         ref={continueRef}
@@ -31,6 +27,7 @@ export const Button = ({ setIsPlaying, setMyDilemma }: ButtonProps) => {
         className="btn-multicolor button"
         ref={endRef}
         onClick={() => {
+          onTerminate?.();
           setIsPlaying(false);
           setMyDilemma("0");
         }}
