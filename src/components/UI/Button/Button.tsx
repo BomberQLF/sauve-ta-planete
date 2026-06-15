@@ -35,6 +35,7 @@ export const Button = ({
         onClick={() => {
           setTerminated(true);
           setEndGame(true);
+          // setIsPlaying(false);
         }}
       >
         Terminer

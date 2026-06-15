@@ -203,6 +203,14 @@ export function Scene({ setScreen }: { setScreen: (screen: Screen) => void }) {
         UIRef.current.classList.add("hidden");
         buttonRef.current.classList.remove("hidden");
       }
+      if (endGame) {
+        planetGroupRef.current.rotateX(delta * 0.1);
+        planetGroupRef.current.rotateY(delta * 0.1);
+        planetGroupRef.current.rotateZ(delta * 0.1);
+        progressBarRef.current.classList.add("hidden");
+      } else {
+        progressBarRef.current?.classList.remove("hidden");
+      }
     }
     if (!isPlaying) {
       planetGroupRef.current.rotateX(delta * 0.1);
