@@ -17,28 +17,56 @@ import { Buildings } from "./Buildings";
 import { Waste } from "./Waste";
 import { RenewableEnergy } from "./RenewableEnergy";
 import { Fire } from "./Fire";
-import { saveGameState, loadGameState, clearGameState } from "../utils/storage";
+import {
+  saveGameState,
+  loadGameState,
+  clearGameState,
+  hasSavedGame,
+} from "../utils/storage";
 
 // ── Initialisation depuis localStorage ──────────────────────
 const _saved = loadGameState();
 
-export function Scene() {
+type Screen = "start" | "instructions" | "game";
+
+export function Scene({ setScreen }: { setScreen: (screen: Screen) => void }) {
   const [myDilemma, setMyDilemma] = useState("0");
   const [isPlaying, setIsPlaying] = useState(false);
+  const [endGame, setEndGame] = useState(false);
   const planetGroupRef = useRef<Group>(null!);
 
   // Conséquences — initialisées depuis la sauvegarde si elle existe
-  const [unfloodPlanet,    setUnfloodPlanet]    = useState<boolean>(_saved?.unfloodPlanet    ?? false);
-  const [turnPlanetGreen,  setTurnPlanetGreen]  = useState<boolean>(_saved?.turnPlanetGreen  ?? false);
-  const [growTrees,        setGrowTrees]        = useState<boolean>(_saved?.growTrees        ?? false);
-  const [unmeltIce,        setUnmeltIce]        = useState<boolean>(_saved?.unmeltIce        ?? false);
-  const [cleanAir,         setCleanAir]         = useState<boolean>(_saved?.cleanAir         ?? false);
-  const [cleanWater,       setCleanWater]       = useState<boolean>(_saved?.cleanWater       ?? false);
-  const [replaceBuildings, setReplaceBuildings] = useState<boolean>(_saved?.replaceBuildings ?? false);
-  const [cleanWaste,       setCleanWaste]       = useState<boolean>(_saved?.cleanWaste       ?? false);
-  const [transitionEnergy, setTransitionEnergy] = useState<boolean>(_saved?.transitionEnergy ?? false);
-  const [extinguishFire,   setExtinguishFire]   = useState<boolean>(_saved?.extinguishFire   ?? false);
-  const [addAnimals,       setAddAnimals]       = useState<boolean>(_saved?.addAnimals       ?? false);
+  const [unfloodPlanet, setUnfloodPlanet] = useState<boolean>(
+    _saved?.unfloodPlanet ?? false,
+  );
+  const [turnPlanetGreen, setTurnPlanetGreen] = useState<boolean>(
+    _saved?.turnPlanetGreen ?? false,
+  );
+  const [growTrees, setGrowTrees] = useState<boolean>(
+    _saved?.growTrees ?? false,
+  );
+  const [unmeltIce, setUnmeltIce] = useState<boolean>(
+    _saved?.unmeltIce ?? false,
+  );
+  const [cleanAir, setCleanAir] = useState<boolean>(_saved?.cleanAir ?? false);
+  const [cleanWater, setCleanWater] = useState<boolean>(
+    _saved?.cleanWater ?? false,
+  );
+  const [replaceBuildings, setReplaceBuildings] = useState<boolean>(
+    _saved?.replaceBuildings ?? false,
+  );
+  const [cleanWaste, setCleanWaste] = useState<boolean>(
+    _saved?.cleanWaste ?? false,
+  );
+  const [transitionEnergy, setTransitionEnergy] = useState<boolean>(
+    _saved?.transitionEnergy ?? false,
+  );
+  const [extinguishFire, setExtinguishFire] = useState<boolean>(
+    _saved?.extinguishFire ?? false,
+  );
+  const [addAnimals, setAddAnimals] = useState<boolean>(
+    _saved?.addAnimals ?? false,
+  );
 
   // Historique des conséquences déjà jouées
   const [history, setHistory] = useState<number[]>(() => _saved?.history ?? []);
@@ -46,7 +74,7 @@ export function Scene() {
 
   // Progression
   const [correctIds, setCorrectIds] = useState<Set<string>>(
-    () => new Set(_saved?.correctIds ?? [])
+    () => new Set(_saved?.correctIds ?? []),
   );
   const addCorrectId = (id: string) =>
     setCorrectIds((prev) => new Set(prev).add(id));
@@ -54,7 +82,7 @@ export function Scene() {
   // ── Sauvegarde automatique à chaque changement d'état ───────
   useEffect(() => {
     saveGameState({
-      correctIds:      Array.from(correctIds),
+      correctIds: Array.from(correctIds),
       history,
       unfloodPlanet,
       turnPlanetGreen,
@@ -69,13 +97,23 @@ export function Scene() {
       addAnimals,
     });
   }, [
-    correctIds, history, unfloodPlanet, turnPlanetGreen, growTrees, unmeltIce,
-    cleanAir, cleanWater, replaceBuildings, cleanWaste, transitionEnergy,
-    extinguishFire, addAnimals,
+    correctIds,
+    history,
+    unfloodPlanet,
+    turnPlanetGreen,
+    growTrees,
+    unmeltIce,
+    cleanAir,
+    cleanWater,
+    replaceBuildings,
+    cleanWaste,
+    transitionEnergy,
+    extinguishFire,
+    addAnimals,
   ]);
 
-  // ── Reset complet (bouton Terminer) ─────────────────────────
-  const handleTerminate = () => {
+  // ── Reset complet (bouton Recommencer) ─────────────────────────
+  const handleRestart = () => {
     clearGameState();
     setCorrectIds(new Set());
     setHistory([]);
@@ -90,10 +128,13 @@ export function Scene() {
     setTransitionEnergy(false);
     setExtinguishFire(false);
     setAddAnimals(false);
+    setEndGame(false);
+    setScreen("start");
   };
 
   const UIRef = useRef<HTMLDivElement>(null!);
   const buttonRef = useRef<HTMLDivElement>(null!);
+  const progressBarRef = useRef<HTMLDivElement>(null!);
 
   const { camera } = useThree();
 
@@ -102,15 +143,57 @@ export function Scene() {
     const isFormVisible = myDilemma === "0" || myDilemma === "NaN";
 
     if (isFormVisible) {
-      gsap.to(camera.position, { x: 0, y: -0.8, z: 5,  duration: 1, ease: "power2.out" });
-      gsap.to(planetGroupRef.current.position, { x: 0, y: 0, z: 0, duration: 1, ease: "power2.out" });
-    } else if (isPlaying) {
-      gsap.to(camera.rotation, { x: 0, y: 0, z: 0, duration: 1, ease: "power2.out" });
-      gsap.to(planetGroupRef.current.position, { x: 0, y: 0, z: 0, duration: 1, ease: "power2.out" });
+      gsap.to(camera.position, {
+        x: 0,
+        y: -0.8,
+        z: 5,
+        duration: 1,
+        ease: "power2.out",
+      });
+      gsap.to(planetGroupRef.current.position, {
+        x: 0,
+        y: 0,
+        z: 0,
+        duration: 1,
+        ease: "power2.out",
+      });
+    } else if (isPlaying || endGame) {
+      gsap.to(camera.rotation, {
+        x: 0,
+        y: 0,
+        z: 0,
+        duration: 1,
+        ease: "power2.out",
+      });
+      gsap.to(planetGroupRef.current.position, {
+        x: 0,
+        y: 0,
+        z: 0,
+        duration: 1,
+        ease: "power2.out",
+      });
     } else {
-      gsap.to(camera.position, { x: 0, y: 0, z: 15, duration: 1, ease: "power2.out" });
-      gsap.to(camera.rotation, { x: 0, y: 0, z: 0,  duration: 1, ease: "power2.out" });
-      gsap.to(planetGroupRef.current.position, { x: 0.7, y: -0.5, z: 0, duration: 1, ease: "power2.out" });
+      gsap.to(camera.position, {
+        x: 0,
+        y: 0,
+        z: 15,
+        duration: 1,
+        ease: "power2.out",
+      });
+      gsap.to(camera.rotation, {
+        x: 0,
+        y: 0,
+        z: 0,
+        duration: 1,
+        ease: "power2.out",
+      });
+      gsap.to(planetGroupRef.current.position, {
+        x: 0.7,
+        y: -0.5,
+        z: 0,
+        duration: 1,
+        ease: "power2.out",
+      });
     }
   }, [myDilemma, isPlaying]);
 
@@ -125,21 +208,24 @@ export function Scene() {
       planetGroupRef.current.rotateX(delta * 0.1);
       planetGroupRef.current.rotateY(delta * 0.1);
       planetGroupRef.current.rotateZ(delta * 0.1);
-      if (UIRef.current && buttonRef.current) {
-        UIRef.current.classList.remove("hidden");
-        buttonRef.current.classList.add("hidden");
+      if (endGame) {
+        progressBarRef.current.classList.add("hidden");
+      } else {
+        progressBarRef.current?.classList.remove("hidden");
+        UIRef.current?.classList.remove("hidden");
+        buttonRef.current?.classList.add("hidden");
       }
     }
   });
 
   // Audio
-  const oceanAudio    = new Audio("/audio/ocean.mp3");
-  const waveAudio     = new Audio("/audio/ocean-waves.mp3");
-  const birdsAudio    = new Audio("/audio/birds.mp3");
-  const treesAudio    = new Audio("/audio/trees.mp3");
-  const cicadasAudio  = new Audio("/audio/cicadas.mp3");
+  const oceanAudio = new Audio("/audio/ocean.mp3");
+  const waveAudio = new Audio("/audio/ocean-waves.mp3");
+  const birdsAudio = new Audio("/audio/birds.mp3");
+  const treesAudio = new Audio("/audio/trees.mp3");
+  const cicadasAudio = new Audio("/audio/cicadas.mp3");
   const buildingAudio = new Audio("/audio/building.mp3");
-  const wasteAudio    = new Audio("/audio/waste.mp3");
+  const wasteAudio = new Audio("/audio/waste.mp3");
 
   const fadeInAudio = (audio: HTMLAudioElement, volume = 1) => {
     audio.loop = true;
@@ -153,12 +239,35 @@ export function Scene() {
     setTimeout(() => audio.pause(), 4000);
   };
 
-  useEffect(() => { fadeInAudio(oceanAudio, 0.1); }, []);
-  useEffect(() => { if (addAnimals)              fadeInAudio(birdsAudio, 0.5); }, [addAnimals]);
-  useEffect(() => { if (unfloodPlanet || cleanWater) setTimeout(() => { waveAudio.play(); fadeOutAudio(waveAudio); }, 2000); }, [unfloodPlanet, cleanWater]);
-  useEffect(() => { if (turnPlanetGreen || growTrees) { fadeInAudio(treesAudio, 0.7); fadeInAudio(cicadasAudio, 0.7); } }, [turnPlanetGreen, growTrees]);
-  useEffect(() => { if (cleanWaste) { fadeInAudio(wasteAudio, 0.7); setTimeout(() => wasteAudio.pause(), 2500); } }, [cleanWaste]);
-  useEffect(() => { if (replaceBuildings || transitionEnergy) setTimeout(() => buildingAudio.play(), 1500); }, [replaceBuildings, transitionEnergy]);
+  useEffect(() => {
+    fadeInAudio(oceanAudio, 0.1);
+  }, []);
+  useEffect(() => {
+    if (addAnimals) fadeInAudio(birdsAudio, 0.5);
+  }, [addAnimals]);
+  useEffect(() => {
+    if (unfloodPlanet || cleanWater)
+      setTimeout(() => {
+        waveAudio.play();
+        fadeOutAudio(waveAudio);
+      }, 2000);
+  }, [unfloodPlanet, cleanWater]);
+  useEffect(() => {
+    if (turnPlanetGreen || growTrees) {
+      fadeInAudio(treesAudio, 0.7);
+      fadeInAudio(cicadasAudio, 0.7);
+    }
+  }, [turnPlanetGreen, growTrees]);
+  useEffect(() => {
+    if (cleanWaste) {
+      fadeInAudio(wasteAudio, 0.7);
+      setTimeout(() => wasteAudio.pause(), 2500);
+    }
+  }, [cleanWaste]);
+  useEffect(() => {
+    if (replaceBuildings || transitionEnergy)
+      setTimeout(() => buildingAudio.play(), 1500);
+  }, [replaceBuildings, transitionEnergy]);
 
   return (
     <>
@@ -207,11 +316,14 @@ export function Scene() {
         </div>
 
         <div ref={buttonRef} className="">
-          <ProgressBar current={correctIds.size} total={10} />
+          <div ref={progressBarRef} className="">
+            <ProgressBar current={correctIds.size} total={10} />
+          </div>
           <Button
             setIsPlaying={setIsPlaying}
             setMyDilemma={setMyDilemma}
-            onTerminate={handleTerminate}
+            setEndGame={setEndGame}
+            onRestart={handleRestart}
           />
         </div>
       </Html>

@@ -4,12 +4,19 @@ import "./Button.css";
 interface ButtonProps {
   setIsPlaying: (isPlaying: boolean) => void;
   setMyDilemma: (dilemma: string) => void;
-  onTerminate?: () => void;
+  setEndGame: (endGame: boolean) => void;
+  onRestart?: () => void;
 }
 
-export const Button = ({ setIsPlaying, setMyDilemma, onTerminate }: ButtonProps) => {
+export const Button = ({
+  setIsPlaying,
+  setMyDilemma,
+  setEndGame,
+  onRestart,
+}: ButtonProps) => {
   const continueRef = useRef<HTMLButtonElement>(null!);
   const endRef = useRef<HTMLButtonElement>(null!);
+  const restartRef = useRef<HTMLButtonElement>(null!);
 
   return (
     <div className="button-container">
@@ -27,12 +34,22 @@ export const Button = ({ setIsPlaying, setMyDilemma, onTerminate }: ButtonProps)
         className="btn-multicolor button"
         ref={endRef}
         onClick={() => {
-          onTerminate?.();
+          setIsPlaying(false);
+          setEndGame(true);
+        }}
+      >
+        Terminer
+      </button>
+      <button
+        className="btn-multicolor button"
+        ref={restartRef}
+        onClick={() => {
+          onRestart?.();
           setIsPlaying(false);
           setMyDilemma("0");
         }}
       >
-        Terminer
+        Recommencer
       </button>
     </div>
   );

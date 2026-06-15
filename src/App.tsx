@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import { Scene } from "./components/Scene";
 import StartScreen from "./components/StartScreen/StartScreen";
@@ -9,7 +9,9 @@ import "./App.css";
 type Screen = "start" | "instructions" | "game";
 
 export default function App() {
-  const [screen, setScreen] = useState<Screen>(hasSavedGame() ? "game" : "start");
+  const [screen, setScreen] = useState<Screen>(
+    hasSavedGame() ? "game" : "start",
+  );
 
   if (screen === "start") {
     return <StartScreen onStart={() => setScreen("instructions")} />;
@@ -30,7 +32,7 @@ export default function App() {
             position: [0, -0.35, 4],
           }}
         >
-          <Scene />
+          <Scene setScreen={setScreen} />
         </Canvas>
       </div>
     </>

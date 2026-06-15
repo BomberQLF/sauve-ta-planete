@@ -21,10 +21,10 @@ export function Clouds({ cleanAir }: { cleanAir: boolean }) {
   const smokeRef = useRef<Mesh>(null!);
 
   useFrame((_, delta) => {
-    cloudsRef.current.rotateX(delta * 0.15);
-    smokeRef.current.rotateX(delta * 0.15);
-    cloudsRef.current.rotateY(delta * 0.15);
-    smokeRef.current.rotateY(delta * 0.15);
+    cloudsRef.current.rotateX(delta * 0.1);
+    smokeRef.current.rotateX(delta * 0.1);
+    cloudsRef.current.rotateY(delta * 0.1);
+    smokeRef.current.rotateY(delta * 0.1);
   });
 
   // Animation

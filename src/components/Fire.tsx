@@ -41,17 +41,17 @@ export function Fire({ extinguishFire }: { extinguishFire: boolean }) {
     opacity: 0.6,
   });
 
-  let fixedScale = 1;
+  let fixedScale = useRef<number>(1);
   const elapsedRef = useRef<number>(-Math.PI / 2);
   useFrame((_, delta) => {
     if (!extinguishFire) {
       elapsedRef.current += delta * 3;
       fireRef.current.scale.x =
-        Math.sin(elapsedRef.current) * 0.025 + fixedScale;
+        Math.sin(elapsedRef.current) * 0.025 + fixedScale.current;
       fireRef.current.scale.y =
-        Math.sin(elapsedRef.current) * 0.025 + fixedScale;
+        Math.sin(elapsedRef.current) * 0.025 + fixedScale.current;
       fireRef.current.scale.z =
-        Math.sin(elapsedRef.current) * 0.025 + fixedScale;
+        Math.sin(elapsedRef.current) * 0.025 + fixedScale.current;
     }
   });
 
@@ -62,10 +62,8 @@ export function Fire({ extinguishFire }: { extinguishFire: boolean }) {
         duration: 2,
         delay: 2,
       });
-      gsap.to(fireRef.current.scale, {
-        x: 0,
-        y: 0,
-        z: 0,
+      gsap.to(fixedScale, {
+        current: 0,
         duration: 1,
         delay: 4,
       });
@@ -73,7 +71,7 @@ export function Fire({ extinguishFire }: { extinguishFire: boolean }) {
   }, [extinguishFire]);
 
   return (
-    <group dispose={null} ref={fireRef} scale={fixedScale}>
+    <group dispose={null} ref={fireRef} scale={fixedScale.current}>
       <EffectComposer>
         <Bloom mipmapBlur luminanceThreshold={0.6} />
       </EffectComposer>
