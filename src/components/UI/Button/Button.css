@@ -1,11 +1,11 @@
 .button-container {
   position: absolute;
   bottom: -50vh;
-  left: -50vw;
+  left: -6rem;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
-  width: 100vw;
+  width: 50vw;
 }
 
 .button {
@@ -15,8 +15,12 @@
   transition: opacity 0.4s ease;
 }
 
-.button:hover  { transform: translateY(-2px); }
-.button:active { transform: translateY(2px); }
+.button:hover {
+  transform: translateY(-2px);
+}
+.button:active {
+  transform: translateY(2px);
+}
 
 /* Continuer + Terminer disparaissent */
 .button--fade-out {
@@ -41,5 +45,9 @@
 }
 
 /* Hover du Recommencer — préserve le centrage */
-.button--restart--visible:hover  { transform: translateX(-50%) translateY(-2px); }
-.button--restart--visible:active { transform: translateX(-50%) translateY(2px); }
+.button--restart--visible:hover {
+  transform: translateX(-50%) translateY(-2px);
+}
+.button--restart--visible:active {
+  transform: translateX(-50%) translateY(2px);
+}
