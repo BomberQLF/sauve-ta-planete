@@ -5,6 +5,8 @@ import { gsap } from "gsap";
 
 interface DilemmaProps {
   myDilemma: string;
+  history: number[];
+  onHistoryAdd: (n: number) => void;
   setUnfloodPlanet: (unfloodPlanet: boolean) => void;
   setGrowTrees: (growTrees: boolean) => void;
   setIsPlaying: (isPlaying: boolean) => void;
@@ -20,10 +22,10 @@ interface DilemmaProps {
   onCorrectAnswer: (id: string) => void;
 }
 
-const history: number[] = [];
-
 export function Dilemma({
   myDilemma,
+  history,
+  onHistoryAdd,
   setUnfloodPlanet,
   setGrowTrees,
   setIsPlaying,
@@ -65,19 +67,16 @@ export function Dilemma({
       }
       if (history.length === 0) {
         const consequence = 1;
-        playAnimations(consequence.toString());
-        history.push(consequence);
+        onHistoryAdd(consequence);
         playAnimations(String(consequence));
       } else if (history.length === 1) {
         const consequence = 2;
-        playAnimations(consequence.toString());
-        history.push(consequence);
+        onHistoryAdd(consequence);
         playAnimations(String(consequence));
       } else {
         const consequence =
           available[Math.floor(Math.random() * available.length)];
-        playAnimations(consequence.toString());
-        history.push(consequence);
+        onHistoryAdd(consequence);
         playAnimations(String(consequence));
       }
     } else {

@@ -10,7 +10,7 @@ import {
   SphereGeometry,
   TextureLoader,
 } from "three";
-import { useRef, type JSX } from "react";
+import { useRef, useEffect, type JSX } from "react";
 import { useGLTF } from "@react-three/drei";
 import type { GLTF } from "three-stdlib";
 import { gsap } from "gsap";
@@ -61,54 +61,62 @@ export function Planet({
   const goodTerrainRef = useRef<Mesh>(null!);
   const badTerrainRef = useRef<Mesh>(null!);
 
-  // Animation
-  if (addAnimals) {
-    gsap.to(fishRef.current.material, {
-      opacity: 0.25,
-      duration: 1,
-      delay: 2,
-    });
-  }
+  // Animations
+  useEffect(() => {
+    if (addAnimals && fishRef.current) {
+      gsap.to(fishRef.current.material, {
+        opacity: 0.25,
+        duration: 1,
+        delay: 2,
+      });
+    }
+  }, [addAnimals]);
 
-  if (unfloodPlanet) {
-    gsap.to(waterRef.current.scale, {
-      x: 1.2,
-      y: 1.2,
-      z: 1.2,
-      duration: 3,
-      delay: 2,
-    });
-  }
+  useEffect(() => {
+    if (unfloodPlanet && waterRef.current) {
+      gsap.to(waterRef.current.scale, {
+        x: 1.2,
+        y: 1.2,
+        z: 1.2,
+        duration: 3,
+        delay: 2,
+      });
+    }
+  }, [unfloodPlanet]);
 
-  if (cleanWater) {
-    gsap.to(cleanWaterRef.current.material, {
-      opacity: 1,
-      duration: 3,
-      delay: 1,
-    });
-    gsap.to(pollutedWaterRef.current.material, {
-      opacity: 0,
-      duration: 1,
-      delay: 4,
-    });
-  }
+  useEffect(() => {
+    if (cleanWater && cleanWaterRef.current && pollutedWaterRef.current) {
+      gsap.to(cleanWaterRef.current.material, {
+        opacity: 1,
+        duration: 3,
+        delay: 1,
+      });
+      gsap.to(pollutedWaterRef.current.material, {
+        opacity: 0,
+        duration: 1,
+        delay: 4,
+      });
+    }
+  }, [cleanWater]);
 
-  if (turnPlanetGreen) {
-    gsap.to(goodTerrainRef.current.scale, {
-      x: 1,
-      y: 1,
-      z: 1,
-      duration: 2,
-      delay: 2,
-    });
-    gsap.to(badTerrainRef.current.scale, {
-      x: 0.9,
-      y: 0.9,
-      z: 0.9,
-      duration: 6,
-      delay: 2,
-    });
-  }
+  useEffect(() => {
+    if (turnPlanetGreen && goodTerrainRef.current && badTerrainRef.current) {
+      gsap.to(goodTerrainRef.current.scale, {
+        x: 1,
+        y: 1,
+        z: 1,
+        duration: 2,
+        delay: 2,
+      });
+      gsap.to(badTerrainRef.current.scale, {
+        x: 0.9,
+        y: 0.9,
+        z: 0.9,
+        duration: 6,
+        delay: 2,
+      });
+    }
+  }, [turnPlanetGreen]);
 
   useFrame((_, delta) => {
     waterRef.current.rotateX(delta * 0.05);

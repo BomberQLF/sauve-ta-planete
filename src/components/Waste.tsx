@@ -1,5 +1,5 @@
 import * as THREE from "three";
-import { useRef, type JSX } from "react";
+import { useRef, useEffect, type JSX } from "react";
 import { useGLTF } from "@react-three/drei";
 import type { GLTF } from "three-stdlib";
 import { useFrame } from "@react-three/fiber";
@@ -320,15 +320,17 @@ export function Waste({ cleanWaste }: { cleanWaste: boolean }) {
   const wasteRef = useRef<THREE.Group>(null!);
 
   //Animation
-  if (cleanWaste) {
-    gsap.to(wasteRef.current.scale, {
-      x: 0.5,
-      y: 0.5,
-      z: 0.5,
-      duration: 3,
-      delay: 2,
-    });
-  }
+  useEffect(() => {
+    if (cleanWaste && wasteRef.current) {
+      gsap.to(wasteRef.current.scale, {
+        x: 0.5,
+        y: 0.5,
+        z: 0.5,
+        duration: 3,
+        delay: 2,
+      });
+    }
+  }, [cleanWaste]);
 
   return (
     <group ref={wasteRef}>

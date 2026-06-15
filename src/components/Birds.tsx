@@ -84,15 +84,17 @@ useGLTF.preload("/models/low_poly_bird_animated.glb");
 
 export function Birds({ addAnimals }: { addAnimals: boolean }) {
   const birdsRef = useRef<THREE.Group>(null!);
-  if (addAnimals) {
-    gsap.to(birdsRef.current.scale, {
-      x: 1,
-      y: 1,
-      z: 1,
-      duration: 1,
-      delay: 2,
-    });
-  }
+  useEffect(() => {
+    if (addAnimals && birdsRef.current) {
+      gsap.to(birdsRef.current.scale, {
+        x: 1,
+        y: 1,
+        z: 1,
+        duration: 1,
+        delay: 2,
+      });
+    }
+  }, [addAnimals]);
   return (
     <group ref={birdsRef} scale={0.7}>
       <Bird orbitAxis={"x"} rotateBird={[0, 0, 0]} />
