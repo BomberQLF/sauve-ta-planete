@@ -231,11 +231,11 @@ export function Scene({ setScreen }: { setScreen: (screen: Screen) => void }) {
     audio.loop = true;
     audio.volume = 0;
     audio.play();
-    gsap.to(audio, { volume, duration: 1, delay: 1 });
+    gsap.to(audio, { volume: volume, duration: 1, delay: 1 });
   };
 
   const fadeOutAudio = (audio: HTMLAudioElement) => {
-    gsap.to(audio, { volume: 0, duration: 2, delay: 2 });
+    gsap.to(audio, { volume: 0, loop: false, duration: 2, delay: 2 });
     setTimeout(() => audio.pause(), 4000);
   };
 
@@ -244,6 +244,7 @@ export function Scene({ setScreen }: { setScreen: (screen: Screen) => void }) {
   }, []);
   useEffect(() => {
     if (addAnimals) fadeInAudio(birdsAudio, 0.5);
+    else fadeOutAudio(birdsAudio);
   }, [addAnimals]);
   useEffect(() => {
     if (unfloodPlanet || cleanWater)
@@ -255,7 +256,10 @@ export function Scene({ setScreen }: { setScreen: (screen: Screen) => void }) {
   useEffect(() => {
     if (turnPlanetGreen || growTrees) {
       fadeInAudio(treesAudio, 0.7);
-      fadeInAudio(cicadasAudio, 0.7);
+      fadeInAudio(cicadasAudio, 0.4);
+    } else {
+      fadeOutAudio(treesAudio);
+      fadeOutAudio(cicadasAudio);
     }
   }, [turnPlanetGreen, growTrees]);
   useEffect(() => {
