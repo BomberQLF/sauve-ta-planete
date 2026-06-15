@@ -152,12 +152,12 @@ export function Dilemma({
         </div>
 
         {/* Illustration */}
-        <img
+        {/* <img
           src={dilemmaImg}
           alt={`Dilemme ${paddedId}`}
           className="dilemma-visual"
           draggable={false}
-        />
+        /> */}
 
         {/* Description */}
         <p className="dilemma-desc">{text.situation}</p>
