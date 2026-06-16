@@ -121,7 +121,8 @@ Ce projet est fourni à des fins éducatives dans le cadre de notre projet de SA
 
 ### Assets 3D
 
-La Terre, les abres par Jesse François
+La Terre, les abres par Jesse François.
+
 [Low Poly Bird (Animated)](https://skfb.ly/6n6vx) par [Charlie Tinley](https://sketchfab.com/Tnkii).
 
 [Fuel/Gas Barrel - Low Poly Game Ready](https://skfb.ly/opFzS) par [Gobby](https://sketchfab.com/thegobby).
