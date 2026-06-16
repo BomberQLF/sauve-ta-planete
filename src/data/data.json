@@ -69,7 +69,7 @@
     "situation": "Tu as plein de photos de ton chat, même des photos ratées",
     "option_A": "Tu les stockes toutes sur ton téléphone, même les photos floues. Car c'est trop long à trier.",
     "option_B": "Tu prends le temps de faire du tri et tu ne gardes que les meilleures photos de ton chat, même si ça prend du temps.",
-    "option_ecoresponsable": "A"
+    "option_ecoresponsable": "B"
   },
   {
     "id": "9",
@@ -132,7 +132,7 @@
     "situation": "Tu es abonné à plein de chaînes YouTube et tu reçois des notifications à chaque fois qu'une nouvelle vidéo sort.",
     "option_A": "Tu laisses les notifications actives pour ne rien rater.",
     "option_B": "Tu prends le temps de te désabonner de toutes les chaînes que tu ne regardes jamais.",
-    "option_ecoresponsable": "A"
+    "option_ecoresponsable": "B"
   },
   {
     "id": "16",
