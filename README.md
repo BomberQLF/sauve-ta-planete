@@ -8,7 +8,7 @@ Un jeu interactif 3D éducatif qui sensibilise les jeunes aux enjeux environneme
 
 ## 📖 Description
 
-Terra est une expérience interactive immersive en 3D qui invite les joueurs à explorer les conséquences de leurs choix numériques sur la planète. À travers une série de dilemmes du quotidien, le jeu enseigne comment utiliser l'IA et les services numériques de manière responsable et durable.
+Conçu comme support à l'atelier et jeu de cartes Terra, il s'agit d'une expérience interactive immersive en 3D qui invite les joueurs à explorer les conséquences de leurs choix numériques sur la planète. À travers une série de dilemmes du quotidien, le jeu enseigne comment utiliser les services numériques de manière responsable et durable.
 
 ## 🚀 Installation et démarrage
 
@@ -122,31 +122,44 @@ Ce projet est fourni à des fins éducatives dans le cadre de notre projet de SA
 ### Assets 3D
 
 La Terre, les abres par Jesse François
-[Low Poly Bird (Animated)](https://skfb.ly/6n6vx) par [Charlie Tinley](https://sketchfab.com/Tnkii)
-[Fuel/Gas Barrel - Low Poly Game Ready](https://skfb.ly/opFzS) par [Gobby](https://sketchfab.com/thegobby)
-[Trash Can and Garbage Bag low poly](https://skfb.ly/owyLr) par [daniel.2U](https://sketchfab.com/daniel.2U)
-[Cartoon Low Poly Solar Panel](https://skfb.ly/6VGYL) par [antonmoek](https://sketchfab.com/antonmoek)
-[Éolienne](https://skfb.ly/oTRUW) par [danhoallia17](https://sketchfab.com/danhoallia17)
-[Stylized fire](https://www.cgtrader.com/free-3d-models/exterior/landscape/low-poly-campfire-a3b075d3-d9df-4101-9d04-9806db4b1613) par [Thiennguyen2106](https://www.cgtrader.com/designers/thiennguyen2106)
-[Polar Bear Low Poly Free low-poly 3D model](https://www.cgtrader.com/free-3d-models/animal/mammal/polar-bear-low-poly) par [LiQiye](https://www.cgtrader.com/designers/liqiye)
-[Penguin - NPR Free low-poly 3D model](https://www.cgtrader.com/free-3d-models/animal/bird/npr-animal-penguin) par [ibryn](https://www.cgtrader.com/designers/ibryn)
-[Low Poly Factory](https://skfb.ly/6Tx7C) par [Fishboe](https://sketchfab.com/ministephen)
-[Low poly house 1](https://skfb.ly/p9LtO), [Low poly house 4](https://skfb.ly/p9LtQ) par [assetfactory](https://sketchfab.com/assetfactory)
+[Low Poly Bird (Animated)](https://skfb.ly/6n6vx) par [Charlie Tinley](https://sketchfab.com/Tnkii).
+
+[Fuel/Gas Barrel - Low Poly Game Ready](https://skfb.ly/opFzS) par [Gobby](https://sketchfab.com/thegobby).
+
+[Trash Can and Garbage Bag low poly](https://skfb.ly/owyLr) par [daniel.2U](https://sketchfab.com/daniel.2U).
+
+[Cartoon Low Poly Solar Panel](https://skfb.ly/6VGYL) par [antonmoek](https://sketchfab.com/antonmoek).
+
+[Éolienne](https://skfb.ly/oTRUW) par [danhoallia17](https://sketchfab.com/danhoallia17).
+
+[Stylized fire](https://www.cgtrader.com/free-3d-models/exterior/landscape/low-poly-campfire-a3b075d3-d9df-4101-9d04-9806db4b1613) par [Thiennguyen2106](https://www.cgtrader.com/designers/thiennguyen2106).
+
+[Polar Bear Low Poly Free low-poly 3D model](https://www.cgtrader.com/free-3d-models/animal/mammal/polar-bear-low-poly) par [LiQiye](https://www.cgtrader.com/designers/liqiye).
+
+[Penguin - NPR Free low-poly 3D model](https://www.cgtrader.com/free-3d-models/animal/bird/npr-animal-penguin) par [ibryn](https://www.cgtrader.com/designers/ibryn).
+
+[Low Poly Factory](https://skfb.ly/6Tx7C) par [Fishboe](https://sketchfab.com/ministephen).
+
+[Low poly house 1](https://skfb.ly/p9LtO), [Low poly house 4](https://skfb.ly/p9LtQ) par [assetfactory](https://sketchfab.com/assetfactory).
 
 ### Textures
 
-[Fish Background Nature Vector Texture Vector](https://pngtree.com/freepng/fish-background-nature-vector-texture-vector_11041732.html) par [yayimage](https://pngtree.com/yayimage_4689602?type=1)
-[Vector seamless rippled swimming pool abstract illustration.](https://www.magnific.com/fr/vecteurs-libre/illustration-abstraite-piscine-ridee-sans-soudure-vecteur-repetable-horizontalement-verticalement_38449309.htm#fromView=keyword&page=7&position=11&uuid=c28e4091-eab7-4efe-a1a9-cf767e157953&query=Texture+eau+piscine) par [callmetak](https://www.magnific.com/fr/auteur/callmetak)
-[Clouds in the sky on transparent background](https://www.vecteezy.com/png/10124424-clouds-in-the-sky-on-transparent-background-png-file) par [Surut Wattanamaetee](https://www.vecteezy.com/members/studio2013)
+[Fish Background Nature Vector Texture Vector](https://pngtree.com/freepng/fish-background-nature-vector-texture-vector_11041732.html) par [yayimage](https://pngtree.com/yayimage_4689602?type=1).
+
+[Vector seamless rippled swimming pool abstract illustration.](https://www.magnific.com/fr/vecteurs-libre/illustration-abstraite-piscine-ridee-sans-soudure-vecteur-repetable-horizontalement-verticalement_38449309.htm#fromView=keyword&page=7&position=11&uuid=c28e4091-eab7-4efe-a1a9-cf767e157953&query=Texture+eau+piscine) par [callmetak](https://www.magnific.com/fr/auteur/callmetak).
+
+[Clouds in the sky on transparent background](https://www.vecteezy.com/png/10124424-clouds-in-the-sky-on-transparent-background-png-file) par [Surut Wattanamaetee](https://www.vecteezy.com/members/studio2013).
 
 ### Effets de son
 
-[Birds](https://pixabay.com/sound-effects/nature-birds-19624/), [WoodCutting](https://pixabay.com/sound-effects/household-woodcutting-35994/), [Trees](https://pixabay.com/sound-effects/nature-trees-69029/), [Trash](https://pixabay.com/sound-effects/film-special-effects-trash-taken-out-1-2-89971/) par [freesound_community](https://pixabay.com/users/freesound_community-46691455/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=19624)
-[Wind In Trees](https://pixabay.com/sound-effects/search/wind%20in%20trees/)
-[Forceful ocean waves crashing on the shore](https://pixabay.com/fr/sound-effects/nature-forceful-ocean-waves-crashing-on-the-shore-512571/) par [Mollyroselee](https://pixabay.com/fr/users/mollyroselee-9214707/)
+[Birds](https://pixabay.com/sound-effects/nature-birds-19624/), [WoodCutting](https://pixabay.com/sound-effects/household-woodcutting-35994/), [Trees](https://pixabay.com/sound-effects/nature-trees-69029/), [Trash](https://pixabay.com/sound-effects/film-special-effects-trash-taken-out-1-2-89971/) par [freesound_community](https://pixabay.com/users/freesound_community-46691455/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=19624).
+
+[Wind In Trees](https://pixabay.com/sound-effects/search/wind%20in%20trees/).
+
+[Forceful ocean waves crashing on the shore](https://pixabay.com/fr/sound-effects/nature-forceful-ocean-waves-crashing-on-the-shore-512571/) par [Mollyroselee](https://pixabay.com/fr/users/mollyroselee-9214707/).
 
 ### Typographie
 
-[Big Zubo Font](https://www.1001fonts.com/big-zubo-font.html) par [Fathi Al Ghazi | Youthlabs Studio](https://www.1001fonts.com/users/youthlabs/)
+[Big Zubo Font](https://www.1001fonts.com/big-zubo-font.html) par [Fathi Al Ghazi | Youthlabs Studio](https://www.1001fonts.com/users/youthlabs/).
 
 ---
