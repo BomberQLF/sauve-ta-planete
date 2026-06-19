@@ -49,7 +49,7 @@ Conçu comme support à l'atelier et jeu de cartes Terra, il s'agit d'une expér
    ```bash
    npm run preview
    ```
-6. **Récupérer et héberger le dossier dist**
+6. **Récupérer et héberger les éléments enfants du dossier dist**
 
 ---
 
